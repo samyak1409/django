@@ -2,42 +2,46 @@
 
 <html>
 
-    <head>
+  <head>
 
-        <title>My First Web Page</title>
+    <title>My First Web Page</title>
 
-        <!-- style tag: This is where we're going to write our CSS code. -->
-        <style>
+    <!-- style tag: This is where we're going to write our CSS code. -->
+    <style>
 
-            /* Comment for CSS. (https://stackoverflow.com/a/14410819/20443517) */
-            /* Bunch of CSS rules: */
+      /* Comment for CSS. (https://stackoverflow.com/a/14410819/20443517) */
+      /* Bunch of CSS rules: */
 
-            img {
-                /* CSS Declarations (each declaration contains a property and a value): */
-                width: 100px; /* make the img of desired size */
-                border-radius: 50px; /* trick: set border radius = width / 2 to get a round image */
-                float: left; /* to get the text in the right not below */
-                margin-right: 10px; /* add padding to the right of the img */
-            }
+      img {
+        /* CSS Declarations (each declaration contains a property and a value): */
+        width: 100px; /* make the img of desired size */
+        border-radius: 50px; /* trick: set border radius = width / 2 to get a round image */
+        float: left; /* to get the text in the right not below */
+        margin-right: 10px; /* add padding to the right of the img */
+      }
 
-            /* p.username { */
-            /* We can also remove p and this rule will apply to all elements that have the username class whether they
-            are paragraph elements or not. */
-            .username {
-                font-weight: bold;
-            }
+      /* p.username { */
+      /* We can also remove p and this rule will apply to all elements that have the username class whether they are
+      paragraph elements or not. */
+      .username {
+        font-weight: bold;
+      }
 
-        </style>
+    </style>
 
-    </head>
+  </head>
 
-    <body>
+  <body>
 
-        <img src="../Images/Samyak.jpg" alt="Error displaying the DP...">
-        <p class="username">@samyak1409</p>
-        <!-- added class to uniquely apply CSS or perform any other operation on to these particular type of objects -->
-        <p>Learning HTML!</p>
+    <img src="../Images/Samyak.jpg" alt="Error displaying the DP...">
+    <p class="username">@samyak1409</p>
+    <!-- added class to uniquely apply CSS or perform any other operation on to these particular type of objects -->
+    <p>Learning HTML!</p>
 
-    </body>
+  </body>
 
 </html>
+
+<!-- We have embedded all of our CSS code inside our HTML markup, but as our web pages get more complex, we want to
+separate our CSS code into separate files so that our code is better organized. We'll talk about this in more detail in
+the future. -->
