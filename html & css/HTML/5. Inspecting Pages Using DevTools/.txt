@@ -1,0 +1,4 @@
+[Inspecting Pages Using DevTools](https://youtu.be/qz0aGYrrlhU?t=1973)
+
+This is pretty handy, so a lot of front-end developers use devtools to play with these styles and get the look they
+want. Once they figure out the exact styles and their values, then they apply them in the code.
