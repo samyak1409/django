@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    em {
+      font-style: normal;
+      color: red;
+    }
+  </style>
+
+</head>
+<body>
+
+  <h1>Heading 1</h1>
+  <h2>Heading 2</h2>
+  <h3>Heading 3</h3>
+  <h4>Heading 4</h4>
+  <h5>Heading 5</h5>
+  <h6>Heading 6</h6>
+  <!--
+  => We have six heading elements. Heading 1 represents the most important heading and heading 6 represents the least
+  important heading.
+  => One common mistake that I see amongst a lot of people is that they choose these headings based on their size. That
+  is not how you're supposed to use headings, because the size can always be changed with CSS, it's a matter of styling.
+  We should use these headings to create a hierarchy, so every web page should have one and only one h1 element. This
+  heading represents what this page is all about, nothing happens if you have multiple h1 elements, but this is going to
+  confuse search engines, they're not going to figure out what this page is really all about.
+  => After we use h1 then we should use h2, then h3 and so on, we should not jump to h4, so we have a hierarchy. This is
+  how we should use these heading elements. The better we can represent the structure of our document using HTML, the
+  better search engines can read and understand our content.
+  -->
+
+  <!-- p (paragraph) element: Used for displaying some text. -->
+  <p>I'm learning <em>HTML</em>!</p>
+  <!--
+  => Sometimes we want to emphasize a part of our text, let's say the "HTML" word here.
+  To do that, we can wrap it inside an em or emphasis element.
+  Let's hover over it and see what the tooltip says. It says the em element represents stress emphasis of its content so
+  whenever we want to emphasize some content we can wrap it inside the em element.
+  By default, browsers display emphasized content in italic, but don't assume that whenever you want to display italic
+  content you should use the em element, because, THE PURPOSE OF THE EM ELEMENT IS TO EMPHASIZE CONTENT IN OUR HTML
+  DOCUMENT AND THIS HELPS SEARCH ENGINES EXTRACT IMPORTANT CONTENT IN OUR DOCUMENTS.
+  => Anything to do with styling should be done in CSS. We can change the default style of emphasize element and remove
+  the italic (in the head section, add the style element, and there, define a rule for emphasized content).
+  => We have a similar element in HTML called strong, let's hover over it and see what the tooltip says. The strong
+  element represents strong importance, seriousness or urgency of its contents. Conceptually, it's kind of similar to
+  the emphasis element. So where you should use it really depends on your context on your content. By default, strong
+  elements are displayed as bold, but once again we can always change the styling.
+  => Also, in the past we had an element called i which was short for italic. If we use this element we get the same
+  result as before, our content is displayed in italic. But this element is considered deprecated because HTML is not
+  meant for styling, it should only be used for structuring content. So don't use the i element to display content as
+  italic.
+  => We had another element called b which is short for bold. So whenever we wanted to make something bold we use this
+  element, but once again this element is considered deprecated because styling should be done in CSS and not in HTML.
+  So don't use b or i elements.
+  -->
+
+</body>
+</html>
