@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        img {
+          width: 200px;
+          height: 200px;
+          /* Let's say we want a 200x200px image. But the original image is a rectangle, so HTML will shrink the image
+          which is not something we want. To fix this we can use following: */
+          object-fit: cover;
+          /* This is cropping the image. Note that we have other options too in place of "cover", check them using
+          dev tools. */
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- https://unsplash.com -->
+
+    <!-- Give resources (images etc.) descriptive names, this is a small search engine optimization tip, when we provide
+    descriptive names for our images, search engines can better understand and index our pages.
+    The alt attribute is used to provide textual description of the image it's not compulsory, but is highly recommended
+    for a number of reasons:
+    1) To make our page accessible to visually impaired people. These people use a screen reader to read the web out to
+    them, so with this alternative text we can tell them what we are showing on the page, and that means we should write
+    a good meaningful description here. Don't write something like image or image1, that is pointless.
+    2) Help search engines read this text and understand what we're providing here.
+    3) If this image cannot be loaded for some reason, the alternative text is shown. This can happen if there is a
+    network connectivity issue, if the user gets disconnected, they can still see the alternative text. -->
+
+    <img src="../Images/Lamborghini.jpg" alt="Gray Lamborghini in Parking Area">
+
+    <!-- Now, to make the img smaller, let's use CSS. -->
+
+</body>
+</html>
