@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Django Blog - Home</title>
+    {% if title %}
+        <title>Django Blog - {{ title }}</title>
+    {% else %}
+        <title>Django Blog</title>
+    {% endif %}
 
 </head>
 <body>
 
     <h1>Home Page</h1>
+
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        <p>By {{ post.author }} on {{ post.date }}</p>
+        <p>{{ post.content }}</p>
+    {% endfor %}
 
 </body>
 </html>
