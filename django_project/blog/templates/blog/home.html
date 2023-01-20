@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<h1>Home Page!</h1>
+<h2>Home Page</h2>
 
 {% for post in posts %}
-<h2>{{ post.title }}</h2>
+<h3>{{ post.title }}</h3>
 <p>By {{ post.author }} on {{ post.date }}</p>
 <p>{{ post.content }}</p>
 {% endfor %}
