@@ -7,4 +7,4 @@ urlpatterns = [
 ]
 
 
-# [Applications and Routes](https://youtu.be/a48xeeo5Vnk)
+# [Part 2 - Applications and Routes](https://youtu.be/a48xeeo5Vnk)

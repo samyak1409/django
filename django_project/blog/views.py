@@ -28,6 +28,7 @@ def home(request):
     }
     return render(request=request, template_name='blog/home.html', context=context)
     # views always need to return either an `HttpResponse` or an `Exception`
+    # [Part 3 - Templates](https://youtu.be/qDwdMDQ8oX4)
 
 
 def about(request):
