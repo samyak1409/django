@@ -28,10 +28,11 @@
       <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
           <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+            <!-- [Using `url` tag](https://youtu.be/qDwdMDQ8oX4?t=2429) till 44:44 -->
+            <a class="nav-link" href="{% url 'blog-home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about">About</a>
+            <a class="nav-link" href="{% url 'blog-about' %}">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Login</a>
