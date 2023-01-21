@@ -23,3 +23,17 @@ if __name__ == '__main__':
 
 
 # [Part 1 - Getting Started](https://youtu.be/UmljXZIypDc)
+
+
+# [Part 4 - Admin Page](https://youtu.be/1PkNiYlkkjo)
+# To access /admin for the first time, we first have to run some commands on to the terminal:
+# python manage.py makemigrations
+# python manage.py migrate
+# python manage.py createsuperuser
+
+# (Details of created superuser:
+# Username: samyak1409
+# Email address: samyak65400@gmail.com
+# Password: testpass123)
+
+# And with these credentials, you can log in to `/admin`.
