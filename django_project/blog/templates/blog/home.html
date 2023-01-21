@@ -5,9 +5,15 @@
 <h2>Home</h2>
 
 {% for post in posts %}
-<h3>{{ post.title }}</h3>
-<p>By {{ post.author }} on {{ post.date }}</p>
-<p>{{ post.content }}</p>
+<!-- Articles (https://getbootstrap.com/docs/5.3/components/card/#titles-text-and-links) -->
+<div class="card">
+  <div class="card-body">
+    <h3>{{ post.title }}</h3>
+    <p class="card-subtitle mb-2 text-muted">By {{ post.author }} on {{ post.date }}</p>
+    <p class="card-text">{{ post.content }}</p>
+  </div>
+</div>
 {% endfor %}
+
 
 {% endblock content %}
