@@ -9,7 +9,7 @@
 <div class="card">
   <div class="card-body">
     <h3>{{ post.title }}</h3>
-    <p class="card-subtitle mb-2 text-muted">By {{ post.author }} on {{ post.date }}</p>
+    <p class="card-subtitle mb-2 text-muted">By {{ post.author }} on {{ post.date_posted|date:"F d, Y" }}</p>
     <p class="card-text">{{ post.content }}</p>
   </div>
 </div>
