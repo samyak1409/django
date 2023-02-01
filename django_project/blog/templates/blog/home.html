@@ -2,17 +2,15 @@
 
 {% block content %}
 
-<h2>Home</h2>
-
-{% for post in posts %}
-<!-- Articles (https://getbootstrap.com/docs/5.3/components/card/#titles-text-and-links) -->
-<div class="card">
-  <div class="card-body">
-    <h3>{{ post.title }}</h3>
-    <p class="card-subtitle mb-2 text-muted">By {{ post.author }} on {{ post.date_posted|date:"F d, Y" }}</p>
-    <p class="card-text">{{ post.content }}</p>
-  </div>
-</div>
-{% endfor %}
+  {% for post in posts %}
+    <!-- Posts as Cards (https://getbootstrap.com/docs/5.3/components/card/#titles-text-and-links): -->
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">{{ post.title }}</h2>
+        <p class="card-subtitle mb-2 text-muted">By {{ post.author }} on {{ post.date_posted|date:"F d, Y" }}</p>
+        <p class="card-text">{{ post.content }}</p>
+      </div>
+    </div>
+  {% endfor %}
 
 {% endblock content %}

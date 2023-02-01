@@ -20,7 +20,7 @@ Learning from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQ
    3. How to pass data to our HTML templates.
    4. Writing code in HTML. (`{% code %}`, `{{ variable }}`)
    5. Template Inheritance.
-   6. Add Bootstrap.
+   6. Add [Bootstrap](https://getbootstrap.com). (**Imp**: [Docs](https://getbootstrap.com/docs), [Examples](https://getbootstrap.com/examples), [Icons](https://icons.getbootstrap.com))
    7. Note: Corey added a lot of HTML and CSS for custom structuring and styling, but didn't walk through those
       snippets, as this is backend course, not frontend (or fullstack), so I did not copy-pasted those snippets, but
       pulled up minimal snippets from Bootstrap, so now I know what the markup mean + a nice minimal look to the website
