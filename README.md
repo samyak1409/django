@@ -26,3 +26,12 @@ Learning from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQ
       pulled up minimal snippets from Bootstrap, so now I know what the markup mean + a nice minimal look to the website
       is not bad for someone who's starting out!
    8. Don't hardcode the URLs in the HTML, use `url` tag instead.
+
+4. [Python Django Tutorial: Full-Featured Web App Part 4 - Admin Page](https://www.youtube.com/watch?v=1PkNiYlkkjo&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=4&ab_channel=CoreySchafer)
+   1. How to access the Django Admin Page for our application. (The Administration Page is a great way to see what data is currently in our application, and also gives us a nice GUI for creating or modifying that data.)
+   2. Steps:
+      1. Create the database for project which contains default tables to work with:
+         - Make migrations for database changes (basically generate some data from our created/updated model(s), which will be used for generating SQL, which will make changes to the database): `python manage.py makemigrations`
+         - Apply them: `python manage.py migrate`
+      2. Create admin ([superuser](https://en.wikipedia.org/wiki/Superuser)):
+         - `python manage.py createsuperuser`
