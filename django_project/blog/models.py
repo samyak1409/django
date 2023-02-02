@@ -62,6 +62,13 @@ class Post(models.Model):
 # And apply them: `python manage.py migrate`
 
 
+# I should also mention why migrations are so useful:
+# So, migrations are useful because it allows us to make changes to our database even after it's created and has data.
+# If we didn't have a way to run migrations, then we would have to run some complicated SQL code to update our database
+# structure, so that it doesn't mess with the current data! But with migrations, we can simply make whatever changes we
+# need, run `makemigrations` and then run `migrate`, and it will make all of those changes for us!
+
+
 # python manage.py shell
 
 

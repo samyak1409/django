@@ -9,7 +9,7 @@ Learning from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQ
 Django is a very popular framework that gives us a lot of functionality right out of the box, and makes it really enjoyable to work with these web applications.
 
 
-## Video-wise Notes
+## Video-wise Notes in a Nutshell
 
 
 ### 1. [Python Django Tutorial: Full-Featured Web App Part 1 - Getting Started](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&ab_channel=CoreySchafer)
@@ -42,7 +42,7 @@ Django is a very popular framework that gives us a lot of functionality right ou
 
 > In this Python Django Tutorial, we will be creating a blog application within our Django project. We will also learn how to create URL patterns that are handled by our application views. Let's get started...
 
-#### 1. Create a new app for our project (Project: [Website](https://en.wikipedia.org/wiki/Website), App: [Web Page](https://en.wikipedia.org/wiki/Web_page)):
+#### 1. Create a new app for our project (Project: [Website](https://en.wikipedia.org/wiki/Website), App: A section of Website (can be [Web Page](https://en.wikipedia.org/wiki/Web_page))):
    ```bash
    python manage.py startapp app_name
    ```
@@ -70,7 +70,14 @@ Django is a very popular framework that gives us a lot of functionality right ou
 
 #### 5. Put any static resources (img etc.) in `static` directory. ([see](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer&t=2079) till 38:47)
 
-#### 6. Don't hardcode the URLs in the HTML, use `url` tag instead.
+#### 6. Don't hardcode the site-URLs in the HTML, use `url` tag instead:
+   ```html
+   href="{% url 'url_path_name' %}"
+   ```
+   e.g.
+   ```html
+   href="{% url 'blog-about' %}"
+   ```
 
 
 ### 4. [Python Django Tutorial: Full-Featured Web App Part 4 - Admin Page](https://www.youtube.com/watch?v=1PkNiYlkkjo&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=4&ab_channel=CoreySchafer)
@@ -91,6 +98,40 @@ Django is a very popular framework that gives us a lot of functionality right ou
    ```bash
    python manage.py createsuperuser
    ```
+   *Now, we can access the admin page, and modify any data directly from there.*
 
-#### 3. Now, we can access the admin page, and modify any data directly from there!
+
+### 5. [Python Django Tutorial: Full-Featured Web App Part 5 - Database and Migrations](https://www.youtube.com/watch?v=aHC3uTkT9r8&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=5&ab_channel=CoreySchafer)
+
+> In this Python Django Tutorial, we will be creating database tables for our application using Django models. We will also see how we can use the Django ORM to query the database and filter through results. Let's get started...
+
+*To work with these databases, Django has its own built-in ORM. Now, if you don't know what an ORM is, it stands for Object Relational Mapper, and basically it allows us to access our database in an easy-to-use object-oriented way, and the thing that I like about it the most is that you can use different databases without changing your code, so if you want to use an SQLite database for testing and a Postgres database for production, then all you need to do is set up a different database in our settings, but all the code to query the database will still be the same. And that's what we'll be doing in this series, we'll use an SQLite database for development and a Postgres database for production. So let's go ahead and get started so that we can see what this looks like. Now, the great thing about the django ORM is that we can represent our database structure as classes, and you'll hear those classes be called models, and doing the database structure this way is actually very intuitive after you get the hang of it.*
+
+#### 1. Creating a Model (class). (Class: DB Table, Class Attributes: Table Fields)
+
+#### 2. In order to update the DB with the changes, rerun the two migration commands. ([#4.1](#1-create-the-database-for-project-which-contains-default-tables-to-work-with-using-following-commands))
+   *Why migrations are so useful: So, migrations are useful because it allows us to make changes to our database even after it's created and has data. If we didn't have a way to run migrations, then we would have to run some complicated SQL code to update our database structure, so that it doesn't mess with the current data. But with migrations, we can simply make whatever changes we need, run `makemigrations` and then run `migrate`, and it will make all of those changes for us!*
+
+#### 3. Querying the DB using classes in Python Django shell:
+   ```bash
+   python manage.py shell
+   ```
+   *See the queries in [`Screenshots/DB Queries`](Screenshots/DB%20Queries) folder.*
+
+#### 4. Passing the real data from DB in the views to the template.
+   *[Formatting the date](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#date) as we want.*
+
+#### 5. Don't forget to register newly created model(s) to `admin.py` so that they show up on admin site:
+   ```py
+   admin.site.register(ClassName)
+   ```
+   e.g.
+   ```py
+   admin.site.register(Post)
+   ```
+
+
+### 6. [Python Django Tutorial: Full-Featured Web App Part 6 - User Registration](https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=6&ab_channel=CoreySchafer)
+
+> In this Python Django Tutorial, we will be learning how to use forms and validate user input by creating a user registration page. We will also learn how to install and use Crispy Form so that our forms match the modern style of our application. Let's get started...
 
