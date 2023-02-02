@@ -59,14 +59,14 @@ Django is a very popular framework that gives us a lot of functionality right ou
 > In this Python Django Tutorial, we will be learning how to use templates to return more complex HTML to the browser. We'll also see how we can pass variables to our templates as context. Let's get started...
 
 #### 1. Create HTML template(s) and render them in views.
-   Note: Don't forget to add our app to the list of installed apps. ([3:25](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer&t=205))
+   *Note: Don't forget to add our app to the list of installed apps. ([3:25](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer&t=205))*
 
 #### 2. Passing data to the template. (Using code in HTML like `{% code %}`, `{{ variable }}`.)
 
 #### 3. Template Inheritance.
 
 #### 4. Add [Bootstrap](https://getbootstrap.com) (**Imp**: [Docs](https://getbootstrap.com/docs), [Examples](https://getbootstrap.com/examples), [Icons](https://icons.getbootstrap.com)).
-   Note: Corey added a lot of HTML and CSS for custom structuring and styling, but didn't walk through those snippets as this is backend course, not frontend (or fullstack), so I did not copy-pasted those snippets, but pulled up minimal snippets from Bootstrap, so now I know what the markup mean + a nice minimal look to the website is not bad for someone who's starting out!
+   *Note: Corey added a lot of HTML and CSS for custom structuring and styling, but didn't walk through those snippets as this is backend course, not frontend (or fullstack), so I did not copy-pasted those snippets, but pulled up minimal snippets from Bootstrap, so now I know what the markup mean + a nice minimal look to the website is not bad for someone who's starting out!*
 
 #### 5. Put any static resources (img etc.) in `static` directory. ([see](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer&t=2079) till 38:47)
 
@@ -93,3 +93,4 @@ Django is a very popular framework that gives us a lot of functionality right ou
    ```
 
 #### 3. Now, we can access the admin page, and modify any data directly from there!
+
