@@ -14,7 +14,6 @@ from django.contrib.auth.models import User
 # let's go ahead and get started so that we can see what this looks like. Now, the great thing about the django ORM is
 # that we can represent our database structure as classes, and you'll hear those classes be called models, and doing the
 # database structure this way is actually very intuitive after you get the hang of it.
-# [Part 5 - Database and Migrations](https://youtu.be/aHC3uTkT9r8)
 
 # Class: Table
 # Class Attributes: Table Fields
@@ -47,7 +46,7 @@ class Post(models.Model):
 
     # Author:
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    # `ForeignKey`: because author i.e. user is itself separate model i.e. table.
+    # `ForeignKey`: because author i.e. user is itself separate model i.e. table. (it'll be one-to-many relationship)
     # `on_delete`: what to do to this post if the user of this post is deleted.
     # `models.CASCADE`: telling django to delete the post in that case.
 
@@ -57,11 +56,13 @@ class Post(models.Model):
 
 
 # https://youtu.be/aHC3uTkT9r8?t=466
-# Now to make changes to the database we've to make some migrations: py manage.py makemigrations
-# And run them: py manage.py migrate
+# Now to make changes to the database we've to make some migrations: `python manage.py makemigrations`
+# Note: We can also see the SQL that's going to be run when we'll apply the migrations by:
+#       `python manage.py sqlmigrate app_name migration_id`, e.g. `python manage.py sqlmigrate blog 0001`
+# And apply them: `python manage.py migrate`
 
 
-# py manage.py shell
+# python manage.py shell
 
 
 # Additional thing to remember:

@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'blog.apps.BlogConfig',
+    'blog.apps.BlogConfig',  # so that django look for templates, etc. inside our app
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

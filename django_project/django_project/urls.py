@@ -21,5 +21,4 @@ urlpatterns = [
     path('', include('blog.urls')),
     # note that: django will only send the remaining part of the url to the `include`
     # e.g. if we went to "blog/" as the whole string matched here, only empty string will be sent further
-    # [Part 2 - Applications and Routes](https://youtu.be/a48xeeo5Vnk)
 ]
