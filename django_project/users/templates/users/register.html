@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+  <div class="content-section">
+
+    <!-- Register Form: -->
+    <form method="POST">
+
+      {% csrf_token %}  <!-- Must be here. Adds security. (https://youtu.be/q4jPR-M0TAQ?t=512) -->
+
+      <fieldset class="form-group">
+        <!-- Heading -->
+        <legend class="border-bottom mb-4">Join Today</legend>
+        <!-- Form-Main: -->
+        {{ form.as_p }}
+      </fieldset>
+
+      <!-- Submit Button: -->
+      <div class="form-group">
+        <button class="btn btn-outline-info" type="submit">Sign Up</button>
+      </div>
+
+    </form>
+
+    <!-- For already registered users: -->
+    <div class="border-top pt-3">
+      <small class="text-muted">
+        Already have an account? <a class="ml-2" href="#">Sign In</a>
+      </small>
+    </div>
+
+  </div>
+
+{% endblock content %}

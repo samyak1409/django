@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from users import views as users_views  # but it's a Django convention, & it works, see example 1 above in documentation
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
     # note that: django will only send the remaining part of the url to the `include`
     # e.g. if we went to "blog/" as the whole string matched here, only empty string will be sent further
+    path('register/', users_views.register, name='register')
 ]

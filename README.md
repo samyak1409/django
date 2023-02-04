@@ -59,7 +59,7 @@ Django is a very popular framework that gives us a lot of functionality right ou
 > In this Python Django Tutorial, we will be learning how to use templates to return more complex HTML to the browser. We'll also see how we can pass variables to our templates as context. Let's get started...
 
 #### 1. Create HTML template(s) and render them in views.
-   *Note: Don't forget to add our app to the list of installed apps. ([3:25](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer&t=205))*
+   *Note: Don't forget to add our app to the list of installed apps (`settings.INSTALLED_APPS`). ([3:25](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer&t=205))*
 
 #### 2. Passing data to the template. (Using code in HTML like `{% code %}`, `{{ variable }}`.)
 
@@ -76,7 +76,7 @@ Django is a very popular framework that gives us a lot of functionality right ou
    ```
    e.g.
    ```html
-   href="{% url 'blog-about' %}"
+   href="{% url 'about' %}"
    ```
 
 
@@ -134,4 +134,11 @@ Django is a very popular framework that gives us a lot of functionality right ou
 ### 6. [Python Django Tutorial: Full-Featured Web App Part 6 - User Registration](https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=6&ab_channel=CoreySchafer)
 
 > In this Python Django Tutorial, we will be learning how to use forms and validate user input by creating a user registration page. We will also learn how to install and use Crispy Form so that our forms match the modern style of our application. Let's get started...
+
+#### 1. Create new app `users` (& add it to `settings.INSTALLED_APPS`), create its view.
+
+#### 2. Now, to make a form, Django has a builtin `UserCreationForm` (A form that creates a user, with no privileges, from the given username and password.).
+   *This is kind of similar to the database models in the sense that, we can create Python classes and these classes generate HTML forms for us.*
+
+#### 3. Create template, route url (as "Function views" this time, see L6 in main `urls.py`).
 

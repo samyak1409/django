@@ -27,7 +27,7 @@
         <div class="container">
 
           <!-- Brand Image & Text (https://getbootstrap.com/docs/5.3/components/navbar/?#image-and-text): -->
-          <a class="navbar-brand" href="{% url 'blog-home' %}">
+          <a class="navbar-brand" href="{% url 'home' %}">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Django_logo.svg/180px-Django_logo.svg.png" alt="Django" height="30" class="d-inline-block align-text-top">
             Blog
           </a>
@@ -41,10 +41,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'blog-about' %}">About</a>
+                <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Register</a>
+                <a class="nav-link" href="{% url 'register' %}">Register</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Login</a>
@@ -57,9 +57,9 @@
     </header>
 
     <!-- Main Body (https://getbootstrap.com/docs/5.3/layout/containers/#default-container): -->
-    <div class="container text-center">
+    <div class="container">
       {% if title %}
-        <h1>{{ title }}</h1>
+        <h1 class="text-center">{{ title }}</h1>
       {% endif %}
       <div class="container">
         {% block content %}
