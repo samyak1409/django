@@ -65,7 +65,7 @@ Django is a very popular framework that gives us a lot of functionality right ou
 
 #### 3. Template Inheritance.
 
-#### 4. Add [Bootstrap](https://getbootstrap.com) (**Imp**: [Docs](https://getbootstrap.com/docs), [Examples](https://getbootstrap.com/examples), [Icons](https://icons.getbootstrap.com)).
+#### 4. Add [Bootstrap](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)). ([Home](https://getbootstrap.com), [Docs](https://getbootstrap.com/docs), [Examples](https://getbootstrap.com/examples), [Icons](https://icons.getbootstrap.com))
    *Note: Corey added a lot of HTML and CSS for custom structuring and styling, but didn't walk through those snippets as this is backend course, not frontend (or fullstack), so I did not copy-pasted those snippets, but pulled up minimal snippets from Bootstrap, so now I know what the markup mean + a nice minimal look to the website is not bad for someone who's starting out!*
 
 #### 5. Put any static resources (img etc.) in `static` directory. ([see](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer&t=2079) till 38:47)
@@ -148,4 +148,44 @@ Django is a very popular framework that gives us a lot of functionality right ou
 
 #### 5. Adding a field (`email`) to our form.
 
-#### 6.
+#### 6. To make our form look good, [Crispy Forms: Forms have never been this crispy](https://django-crispy-forms.readthedocs.io):
+   1. [Installation](https://django-crispy-forms.readthedocs.io/en/latest/install.html#installing-django-crispy-forms):
+      ```bash
+      pip install django-crispy-forms
+      ```
+      Once installed add `'crispy_forms'` to your `INSTALLED_APPS`:
+      ```py
+      INSTALLED_APPS = [
+          '...',
+          'crispy_forms'
+      ]
+      ```
+   2. Set [Template Pack](https://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs):  
+      You can set your default template pack for your project using the `CRISPY_TEMPLATE_PACK` Django settings variable:
+      ```py
+      CRISPY_TEMPLATE_PACK = 'bootstrap4'
+      ```
+      For `Bootstrap 5`: Support for newer versions of Bootstrap will be in separate template packs. This starts with version 5 and is available through [crispy-bootstrap5](https://github.com/django-crispy-forms/crispy-bootstrap5):
+      ```bash
+      pip install crispy-bootstrap5
+      ```
+      ```py
+      INSTALLED_APPS = [
+          '...',
+          'crispy_forms',
+          'crispy_bootstrap5'
+      ]
+      
+      CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+      CRISPY_TEMPLATE_PACK = 'bootstrap5'
+      ```
+   3. [Usage](https://django-crispy-forms.readthedocs.io/en/latest/filters.html#crispy-filter):
+      1. Add `{% load crispy_forms_tags %}` to the template.
+      2. Append the `|crispy` filter to your form or formset context variable.
+
+
+### 7. [Python Django Tutorial: Full-Featured Web App Part 7 - Login and Logout System](https://www.youtube.com/watch?v=3aVqWaLjqS4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=7&ab_channel=CoreySchafer)
+
+> In this Python Django Tutorial, we will be learning how to create an authentication system for our application so that users can login and logout. We are also going to see how we can restrict certain pages so that users must be logged-in in order to access the page. Let's get started...
+
+#### 1.

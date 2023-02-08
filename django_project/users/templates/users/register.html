@@ -1,11 +1,13 @@
 {% extends 'blog/base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
   <div class="content-section">
 
     <!-- Form: -->
-    <form method="POST">
+    <form method="post">
 
       {% csrf_token %}  <!-- Must be here. Adds security. (https://youtu.be/q4jPR-M0TAQ?t=512) -->
 
@@ -13,7 +15,7 @@
         <!-- Heading -->
         <legend class="border-bottom mb-4">Join Today</legend>
         <!-- Form Inputs: -->
-        {{ form.as_p }}
+        {{ form|crispy }}
       </fieldset>
 
       <!-- Submit Button: -->
