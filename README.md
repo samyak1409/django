@@ -140,5 +140,9 @@ Django is a very popular framework that gives us a lot of functionality right ou
 #### 2. Now, to make a form, Django has a builtin `UserCreationForm` (A form that creates a user, with no privileges, from the given username and password.).
    *This is kind of similar to the database models in the sense that, we can create Python classes and these classes generate HTML forms for us.*
 
-#### 3. Create template, route url (as "Function views" this time, see L6 in main `urls.py`).
+#### 3. Create template, route url (as "Function views" this time, [see](django_project/django_project/urls.py#L6)).
+
+*Till [17:29](https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=7&ab_channel=CoreySchafer&t=1049) ✓*
+
+#### 4. 
 
