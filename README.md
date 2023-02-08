@@ -146,4 +146,6 @@ Django is a very popular framework that gives us a lot of functionality right ou
 
 #### 4. Submitting form using POST request, validating form, creating account (saving the data to the DB), and displaying flash messages.
 
-#### 5. 
+#### 5. Adding a field (`email`) to our form.
+
+#### 6.
