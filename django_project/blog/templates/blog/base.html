@@ -62,6 +62,15 @@
         <h1 class="text-center">{{ title }}</h1>
       {% endif %}
       <div class="container">
+
+        <!-- Flash Messages: -->
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+
+        <!-- Main Content: -->
         {% block content %}
         {% endblock %}
       </div>

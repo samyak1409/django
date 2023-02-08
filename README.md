@@ -51,7 +51,7 @@ Django is a very popular framework that gives us a lot of functionality right ou
    python manage.py startapp blog
    ```
 
-#### 2. Create view(s), route URL(s).
+#### 2. Initialize view(s), route URL(s).
 
 
 ### 3. [Python Django Tutorial: Full-Featured Web App Part 3 - Templates](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer)
@@ -135,14 +135,15 @@ Django is a very popular framework that gives us a lot of functionality right ou
 
 > In this Python Django Tutorial, we will be learning how to use forms and validate user input by creating a user registration page. We will also learn how to install and use Crispy Form so that our forms match the modern style of our application. Let's get started...
 
-#### 1. Create new app `users` (& add it to `settings.INSTALLED_APPS`), create its view.
+#### 1. Create new app `users` (& add it to `settings.INSTALLED_APPS`), initialize its view.
 
-#### 2. Now, to make a form, Django has a builtin `UserCreationForm` (A form that creates a user, with no privileges, from the given username and password.).
+#### 2. Now, to make a registration form, Django has a builtin `UserCreationForm` (A form that creates a user, with no privileges, from the given username and password.).
    *This is kind of similar to the database models in the sense that, we can create Python classes and these classes generate HTML forms for us.*
 
-#### 3. Create template, route url (as "Function views" this time, [see](django_project/django_project/urls.py#L6)).
+#### 3. Create template with form, route url (as "Function views" this time, [see](django_project/django_project/urls.py#L6)).
 
-*Till [17:29](https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=7&ab_channel=CoreySchafer&t=1049) ✓*
+*- x - Till [17:29](https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=7&ab_channel=CoreySchafer&t=1049) - x -*
 
-#### 4. 
+#### 4. Submitting form using POST request, validating form, creating account (saving the data to the DB), and displaying flash messages.
 
+#### 5. 

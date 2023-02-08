@@ -4,7 +4,7 @@
 
   <div class="content-section">
 
-    <!-- Register Form: -->
+    <!-- Form: -->
     <form method="POST">
 
       {% csrf_token %}  <!-- Must be here. Adds security. (https://youtu.be/q4jPR-M0TAQ?t=512) -->
@@ -12,7 +12,7 @@
       <fieldset class="form-group">
         <!-- Heading -->
         <legend class="border-bottom mb-4">Join Today</legend>
-        <!-- Form-Main: -->
+        <!-- Form Inputs: -->
         {{ form.as_p }}
       </fieldset>
 
