@@ -19,8 +19,12 @@ from users import views as users_views  # but it's a Django convention, & it wor
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # Including another URLconf:
     path('', include('blog.urls')),
     # note that: django will only send the remaining part of the url to the `include`
-    # e.g. if we went to "blog/" as the whole string matched here, only empty string will be sent further
-    path('register/', users_views.register, name='register')
+    # e.g. if we went to "blog/", if the whole string matched here, only empty string will be sent further
+
+    # Function views:
+    path('register/', users_views.register, name='register'),
 ]

@@ -188,4 +188,4 @@ Django is a very popular framework that gives us a lot of functionality right ou
 
 > In this Python Django Tutorial, we will be learning how to create an authentication system for our application so that users can login and logout. We are also going to see how we can restrict certain pages so that users must be logged-in in order to access the page. Let's get started...
 
-#### 1.
+#### 1. 

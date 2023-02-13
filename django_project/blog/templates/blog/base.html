@@ -22,7 +22,7 @@
   <body>
 
     <!-- Header Navbar (https://getbootstrap.com/docs/5.3/components/navbar): -->
-    <header>
+    <header class="mb-4">
       <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
         <div class="container">
 
@@ -58,22 +58,26 @@
 
     <!-- Main Body (https://getbootstrap.com/docs/5.3/layout/containers/#default-container): -->
     <div class="container">
+
       {% if title %}
-        <h1 class="text-center">{{ title }}</h1>
+        <h1 class="text-center mb-3">{{ title }}</h1>
       {% endif %}
+
       <div class="container">
 
         <!-- Flash Messages: -->
         {% if messages %}
           {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            <div class="alert alert-{{ message.tags }} mb-4">{{ message }}</div>
           {% endfor %}
         {% endif %}
 
         <!-- Main Content: -->
         {% block content %}
         {% endblock %}
+
       </div>
+
     </div>
 
     <!-- Footer (https://getbootstrap.com/docs/5.3/examples/footers): -->
@@ -88,7 +92,7 @@
     </footer>
     -->
     <!-- Footer (https://getbootstrap.com/docs/5.3/components/navbar/#text-1 + https://getbootstrap.com/docs/5.3/components/navbar/#image): -->
-    <footer>
+    <footer class="mt-4">
       <nav class="navbar bg-body-tertiary bg-dark" data-bs-theme="dark">
         <div class="container">
           <span class="navbar-text">
