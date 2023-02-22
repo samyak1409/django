@@ -199,10 +199,21 @@ pip install -r requirements.txt
 #### 1. Using Django's builtin login & logout views. (`LoginView`, `LogoutView`)
    *Will handle the forms and the logic and all of that stuff for us, but it's not going to handle the templates, which is good because we want to make the templates anyway, so that they match the look and style of our current website.*
 
-#### 2. Make login template, and set `LOGIN_REDIRECT_URL`.
+#### 2. Make login template, and set `LOGIN_REDIRECT_URL` in `settings.py`.
    *With that in place, users are basically being logged in! We just need to add some visual feedback (next point) for the same.*
    - And logout template.
 
 #### 3. Changing the nav bar links b/w login and logout depending upon if the user is authenticated or not. (using `user.is_authenticated`)
 
 #### 4. Create `Profile` url, view, template.
+
+#### 5. Restrict going to `/profile` if not authenticated (logged in). (using `django.contrib.auth.decorators.login_required` decorator)
+   *Also, need to set `LOGIN_URL` in `settings.py`.* <br>
+   *With `login_required` decorator, `next` parameter will automatically be added in the url so that it remembers where to redirect after logging in.*
+
+
+### 8. []()
+
+> 
+
+#### 1. 

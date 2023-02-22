@@ -132,5 +132,7 @@ CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 
-# URL to which users will be redirected after logging in:
+# Update default URL to which users will be redirected after logging in:
 LOGIN_REDIRECT_URL = 'home'
+# Update default URL of login page:
+LOGIN_URL = 'login'
