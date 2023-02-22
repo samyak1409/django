@@ -46,6 +46,9 @@
               <!-- Django provides `user` functionality by default, so that we can check if the user is logged in or not. (https://youtu.be/3aVqWaLjqS4?t=1100) -->
               {% if user.is_authenticated %}
                 <li class="nav-item">
+                  <a class="nav-link" href="{% url 'profile' %}">Your Profile</a>
+                </li>
+                <li class="nav-item">
                   <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                 </li>
               {% else %}

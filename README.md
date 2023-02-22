@@ -205,4 +205,4 @@ pip install -r requirements.txt
 
 #### 3. Changing the nav bar links b/w login and logout depending upon if the user is authenticated or not. (using `user.is_authenticated`)
 
-#### 4. 
+#### 4. Create `Profile` url, view, template.
