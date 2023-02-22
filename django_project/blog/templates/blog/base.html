@@ -59,11 +59,11 @@
     <!-- Main Body (https://getbootstrap.com/docs/5.3/layout/containers/#default-container): -->
     <div class="container">
 
-      {% if title %}
-        <h1 class="text-center mb-3">{{ title }}</h1>
-      {% endif %}
-
       <div class="container">
+
+        {% if title %}
+          <h1 class="text-center mb-3">{{ title }}</h1>
+        {% endif %}
 
         <!-- Flash Messages: -->
         {% if messages %}

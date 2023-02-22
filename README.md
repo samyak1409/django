@@ -201,3 +201,6 @@ pip install -r requirements.txt
 
 #### 2. Make login template, and set `LOGIN_REDIRECT_URL`.
    *With that in place, users are basically being logged in! We just need to add some visual feedback for the same.*
+   1. And logout template.
+
+#### 3. 
