@@ -194,6 +194,7 @@ pip install -r requirements.txt
 
 ### 7. [Python Django Tutorial: Full-Featured Web App Part 7 - Login and Logout System](https://www.youtube.com/watch?v=3aVqWaLjqS4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=7&ab_channel=CoreySchafer)
 
-> In this Python Django Tutorial, we will be learning how to create an authentication system for our application so that users can login and logout. We are also going to see how we can restrict certain pages so that users must be logged-in in order to access the page. Let's get started...
+> In this Python Django Tutorial, we will be learning how to create an authentication system for our application so that users can log in and log out. We are also going to see how we can restrict certain pages so that users must be logged-in in order to access the page. Let's get started...
 
-#### 1. 
+#### 1. Using Django's builtin login & logout views. (`LoginView`, `LogoutView`)
+   *Will handle the forms and the logic and all of that stuff for us, but it's not going to handle the templates, which is good because we want to make the templates anyway, so that they match the look and style of our current website.*
