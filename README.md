@@ -200,7 +200,9 @@ pip install -r requirements.txt
    *Will handle the forms and the logic and all of that stuff for us, but it's not going to handle the templates, which is good because we want to make the templates anyway, so that they match the look and style of our current website.*
 
 #### 2. Make login template, and set `LOGIN_REDIRECT_URL`.
-   *With that in place, users are basically being logged in! We just need to add some visual feedback for the same.*
-   1. And logout template.
+   *With that in place, users are basically being logged in! We just need to add some visual feedback (next point) for the same.*
+   - And logout template.
 
-#### 3. 
+#### 3. Changing the nav bar links b/w login and logout depending upon if the user is authenticated or not. (using `user.is_authenticated`)
+
+#### 4. 
