@@ -9,6 +9,14 @@ Learning from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQ
 Django is a very popular framework that gives us a lot of functionality right out of the box, and makes it really enjoyable to work with these web applications.
 
 
+## Installing the Dependencies
+
+After downloading this project to your PC, open the project folder, there, open your [Command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) (e.g. Command Prompt for Windows), and run the following:
+```
+pip install -r requirements.txt
+```
+
+
 ## Video-wise Notes in a Nutshell
 
 
