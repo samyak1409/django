@@ -11,8 +11,9 @@ def register(request):
         form = RegistrationForm(request.POST)  # creates a form with the existing data, the data which is in the request
         if form.is_valid():
             form.save()  # save the inputted data to the DB
-            messages.success(request=request, message=f'Account created for {form.cleaned_data.get("username")}!')
-            return redirect(to='home')
+            messages.success(request=request,
+                             message=f'Account created for {form.cleaned_data.get("username")}, now you can log in.')
+            return redirect(to='login')
     else:
         form = RegistrationForm()  # creates an empty form
 

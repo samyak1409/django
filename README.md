@@ -198,3 +198,6 @@ pip install -r requirements.txt
 
 #### 1. Using Django's builtin login & logout views. (`LoginView`, `LogoutView`)
    *Will handle the forms and the logic and all of that stuff for us, but it's not going to handle the templates, which is good because we want to make the templates anyway, so that they match the look and style of our current website.*
+
+#### 2. Make login template, and set `LOGIN_REDIRECT_URL`.
+   *With that in place, users are basically being logged in! We just need to add some visual feedback for the same.*

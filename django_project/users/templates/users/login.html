@@ -13,14 +13,14 @@
 
       <fieldset class="form-group">
         <!-- Heading -->
-        <legend class="border-bottom mb-4">Join Today</legend>
+        <legend class="border-bottom mb-4">Log In</legend>
         <!-- Form Inputs: -->
         {{ form|crispy }}
       </fieldset>
 
       <!-- Submit Button: -->
       <div class="form-group">
-        <button class="btn btn-outline-info mb-4" type="submit">Sign Up</button>
+        <button class="btn btn-outline-info mb-4" type="submit">Log In</button>
       </div>
 
     </form>
@@ -28,7 +28,7 @@
     <!-- For already registered users: -->
     <div class="border-top pt-3">
       <small class="text-muted">
-        Already have an account? <a class="ml-2" href="{% url 'login' %}">Log In</a>
+        Don't have an account? <a class="ml-2" href="{% url 'register' %}">Register Now</a>
       </small>
     </div>
 
