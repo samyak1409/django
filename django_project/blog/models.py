@@ -2,6 +2,7 @@ from django.db import models
 # from django.utils import timezone
 from django.contrib.auth.models import User
 
+
 # Create your models here.
 
 
@@ -45,7 +46,7 @@ class Post(models.Model):
     # can't ever update the value of the date posted
 
     # Author:
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(to=User, on_delete=models.CASCADE)
     # `ForeignKey`: because author i.e. user is itself separate model i.e. table. (it'll be one-to-many relationship)
     # `on_delete`: what to do to this post if the user of this post is deleted.
     # `models.CASCADE`: telling django to delete the post in that case.

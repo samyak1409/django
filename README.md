@@ -115,7 +115,7 @@ pip install -r requirements.txt
 
 *To work with these databases, Django has its own built-in ORM. Now, if you don't know what an ORM is, it stands for Object Relational Mapper, and basically it allows us to access our database in an easy-to-use object-oriented way, and the thing that I like about it the most is that you can use different databases without changing your code, so if you want to use an SQLite database for testing and a Postgres database for production, then all you need to do is set up a different database in our settings, but all the code to query the database will still be the same. And that's what we'll be doing in this series, we'll use an SQLite database for development and a Postgres database for production. So let's go ahead and get started so that we can see what this looks like. Now, the great thing about the django ORM is that we can represent our database structure as classes, and you'll hear those classes be called models, and doing the database structure this way is actually very intuitive after you get the hang of it.*
 
-#### 1. Creating a Model (class). (Class: DB Table, Class Attributes: Table Fields)
+#### 1. Creating a Model (class) (`Post`). (Class: DB Table, Class Attributes: Table Fields)
 
 #### 2. In order to update the DB with the changes, rerun the two migration commands. ([#4.1](#1-create-the-database-for-project-which-contains-default-tables-to-work-with-using-following-commands))
    *Why migrations are so useful: So, migrations are useful because it allows us to make changes to our database even after it's created and has data. If we didn't have a way to run migrations, then we would have to run some complicated SQL code to update our database structure, so that it doesn't mess with the current data. But with migrations, we can simply make whatever changes we need, run `makemigrations` and then run `migrate`, and it will make all of those changes for us!*
@@ -131,10 +131,12 @@ pip install -r requirements.txt
 
 #### 5. Don't forget to register newly created model(s) to `admin.py` so that they show up on admin site:
    ```py
-   admin.site.register(ClassName)
+   from .models import ModelName
+   admin.site.register(ModelName)
    ```
    e.g.
    ```py
+   from .models import Post
    admin.site.register(Post)
    ```
 
@@ -154,7 +156,7 @@ pip install -r requirements.txt
 
 #### 4. Submitting form using POST request, validating form, creating account (saving the data to the DB), and displaying flash messages.
 
-#### 5. Adding a field (`email`) to our form.
+#### 5. Adding a field (`email`) to our form. (by extending the `UserCreationForm` and adding a new field to the extended form (named `RegistrationForm`))
 
 #### 6. To make our form look good, [Crispy Forms: Forms have never been this crispy](https://django-crispy-forms.readthedocs.io):
    1. [Installation](https://django-crispy-forms.readthedocs.io/en/latest/install.html#installing-django-crispy-forms):
@@ -164,8 +166,8 @@ pip install -r requirements.txt
       Once installed add `'crispy_forms'` to your `INSTALLED_APPS`:
       ```py
       INSTALLED_APPS = [
-          '...',
-          'crispy_forms'
+          ...
+          'crispy_forms',
       ]
       ```
    2. Set [Template Pack](https://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs):  
@@ -179,9 +181,9 @@ pip install -r requirements.txt
       ```
       ```py
       INSTALLED_APPS = [
-          '...',
+          ...
           'crispy_forms',
-          'crispy_bootstrap5'
+          'crispy_bootstrap5',
       ]
       
       CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
@@ -212,8 +214,17 @@ pip install -r requirements.txt
    *With `login_required` decorator, `next` parameter will automatically be added in the url so that it remembers where to redirect after logging in.*
 
 
-### 8. []()
+### 8. [Python Django Tutorial: Full-Featured Web App Part 8 - User Profile and Picture](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=9&ab_channel=CoreySchafer)
 
-> 
+> In this Python Django Tutorial, we will be creating a user profile that extends the built-in Django User model. We will then use this user profile to store profile pictures for each user. We will also be learning how to set the MEDIA_ROOT, MEDIA_URL, and also make our static files accessible through our URL patterns. Finally, we will create a receiver function for a Django signal that will make sure our profiles are created when a user first registers. Let's get started...
 
-#### 1. 
+#### 1. Creating a new model (class) (`Profile`) which extends the Django's `User` model, in order to add a `pic` field.
+   *Django's default `User` model, doesn't have a field for profile pic, so we can extend the (`User`) model, and add whatever fields we want to the extended model (named `Profile`).*
+   1. In order to use `models.ImageField`,
+      ```bash
+      pip install Pillow
+      ```
+   2. [#5.2](#2-in-order-to-update-the-db-with-the-changes-rerun-the-two-migration-commands-41) (Run Migrations)
+   3. [#5.5](#5-dont-forget-to-register-newly-created-models-to-adminpy-so-that-they-show-up-on-admin-site) (Register Model)
+
+#### 2. 
