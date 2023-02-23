@@ -1,37 +1,11 @@
-{% extends 'blog/base.html' %}
+{% extends 'users/auth_base.html' %}
 
-{% load crispy_forms_tags %}
+<!-- Heading Text: -->
+{% block heading %}Log In{% endblock %}
+<!-- Submit Button Text: -->
+{% block btn_txt %}Log In{% endblock %}
 
-{% block content %}
-
-  <div class="content-section">
-
-    <!-- Form: -->
-    <form method="post">
-
-      {% csrf_token %}  <!-- Must be here. Adds security. (https://youtu.be/q4jPR-M0TAQ?t=512) -->
-
-      <fieldset class="form-group">
-        <!-- Heading -->
-        <legend class="border-bottom mb-4">Log In</legend>
-        <!-- Form Inputs: -->
-        {{ form|crispy }}
-      </fieldset>
-
-      <!-- Submit Button: -->
-      <div class="form-group">
-        <button class="btn btn-outline-info mb-4" type="submit">Log In</button>
-      </div>
-
-    </form>
-
-    <!-- For already registered users: -->
-    <div class="border-top pt-3">
-      <small class="text-muted">
-        Don't have an account? <a class="ml-2" href="{% url 'register' %}">Register Now</a>
-      </small>
-    </div>
-
-  </div>
-
-{% endblock content %}
+<!-- Link to Register Page: -->
+{% block link_to_other_auth %}
+  Don't have an account? <a class="ml-2" href="{% url 'register' %}">Register</a>
+{% endblock %}

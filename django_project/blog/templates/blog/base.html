@@ -49,14 +49,14 @@
                   <a class="nav-link" href="{% url 'profile' %}">Your Profile</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                  <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
                 </li>
               {% else %}
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'register' %}">Register</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}">Login</a>
+                  <a class="nav-link" href="{% url 'login' %}">Log In</a>
                 </li>
               {% endif %}
             </ul>
