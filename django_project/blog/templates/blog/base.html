@@ -1,6 +1,10 @@
 <!-- https://getbootstrap.com/docs/5.3/getting-started/introduction/#quick-start: -->
 
 <!DOCTYPE html>
+
+<!-- For `main.css`: -->
+{% load static %}
+
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -16,6 +20,8 @@
 
     <!-- Bootstrap's CSS: -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Corey's CSS: -->
+    <link href="{% static 'blog/main.css' %}" rel="stylesheet">
 
   </head>
 

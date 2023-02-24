@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ## Video-wise Notes in a Nutshell
 
 
-### 1. [Python Django Tutorial: Full-Featured Web App Part 1 - Getting Started](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&ab_channel=CoreySchafer)
+### 1. [Python Django Tutorial: Full-Featured Web App Part 1 - Getting Started](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=1&ab_channel=CoreySchafer)
 
 > In this Python Django Tutorial, we will be learning how to get started using the Django framework. We will install the necessary packages and get a basic application running in our browser. Let's get started...
 
@@ -44,6 +44,7 @@ pip install -r requirements.txt
 - ```bash
   python manage.py runserver
   ```
+  [127.0.0.1:8000](http://127.0.0.1:8000) or [localhost:8000](http://localhost:8000)
 
 
 ### 2. [Python Django Tutorial: Full-Featured Web App Part 2 - Applications and Routes](https://www.youtube.com/watch?v=a48xeeo5Vnk&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=2&ab_channel=CoreySchafer)
@@ -66,15 +67,15 @@ pip install -r requirements.txt
 
 > In this Python Django Tutorial, we will be learning how to use templates to return more complex HTML to the browser. We'll also see how we can pass variables to our templates as context. Let's get started...
 
-#### 1. Create HTML template(s) and render them in views.
+#### 1. Create HTML template(s) and `render` them in views.
 1. Don't forget to add our app to the list of installed apps (`settings.INSTALLED_APPS`). ([3:25](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer&t=205))
 
 #### 2. Passing data to the template. (Using code in HTML like `{% code %}`, `{{ variable }}`.)
 
-#### 3. Template Inheritance.
+#### 3. Template Inheritance. (`{% block block_name %}{% endblock %}`)
 
 #### 4. Add [Bootstrap](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)). ([Home](https://getbootstrap.com), [Docs](https://getbootstrap.com/docs), [Examples](https://getbootstrap.com/examples), [Icons](https://icons.getbootstrap.com))
-- *Note: Corey added a lot of HTML and CSS for custom structuring and styling, but didn't walk through those snippets as this is backend course, not frontend (or fullstack), so I did not copy-pasted those snippets, but pulled up minimal snippets from Bootstrap, so now I know what the markup mean + a nice minimal look to the website is not bad for someone who's starting out!*
+- *Note: Corey added a lot of HTML & CSS for custom structuring & styling, but didn't walk through those snippets as this is backend course, not frontend (or fullstack), so I did not copy-pasted those snippets, but pulled up minimal snippets from Bootstrap, so now I know what the markup mean + a nice minimal look to the website is not bad for someone who's starting out!*
 
 #### 5. Put any static resources (img etc.) in `static` directory. ([see](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer&t=2079) till 38:47)
 
@@ -106,7 +107,7 @@ pip install -r requirements.txt
 - ```bash
   python manage.py createsuperuser
   ```
-  *Now, we can access the admin page, and modify any data directly from there.*
+  *Now, we can access the [admin page](http://localhost:8000/admin), and modify any data directly from there.*
 
 
 ### 5. [Python Django Tutorial: Full-Featured Web App Part 5 - Database and Migrations](https://www.youtube.com/watch?v=aHC3uTkT9r8&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=5&ab_channel=CoreySchafer)
@@ -145,14 +146,14 @@ pip install -r requirements.txt
 
 > In this Python Django Tutorial, we will be learning how to use forms and validate user input by creating a user registration page. We will also learn how to install and use Crispy Form so that our forms match the modern style of our application. Let's get started...
 
-#### 1. Create new app `users` (& add it to `settings.INSTALLED_APPS`), initialize its view.
+#### 1. Create new app `users` (and add it to `settings.INSTALLED_APPS`), initialize its view.
 
 #### 2. Now, to make a registration form, Django has a builtin `UserCreationForm` (A form that creates a user, with no privileges, from the given username and password.).
 - *This is kind of similar to the database models in the sense that, we can create Python classes and these classes generate HTML forms for us.*
 
 #### 3. Create template with form, route url (as "Function views" this time, [see](django_project/django_project/urls.py#L6)).
 
-*- x - Till [17:29](https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=7&ab_channel=CoreySchafer&t=1049) - x -*
+*- x - Till [17:29](https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=6&ab_channel=CoreySchafer&t=1049) - x -*
 
 #### 4. Submitting form using POST request, validating form, creating account (saving the data to the DB), and displaying flash messages.
 
@@ -199,13 +200,13 @@ pip install -r requirements.txt
 > In this Python Django Tutorial, we will be learning how to create an authentication system for our application so that users can log in and log out. We are also going to see how we can restrict certain pages so that users must be logged-in in order to access the page. Let's get started...
 
 #### 1. Using Django's builtin login & logout views. (`LoginView`, `LogoutView`)
-- *Will handle the forms and the logic and all of that stuff for us, but it's not going to handle the templates, which is good because we want to make the templates anyway, so that they match the look and style of our current website.*
+- *Will handle forms, logic, and all of that stuff for us, but it's not going to handle the templates, which is good because we want to make the templates anyway, so that they match the look & style of our current website.*
 
 #### 2. Make login template, and set `LOGIN_REDIRECT_URL` in `settings.py`.
 - *With that in place, users are actually being logged in! We just need to add some visual feedback (next point) for the same.*
 1. And logout template.
 
-#### 3. Changing the nav bar links b/w login and logout depending on if the user is authenticated or not (using `user.is_authenticated`).
+#### 3. Changing the nav bar links b/w login & logout depending on if the user is authenticated or not (using `user.is_authenticated`).
 
 #### 4. Create `Profile` url, view, template.
 
@@ -214,7 +215,7 @@ pip install -r requirements.txt
 - *With `login_required` decorator, `next` parameter will automatically be added in the url so that it remembers where to redirect after logging in.*
 
 
-### 8. [Python Django Tutorial: Full-Featured Web App Part 8 - User Profile and Picture](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=9&ab_channel=CoreySchafer)
+### 8. [Python Django Tutorial: Full-Featured Web App Part 8 - User Profile and Picture](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=8&ab_channel=CoreySchafer)
 
 > In this Python Django Tutorial, we will be creating a user profile that extends the built-in Django User model. We will then use this user profile to store profile pictures for each user. We will also be learning how to set the MEDIA_ROOT, MEDIA_URL, and also make our static files accessible through our URL patterns. Finally, we will create a receiver function for a Django signal that will make sure our profiles are created when a user first registers. Let's get started...
 
@@ -233,4 +234,11 @@ pip install -r requirements.txt
 #### 3. [Querying](Screenshots/DB%20Queries/Profile) the `Profile` model using `User` model (as they're connected/linked by `OneToOneField`).
 1. But no profiles exist currently, so, first add a few from the admin page (as we've not implemented "when the user is created, profile is created with it" yet).
 
-#### 4. 
+#### 4. Now, the main part, Showing profile pic on the profile page.
+1. Update the profile template `profile.html`, with the user profile pic url (`user.profile.pic.url`).
+2. Adding `MEDIA_URL` to `urlpatterns`. ([Serving files uploaded by a user during development](https://docs.djangoproject.com/en/4.1/howto/static-files/#serving-files-uploaded-by-a-user-during-development)) ([see](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=8&ab_channel=CoreySchafer&t=1258) till 24:33)
+   - *Now, we can see the profile pic on profile page.*
+3. Adding [Corey's styles](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/snippets/main.css) (to the `static` dir) so that profile page look right.
+4. Adding the default profile pic. (Remember? Check [`Profile`](django_project/users/models.py))
+
+#### 5. 
