@@ -25,25 +25,25 @@ pip install -r requirements.txt
 > In this Python Django Tutorial, we will be learning how to get started using the Django framework. We will install the necessary packages and get a basic application running in our browser. Let's get started...
 
 #### 1. Install Django:
-   ```bash
-   pip install Django
-   ```
+- ```bash
+  pip install Django
+  ```
 
 #### 2. Create a new project:
-   ```bash
-   django-admin startproject project_name
-   ```
-   e.g.
-   ```bash
-   django-admin startproject django_project
-   ````
+- ```bash
+  django-admin startproject project_name
+  ```
+  e.g.
+  ```bash
+  django-admin startproject django_project
+  ````
 
 #### 3. Looked at the structure of what gets created.
 
 #### 4. Pull up that default site in the browser:
-   ```bash
-   python manage.py runserver
-   ```
+- ```bash
+  python manage.py runserver
+  ```
 
 
 ### 2. [Python Django Tutorial: Full-Featured Web App Part 2 - Applications and Routes](https://www.youtube.com/watch?v=a48xeeo5Vnk&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=2&ab_channel=CoreySchafer)
@@ -51,13 +51,13 @@ pip install -r requirements.txt
 > In this Python Django Tutorial, we will be creating a blog application within our Django project. We will also learn how to create URL patterns that are handled by our application views. Let's get started...
 
 #### 1. Create a new app for our project (Project: [Website](https://en.wikipedia.org/wiki/Website), App: A section of Website (can be [Web Page](https://en.wikipedia.org/wiki/Web_page))):
-   ```bash
-   python manage.py startapp app_name
-   ```
-   e.g.
-   ```bash
-   python manage.py startapp blog
-   ```
+- ```bash
+  python manage.py startapp app_name
+  ```
+  e.g.
+  ```bash
+  python manage.py startapp blog
+  ```
 
 #### 2. Initialize view(s), route URL(s).
 
@@ -67,25 +67,25 @@ pip install -r requirements.txt
 > In this Python Django Tutorial, we will be learning how to use templates to return more complex HTML to the browser. We'll also see how we can pass variables to our templates as context. Let's get started...
 
 #### 1. Create HTML template(s) and render them in views.
-   *Note: Don't forget to add our app to the list of installed apps (`settings.INSTALLED_APPS`). ([3:25](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer&t=205))*
+1. Don't forget to add our app to the list of installed apps (`settings.INSTALLED_APPS`). ([3:25](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer&t=205))
 
 #### 2. Passing data to the template. (Using code in HTML like `{% code %}`, `{{ variable }}`.)
 
 #### 3. Template Inheritance.
 
 #### 4. Add [Bootstrap](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)). ([Home](https://getbootstrap.com), [Docs](https://getbootstrap.com/docs), [Examples](https://getbootstrap.com/examples), [Icons](https://icons.getbootstrap.com))
-   *Note: Corey added a lot of HTML and CSS for custom structuring and styling, but didn't walk through those snippets as this is backend course, not frontend (or fullstack), so I did not copy-pasted those snippets, but pulled up minimal snippets from Bootstrap, so now I know what the markup mean + a nice minimal look to the website is not bad for someone who's starting out!*
+- *Note: Corey added a lot of HTML and CSS for custom structuring and styling, but didn't walk through those snippets as this is backend course, not frontend (or fullstack), so I did not copy-pasted those snippets, but pulled up minimal snippets from Bootstrap, so now I know what the markup mean + a nice minimal look to the website is not bad for someone who's starting out!*
 
 #### 5. Put any static resources (img etc.) in `static` directory. ([see](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer&t=2079) till 38:47)
 
 #### 6. Don't hardcode the site-URLs in the HTML, use `url` tag instead:
-   ```html
-   href="{% url 'url_path_name' %}"
-   ```
-   e.g.
-   ```html
-   href="{% url 'about' %}"
-   ```
+- ```html
+  href="{% url 'url_path_name' %}"
+  ```
+  e.g.
+  ```html
+  href="{% url 'about' %}"
+  ```
 
 
 ### 4. [Python Django Tutorial: Full-Featured Web App Part 4 - Admin Page](https://www.youtube.com/watch?v=1PkNiYlkkjo&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=4&ab_channel=CoreySchafer)
@@ -93,20 +93,20 @@ pip install -r requirements.txt
 > In this Python Django Tutorial, we will be learning how to access the Django Admin Page for our application. The Administration Page is a great way to see what data is currently in our application, and also gives us a nice GUI for creating or modifying that data. Let's get started...
 
 #### 1. Create the database for project which contains default tables to work with using following commands:
-   1. Make migrations for database changes (basically generate some data from our created/updated model(s), which will be used for generating SQL, which will in turn make changes to the database):
-      ```bash
-      python manage.py makemigrations
-      ```
-   2. Apply them:
-      ```bash
-      python manage.py migrate
-      ```
+1. Make migrations for database changes (basically generate some data from our created/updated model(s), which will be used for generating SQL, which will in turn make changes to the database):
+   ```bash
+   python manage.py makemigrations
+   ```
+2. Apply them:
+   ```bash
+   python manage.py migrate
+   ```
 
 #### 2. Create admin ([superuser](https://en.wikipedia.org/wiki/Superuser)):
-   ```bash
-   python manage.py createsuperuser
-   ```
-   *Now, we can access the admin page, and modify any data directly from there.*
+- ```bash
+  python manage.py createsuperuser
+  ```
+  *Now, we can access the admin page, and modify any data directly from there.*
 
 
 ### 5. [Python Django Tutorial: Full-Featured Web App Part 5 - Database and Migrations](https://www.youtube.com/watch?v=aHC3uTkT9r8&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=5&ab_channel=CoreySchafer)
@@ -118,27 +118,27 @@ pip install -r requirements.txt
 #### 1. Creating a Model (class) (`Post`). (Class: DB Table, Class Attributes: Table Fields)
 
 #### 2. In order to update the DB with the changes, rerun the two migration commands. ([#4.1](#1-create-the-database-for-project-which-contains-default-tables-to-work-with-using-following-commands))
-   *Why migrations are so useful: So, migrations are useful because it allows us to make changes to our database even after it's created and has data. If we didn't have a way to run migrations, then we would have to run some complicated SQL code to update our database structure, so that it doesn't mess with the current data. But with migrations, we can simply make whatever changes we need, run `makemigrations` and then run `migrate`, and it will make all of those changes for us!*
+- *Why migrations are so useful: So, migrations are useful because it allows us to make changes to our database even after it's created and has data. If we didn't have a way to run migrations, then we would have to run some complicated SQL code to update our database structure, so that it doesn't mess with the current data. But with migrations, we can simply make whatever changes we need, run `makemigrations` and then run `migrate`, and it will make all of those changes for us!*
 
 #### 3. Querying the DB using classes in Python Django shell:
-   ```bash
-   python manage.py shell
-   ```
-   *See the queries in [`Screenshots/DB Queries/Post`](Screenshots/DB%20Queries/Post) folder.*
+- ```bash
+  python manage.py shell
+  ```
+  See the queries in [`Screenshots/DB Queries/Post`](Screenshots/DB%20Queries/Post) folder.
 
 #### 4. Passing the real data from DB in the views to the template.
-   *[Formatting the date](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#date) as we want.*
+- *[Formatting the date](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#date) as we want.*
 
 #### 5. Don't forget to register newly created model(s) to `admin.py` so that they show up on admin site:
-   ```py
-   from .models import ModelName
-   admin.site.register(ModelName)
-   ```
-   e.g.
-   ```py
-   from .models import Post
-   admin.site.register(Post)
-   ```
+- ```py
+  from .models import ModelName
+  admin.site.register(ModelName)
+  ```
+  e.g.
+  ```py
+  from .models import Post
+  admin.site.register(Post)
+  ```
 
 
 ### 6. [Python Django Tutorial: Full-Featured Web App Part 6 - User Registration](https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=6&ab_channel=CoreySchafer)
@@ -148,7 +148,7 @@ pip install -r requirements.txt
 #### 1. Create new app `users` (& add it to `settings.INSTALLED_APPS`), initialize its view.
 
 #### 2. Now, to make a registration form, Django has a builtin `UserCreationForm` (A form that creates a user, with no privileges, from the given username and password.).
-   *This is kind of similar to the database models in the sense that, we can create Python classes and these classes generate HTML forms for us.*
+- *This is kind of similar to the database models in the sense that, we can create Python classes and these classes generate HTML forms for us.*
 
 #### 3. Create template with form, route url (as "Function views" this time, [see](django_project/django_project/urls.py#L6)).
 
@@ -159,39 +159,39 @@ pip install -r requirements.txt
 #### 5. Adding a field (`email`) to our form. (by extending the `UserCreationForm` and adding a new field to the extended form (named `RegistrationForm`))
 
 #### 6. To make our form look good, [Crispy Forms: Forms have never been this crispy](https://django-crispy-forms.readthedocs.io):
-   1. [Installation](https://django-crispy-forms.readthedocs.io/en/latest/install.html#installing-django-crispy-forms):
-      ```bash
-      pip install django-crispy-forms
-      ```
-      Once installed add `'crispy_forms'` to your `INSTALLED_APPS`:
-      ```py
-      INSTALLED_APPS = [
-          ...
-          'crispy_forms',
-      ]
-      ```
-   2. Set [Template Pack](https://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs):  
-      You can set your default template pack for your project using the `CRISPY_TEMPLATE_PACK` Django settings variable:
-      ```py
-      CRISPY_TEMPLATE_PACK = 'bootstrap4'
-      ```
-      For `Bootstrap 5`: Support for newer versions of Bootstrap will be in separate template packs. This starts with version 5 and is available through [crispy-bootstrap5](https://github.com/django-crispy-forms/crispy-bootstrap5):
-      ```bash
-      pip install crispy-bootstrap5
-      ```
-      ```py
-      INSTALLED_APPS = [
-          ...
-          'crispy_forms',
-          'crispy_bootstrap5',
-      ]
-      
-      CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
-      CRISPY_TEMPLATE_PACK = 'bootstrap5'
-      ```
-   3. [Usage](https://django-crispy-forms.readthedocs.io/en/latest/filters.html#crispy-filter):
-      1. Add `{% load crispy_forms_tags %}` to the template.
-      2. Append the `|crispy` filter to your form or formset context variable.
+1. [Installation](https://django-crispy-forms.readthedocs.io/en/latest/install.html#installing-django-crispy-forms):
+   ```bash
+   pip install django-crispy-forms
+   ```
+   Once installed add `'crispy_forms'` to your `INSTALLED_APPS`:
+   ```py
+   INSTALLED_APPS = [
+       ...
+       'crispy_forms',
+   ]
+   ```
+2. Set [Template Pack](https://django-crispy-forms.readthedocs.io/en/latest/install.html#template-packs):  
+   You can set your default template pack for your project using the `CRISPY_TEMPLATE_PACK` Django settings variable:
+   ```py
+   CRISPY_TEMPLATE_PACK = 'bootstrap4'
+   ```
+   For `Bootstrap 5`: Support for newer versions of Bootstrap will be in separate template packs. This starts with version 5 and is available through [crispy-bootstrap5](https://github.com/django-crispy-forms/crispy-bootstrap5):
+   ```bash
+   pip install crispy-bootstrap5
+   ```
+   ```py
+   INSTALLED_APPS = [
+       ...
+       'crispy_forms',
+       'crispy_bootstrap5',
+   ]
+   
+   CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+   CRISPY_TEMPLATE_PACK = 'bootstrap5'
+   ```
+3. [Usage](https://django-crispy-forms.readthedocs.io/en/latest/filters.html#crispy-filter):
+   1. Add `{% load crispy_forms_tags %}` to the template.
+   2. Append the `|crispy` filter to your form or formset context variable.
 
 
 ### 7. [Python Django Tutorial: Full-Featured Web App Part 7 - Login and Logout System](https://www.youtube.com/watch?v=3aVqWaLjqS4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=7&ab_channel=CoreySchafer)
@@ -199,19 +199,19 @@ pip install -r requirements.txt
 > In this Python Django Tutorial, we will be learning how to create an authentication system for our application so that users can log in and log out. We are also going to see how we can restrict certain pages so that users must be logged-in in order to access the page. Let's get started...
 
 #### 1. Using Django's builtin login & logout views. (`LoginView`, `LogoutView`)
-   *Will handle the forms and the logic and all of that stuff for us, but it's not going to handle the templates, which is good because we want to make the templates anyway, so that they match the look and style of our current website.*
+- *Will handle the forms and the logic and all of that stuff for us, but it's not going to handle the templates, which is good because we want to make the templates anyway, so that they match the look and style of our current website.*
 
 #### 2. Make login template, and set `LOGIN_REDIRECT_URL` in `settings.py`.
-   *With that in place, users are basically being logged in! We just need to add some visual feedback (next point) for the same.*
-   - And logout template.
+- *With that in place, users are actually being logged in! We just need to add some visual feedback (next point) for the same.*
+1. And logout template.
 
-#### 3. Changing the nav bar links b/w login and logout depending upon if the user is authenticated or not. (using `user.is_authenticated`)
+#### 3. Changing the nav bar links b/w login and logout depending on if the user is authenticated or not (using `user.is_authenticated`).
 
 #### 4. Create `Profile` url, view, template.
 
-#### 5. Restrict going to `/profile` if not authenticated (logged in). (using `django.contrib.auth.decorators.login_required` decorator)
-   *Also, need to set `LOGIN_URL` in `settings.py`.* <br>
-   *With `login_required` decorator, `next` parameter will automatically be added in the url so that it remembers where to redirect after logging in.*
+#### 5. Restrict going to `/profile` if not authenticated (logged in) (using `django.contrib.auth.decorators.login_required` decorator).
+1. Also, need to set `LOGIN_URL` in `settings.py`.
+- *With `login_required` decorator, `next` parameter will automatically be added in the url so that it remembers where to redirect after logging in.*
 
 
 ### 8. [Python Django Tutorial: Full-Featured Web App Part 8 - User Profile and Picture](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=9&ab_channel=CoreySchafer)
@@ -219,13 +219,18 @@ pip install -r requirements.txt
 > In this Python Django Tutorial, we will be creating a user profile that extends the built-in Django User model. We will then use this user profile to store profile pictures for each user. We will also be learning how to set the MEDIA_ROOT, MEDIA_URL, and also make our static files accessible through our URL patterns. Finally, we will create a receiver function for a Django signal that will make sure our profiles are created when a user first registers. Let's get started...
 
 #### 1. Creating a new model (class) (`Profile`) which extends the Django's `User` model, in order to add a `pic` field.
-   *Django's default `User` model, doesn't have a field for profile pic, so we can extend the (`User`) model, and add whatever fields we want to the extended model (named `Profile`).*
-   1. In order to use `models.ImageField`,
-      ```bash
-      pip install Pillow
-      ```
-   2. [#5.2](#2-in-order-to-update-the-db-with-the-changes-rerun-the-two-migration-commands-41) (Run Migrations)
-   3. [#5.5](#5-dont-forget-to-register-newly-created-models-to-adminpy-so-that-they-show-up-on-admin-site) (Register Model)
+- *Django's default `User` model, doesn't have a field for profile pic, so we can extend the (`User`) model, and add whatever fields we want to the extended model (named `Profile`).*
+1. In order to use `models.ImageField`,
+   ```bash
+   pip install Pillow
+   ```
+2. [#5.2](#2-in-order-to-update-the-db-with-the-changes-rerun-the-two-migration-commands-41) (Run Migrations)
+3. [#5.5](#5-dont-forget-to-register-newly-created-models-to-adminpy-so-that-they-show-up-on-admin-site) (Register Model)
 
 #### 2. Changing where the media is saved & from what url it can be accessed by adding the `MEDIA_ROOT` & `MEDIA_URL` respectively in `settings.py`.
-   *By default, `MEDIA_ROOT` is the base dir of our project, so if different models started making different dirs at the base dir, then it will be cluttered up.*
+- *By default, `MEDIA_ROOT` is the base dir of our project, so if different models started making different dirs at the base dir, then it will be cluttered up.*
+
+#### 3. [Querying](Screenshots/DB%20Queries/Profile) the `Profile` model using `User` model (as they're connected/linked by `OneToOneField`).
+1. But no profiles exist currently, so, first add a few from the admin page (as we've not implemented "when the user is created, profile is created with it" yet).
+
+#### 4. 

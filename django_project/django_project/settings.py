@@ -146,5 +146,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'Media')  # joins the path flawlessly indepe
 # `BASE_DIR`: Full path to our project's base dir.
 # (For performance reasons, these files are saved in the file system and not in the DB. ())
 
-# URL at which all the media files will be accessed in the browser:
+# URL from which the media files will be accessed in the browser:
 MEDIA_URL = '/media/'
