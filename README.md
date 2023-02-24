@@ -241,4 +241,15 @@ pip install -r requirements.txt
 3. Adding [Corey's styles](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/snippets/main.css) (to the `static` dir) so that profile page look right.
 4. Adding the default profile pic. (Remember? Check [`Profile`](django_project/users/models.py))
 
-#### 5. 
+*- x - Till [26:18](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=8&ab_channel=CoreySchafer&t=1578) - x -*
+
+#### 5. Using Signals: Set to auto create the Profile (with the default profile pic) whenever a new user is created.
+- *Till now, we were adding the pic from the admin page only.*
+- **But, why are we doing all this? Wouldn't an image (profile pic) input field in the `RegistrationForm` itself be way better!?**
+
+
+### 9. []()
+
+> 
+
+#### 1.

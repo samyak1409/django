@@ -4,15 +4,14 @@
 
   <div class="content-section">
     <!-- Note that the `user` is passed by Django automatically. -->
-    <div class="media row g-0">
+    <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
+    <div class="d-flex">
       <img class="rounded-circle account-img" src="{{ user.profile.pic.url }}">  <!-- As we saw while querying Profile. -->
-      <div class="media-body col">
+      <div>
         <h2 class="account-heading">{{ user.username }}</h2>
         <p class="text-secondary">{{ user.email }}</p>
       </div>
     </div>
-    <!-- Note that added `row g-0` & `col` from https://getbootstrap.com/docs/5.3/components/card/#horizontal, because
-    without that, only using corey's markup, username and email weren't showing in the right to the profile pic. -->
   </div>
 
 {% endblock content %}
