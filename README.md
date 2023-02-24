@@ -124,7 +124,7 @@ pip install -r requirements.txt
    ```bash
    python manage.py shell
    ```
-   *See the queries in [`Screenshots/DB Queries`](Screenshots/DB%20Queries) folder.*
+   *See the queries in [`Screenshots/DB Queries/Post`](Screenshots/DB%20Queries/Post) folder.*
 
 #### 4. Passing the real data from DB in the views to the template.
    *[Formatting the date](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#date) as we want.*
@@ -227,4 +227,5 @@ pip install -r requirements.txt
    2. [#5.2](#2-in-order-to-update-the-db-with-the-changes-rerun-the-two-migration-commands-41) (Run Migrations)
    3. [#5.5](#5-dont-forget-to-register-newly-created-models-to-adminpy-so-that-they-show-up-on-admin-site) (Register Model)
 
-#### 2. 
+#### 2. Changing where the media is saved & from what url it can be accessed by adding the `MEDIA_ROOT` & `MEDIA_URL` respectively in `settings.py`.
+   *By default, `MEDIA_ROOT` is the base dir of our project, so if different models started making different dirs at the base dir, then it will be cluttered up.*
