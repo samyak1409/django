@@ -254,7 +254,18 @@ pip install -r requirements.txt
 
 #### 1. For giving the option of updating username, email, and profile pic:
 1. Creating 2 update forms (extending `forms.ModelForm`) in `forms.py`. (for `User` & `Profile` model)
-2. Add the forms in `views.py` and pass to the template through `context`.
+2. Add the forms in `profile` view and pass to the template through `context`.
 3. Update template with the 2 forms in the `form` HTML tag.
    1. Don't forget to add `enctype="multipart/form-data"` in `form`. (for passing image data properly)
-4. 
+4. Update the `profile` view to handle the post request. (same as [#6.4](#4-submitting-form-using-post-request-validating-form-creating-account-saving-the-data-to-the-db-and-displaying-flash-messages))
+
+#### 2. 
+
+
+## TODOs
+
+*Some features which were not covered in the tutorial but needs to be implemented.*
+
+1. After updating the profile pic, old one should be deleted from the file system.
+
+2. If the profile pic is not square, it shouldn't look shrunk on the website.
