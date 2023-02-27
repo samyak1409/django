@@ -1,17 +1,48 @@
 {% extends 'blog/base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
   <div class="content-section">
+
     <!-- Note that the `user` is passed by Django automatically. -->
     <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
     <div class="d-flex">
+
       <img class="rounded-circle account-img" src="{{ user.profile.pic.url }}">  <!-- As we saw while querying Profile. -->
+
       <div>
         <h2 class="account-heading">{{ user.username }}</h2>
         <p class="text-secondary">{{ user.email }}</p>
       </div>
+
     </div>
+
+    <!-- Form: -->
+    <form method="post" enctype="multipart/form-data">
+
+      {% csrf_token %}  <!-- Must be here. Adds security. (https://youtu.be/q4jPR-M0TAQ?t=512) -->
+
+      <fieldset class="form-group">
+
+        <!-- Heading: -->
+        <legend class="border-bottom mb-4">Profile Info</legend>
+
+        <!-- Form Inputs (User & Profile (see forms.py)): -->
+        {{ u_form|crispy }}
+        {{ p_form|crispy }}
+        <!-- We're putting both the form fields under one HTML form, so it'll look like a single form only. -->
+
+      </fieldset>
+
+      <!-- Submit Button: -->
+      <div class="form-group">
+        <button class="btn btn-outline-info mb-4" type="submit">Update</button>
+      </div>
+
+    </form>
+
   </div>
 
 {% endblock content %}

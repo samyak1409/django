@@ -245,11 +245,16 @@ pip install -r requirements.txt
 
 #### 5. Using Signals: Set to auto create the Profile (with the default profile pic) whenever a new user is created.
 - *Till now, we were adding the pic from the admin page only.*
-- **But, why are we doing all this? Wouldn't an image (profile pic) input field in the `RegistrationForm` itself be way better!?**
+- **But, why are we doing all this? Wouldn't an image (profile pic) input field in the `RegistrationForm` itself be way better method!?**
 
 
 ### 9. [Python Django Tutorial: Full-Featured Web App Part 9 - Update User Profile](https://www.youtube.com/watch?v=CQ90L5jfldw&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=9&ab_channel=CoreySchafer)
 
 > In this Python Django Tutorial, we will be finishing our user profile page. The final page will allow users to update their information and also add a new profile picture. We will also learn how to resize this image when it is uploaded to save space on our web server. Let's get started...
 
-#### 1. 
+#### 1. For giving the option of updating username, email, and profile pic:
+1. Creating 2 update forms (extending `forms.ModelForm`) in `forms.py`. (for `User` & `Profile` model)
+2. Add the forms in `views.py` and pass to the template through `context`.
+3. Update template with the 2 forms in the `form` HTML tag.
+   1. Don't forget to add `enctype="multipart/form-data"` in `form`. (for passing image data properly)
+4. 
