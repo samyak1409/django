@@ -10,10 +10,12 @@
     <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
     <div class="d-flex">
 
-      <img class="rounded-circle account-img" src="{{ user.profile.pic.url }}">  <!-- As we saw while querying Profile. -->
+      <!-- "object-fit-cover": https://github.com/samyak1409/django/blob/main/HTML%20&%20CSS/1.%20HTML/1.%20Programming%20with%20Mosh/11.%20Images/index.html#L13, https://getbootstrap.com/docs/5.3/utilities/object-fit -->
+      <img class="account-img rounded-circle object-fit-cover" src="{{ user.profile.pic.url }}" alt="">
+      <!-- `user.profile.pic.url`: As we saw while querying Profile. -->
 
       <div>
-        <h2 class="account-heading">{{ user.username }}</h2>
+        <h2>{{ user.username }}</h2>
         <p class="text-secondary">{{ user.email }}</p>
       </div>
 

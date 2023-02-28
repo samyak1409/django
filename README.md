@@ -261,7 +261,14 @@ pip install -r requirements.txt
 
 #### 2. Override the `save` method in `Profile` model in order to resize whenever a large pic is uploaded.
 
-#### 3. 
+#### 3. Add the profile pics on the home page.
+
+
+### 10. []()
+
+> 
+
+#### 1. 
 
 
 ## TODOs
@@ -269,5 +276,3 @@ pip install -r requirements.txt
 *Some features which were not covered in the tutorial but needs to be implemented.*
 
 1. After updating the profile pic, old one should be deleted from the file system.
-
-2. If the inputted profile pic is not square, crop it to square so that it doesn't look shrunk on the website.

@@ -3,14 +3,21 @@
 {% block content %}
 
   {% for post in posts %}
-    <!-- Posts as Cards (https://getbootstrap.com/docs/5.3/components/card/#titles-text-and-links): -->
-    <div class="card mb-1 mt-1">
-      <div class="card-body">
-        <h2 class="card-title">{{ post.title }}</h2>
-        <p class="card-subtitle mb-2 text-muted">By {{ post.author }} on {{ post.date_posted|date:"F d, Y" }}</p>
-        <p class="card-text">{{ post.content }}</p>
+    <div class="content-section">
+      <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
+      <div class="d-flex">
+
+        <!-- "object-fit-cover": https://github.com/samyak1409/django/blob/main/HTML%20&%20CSS/1.%20HTML/1.%20Programming%20with%20Mosh/11.%20Images/index.html#L13, https://getbootstrap.com/docs/5.3/utilities/object-fit -->
+        <img class="article-img rounded-circle object-fit-cover" src="{{ post.author.profile.pic.url }}" alt="">
+
+        <div>
+          <h2>{{ post.title }}</h2>
+          <p class="text-secondary">By {{ post.author }} on {{ post.date_posted|date:"F d, Y" }}</p>
+          <p>{{ post.content }}</p>
+        </div>
+
       </div>
-    </div>
+   </div>
   {% endfor %}
 
 {% endblock content %}
