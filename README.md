@@ -259,7 +259,9 @@ pip install -r requirements.txt
    1. Don't forget to add `enctype="multipart/form-data"` in `form`. (for passing image data properly)
 4. Update the `profile` view to handle the post request. (same as [#6.4](#4-submitting-form-using-post-request-validating-form-creating-account-saving-the-data-to-the-db-and-displaying-flash-messages))
 
-#### 2. 
+#### 2. Override the `save` method in `Profile` model in order to resize whenever a large pic is uploaded.
+
+#### 3. 
 
 
 ## TODOs
@@ -268,4 +270,4 @@ pip install -r requirements.txt
 
 1. After updating the profile pic, old one should be deleted from the file system.
 
-2. If the profile pic is not square, it shouldn't look shrunk on the website.
+2. If the inputted profile pic is not square, crop it to square so that it doesn't look shrunk on the website.

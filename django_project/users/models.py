@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
 
 
 # Create your models here.
@@ -20,3 +21,12 @@ class Profile(models.Model):
     # (You should already know what the following is for.)
     def __str__(self):
         return f'{self.user.username} Profile'
+
+    # Override save method in order to resize whenever a large pic is uploaded:
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)  # call the parent's `save` method which saves the pic
+
+        img = Image.open(self.pic.path)  # then open the pic
+        if img.width > 720 or img.height > 720:  # check size, if big:
+            img.thumbnail(size=(720, 720))  # resize
+            img.save(self.pic.path)  # overwrite to the same path
