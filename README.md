@@ -199,7 +199,7 @@ pip install -r requirements.txt
 
 > In this Python Django Tutorial, we will be learning how to create an authentication system for our application so that users can log in and log out. We are also going to see how we can restrict certain pages so that users must be logged-in in order to access the page. Let's get started...
 
-#### 1. Using Django's builtin login & logout views. (`LoginView`, `LogoutView`)
+#### 1. Using Django's builtin login & logout [class-based views](django_project/django_project/urls.py#L9). (`LoginView`, `LogoutView`)
 - *Will handle forms, logic, and all of that stuff for us, but it's not going to handle the templates, which is good because we want to make the templates anyway, so that they match the look & style of our current website.*
 
 #### 2. Make login template, and set `LOGIN_REDIRECT_URL` in `settings.py`.
@@ -268,11 +268,23 @@ pip install -r requirements.txt
 
 > In this Python Django Tutorial, we will be learning how to use class-based views in order to create, update, and delete posts. These class-based views are very convenient once we get used to using them properly. Let's get started...
 
-#### 1. 
+*We'll be using some Django builtin [class-based views](django_project/django_project/urls.py#L9) for adding [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) posts functionality.
+There are many class-based views (see `django.views.generic.__all__`), here we'll be using following ones:
+`CreateView`, `DetailView`, `UpdateView`, `DeleteView`, `ListView`*
+
+#### 1. Removed function view `home`, & created class-based view `PostListView` for homepage.
+1. Configured some variable names.
+2. Changed the ordering of the posts list.
+3. Don't forget to change view in `urlpatterns` in `urls.py`.
+- *And we're done! No need to query the DB, render the template etc. (like we're doing when using function view `home`)*.
+
+#### 2. 
 
 
 ## TODOs
 
 *Some features which were not covered in the tutorial but needs to be implemented.*
 
-1. After updating the profile pic, old one should be deleted from the file system.
+1. Time should be displayed in local time.
+
+2. After updating the profile pic, old one should be deleted from the file system.
