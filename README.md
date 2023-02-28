@@ -264,9 +264,9 @@ pip install -r requirements.txt
 #### 3. Add the profile pics on the home page.
 
 
-### 10. []()
+### 10. [Python Django Tutorial: Full-Featured Web App Part 10 - Create, Update, and Delete Posts](https://www.youtube.com/watch?v=-s7e_Fy6NRU&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=10&ab_channel=CoreySchafer)
 
-> 
+> In this Python Django Tutorial, we will be learning how to use class-based views in order to create, update, and delete posts. These class-based views are very convenient once we get used to using them properly. Let's get started...
 
 #### 1. 
 
