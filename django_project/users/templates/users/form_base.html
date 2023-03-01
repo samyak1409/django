@@ -20,18 +20,14 @@
 
       <!-- Submit Button: -->
       <div class="form-group">
-        <button class="btn btn-outline-info mb-4" type="submit">{% block btn_txt %}{% endblock %}</button>
+        <button class="btn btn-outline-info mb-2" type="submit">{% block btn_txt %}{% endblock %}</button>
       </div>
 
     </form>
 
     <!-- For already-registered / new users: -->
-    <div class="border-top pt-3">
-      <small class="text-muted">
-        {% block link_to_other_auth %}
-        {% endblock %}
-      </small>
-    </div>
+    {% block other_auth %}
+    {% endblock %}
 
   </div>
 

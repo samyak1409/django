@@ -272,18 +272,26 @@ pip install -r requirements.txt
 There are many class-based views (see `django.views.generic.__all__`), here we'll be using following ones:
 `CreateView`, `DetailView`, `UpdateView`, `DeleteView`, `ListView`*
 
-#### 1. Removed function view `home`, & created class-based view `PostListView` for homepage.
+#### 1. Removed function view `home`, & created class-based view `PostListView` for homepage. (List Posts Functionality)
 1. Configured some variable names.
 2. Changed the ordering of the posts list.
-3. Don't forget to change view in `urlpatterns` in `urls.py`.
+3. Changed view in `urlpatterns` in `urls.py`.
 - *And we're done! No need to query the DB, render the template etc. (like we were doing while using function view `home`)*.
 
-#### 2. Dedicated Post Page
+#### 2. Dedicated Post Page (Read Post Functionality)
 1. Created `PostDetailView`.
 2. Added url pattern, with variable in the pattern. (`'/post/<int:pk>/'`)
 3. Created template `post_detail.html`.
 
-#### 3. 
+#### 3. Create Post Functionality
+1. Created `PostCreateView` & route url.
+2. Created template `post_form` (inherited from `users/form_base.html`).
+3. In view, override `form_valid` method in order to set the author for the post we're creating to the current logged-in user.
+- *With that in place, post can be created successfully, but `success_url` is not defined yet, which means, at what url to go once the post creation is successful. (Post will be created, but after that, an error will be raised.)*
+4. Defining `get_absolute_url` method in `Post` model, which will be used by `PostCreateView` to redirect to that url.
+5. One last thing, like [#7.5](#5-restrict-going-to-profile-if-not-authenticated-logged-in-using-djangocontribauthdecoratorslogin_required-decorator), for class-based views, we have to use `django.contrib.auth.mixins.LoginRequiredMixin`.
+
+#### 4. 
 
 
 ## TODOs

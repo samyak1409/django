@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import PostListView, PostDetailView
+from .views import PostListView, PostDetailView, PostCreateView
 
 urlpatterns = [
     # path('', views.home, name='home'),  # function view
@@ -15,6 +15,10 @@ urlpatterns = [
     # name DetailView expects
     # 3) then, pk var is passed into our PostDetailView, and then the particular post is rendered on the page.
     # Simple!
+
+    path('post/new/', PostCreateView.as_view(), name='create'),
+    # template_name: you might think that for this one it should be post_create, but this one will actually share a
+    # template with the UpdateView, so Django expect this template to be the name f'{model_name}_form'
 
     path('about/', views.about, name='about'),
 ]

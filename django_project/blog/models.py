@@ -1,6 +1,7 @@
 from django.db import models
 # from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 # Create your models here.
@@ -54,6 +55,11 @@ class Post(models.Model):
     # You must know what this is for: (Hint: OOP Course from Corey)
     def __str__(self):
         return self.title
+
+    # For `PostCreateView`, to redirect on after successful post creation:
+    def get_absolute_url(self):
+        return reverse(viewname='read', kwargs={'pk': self.pk})  # 'read': name of PostDetailView, so after a post is
+        # created, created post only will be opened.
 
 
 # https://youtu.be/aHC3uTkT9r8?t=466

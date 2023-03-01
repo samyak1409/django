@@ -1,4 +1,4 @@
-{% extends 'users/auth_base.html' %}
+{% extends 'users/form_base.html' %}
 
 <!-- Heading Text: -->
 {% block heading %}Log In{% endblock %}
@@ -6,6 +6,10 @@
 {% block btn_txt %}Log In{% endblock %}
 
 <!-- Link to Register Page: -->
-{% block link_to_other_auth %}
-  Don't have an account? <a class="ml-2" href="{% url 'register' %}">Register</a>
+{% block other_auth %}
+  <div class="border-top pt-3 mt-3 mb-2">
+    <small class="text-muted">
+      Don't have an account? <a class="ml-2" href="{% url 'register' %}">Register</a>
+    </small>
+  </div>
 {% endblock %}

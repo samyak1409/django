@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Post
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
@@ -43,6 +44,18 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
 
     model = Post  # which model to query to show the list
+
+
+class PostCreateView(LoginRequiredMixin, CreateView):
+
+    model = Post  # which model to query to show the list
+
+    fields = ['title', 'content']  # fields which are going to be there in the form
+
+    # Overriding in order to set the author:
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 def about(request):
