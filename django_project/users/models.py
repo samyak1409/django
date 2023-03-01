@@ -24,6 +24,7 @@ class Profile(models.Model):
 
     # Override save method in order to resize whenever a large pic is uploaded (to save space):
     def save(self, *args, **kwargs):
+
         super().save(*args, **kwargs)  # call the parent's `save` method which saves the pic
 
         img = Image.open(self.pic.path)  # then open the pic

@@ -245,7 +245,7 @@ pip install -r requirements.txt
 
 #### 5. Using Signals: Set to auto create the Profile (with the default profile pic) whenever a new user is created.
 - *Till now, we were adding the pic from the admin page only.*
-- **But, why are we doing all this? Wouldn't an image (profile pic) input field in the `RegistrationForm` itself be way better method!?**
+- **But, why are we doing all this? Wouldn't an image (profile pic) input field in the `RegistrationForm` itself be a way better method!?**
 
 
 ### 9. [Python Django Tutorial: Full-Featured Web App Part 9 - Update User Profile](https://www.youtube.com/watch?v=CQ90L5jfldw&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=9&ab_channel=CoreySchafer)
@@ -306,9 +306,9 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 #### 6. Add Create link in the navbar (`if user.is_authenticated`), and Update & Delete buttons in the dedicated post pages (`if user == object.author`).
 
 
-### 11. []()
+### 11. [Python Django Tutorial: Full-Featured Web App Part 11 - Pagination](https://www.youtube.com/watch?v=acOktTcTVEQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=11&ab_channel=CoreySchafer)
 
->
+> In this Python Django Tutorial, we will be learning how to use pagination so that we aren't pulling down too many posts at once. We will also learn how to create a page for posts created by a specific user. Let's get started...
 
 #### 1. 
 
