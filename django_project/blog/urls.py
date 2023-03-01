@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView
 
 urlpatterns = [
     # path('', views.home, name='home'),  # function view
@@ -21,6 +21,8 @@ urlpatterns = [
     # template with the UpdateView, so Django expect this template to be the name f'{model_name}_form'
 
     path('post/<int:pk>/edit/', PostUpdateView.as_view(), name='update'),
+
+    path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='delete'),
 
     path('about/', views.about, name='about'),
 ]

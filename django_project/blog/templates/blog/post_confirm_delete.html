@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+  <div class="content-section">
+    <!-- Form: -->
+    <form method="post">
+
+      {% csrf_token %}  <!-- Must be here. Adds security. (https://youtu.be/q4jPR-M0TAQ?t=512) -->
+
+      <fieldset class="form-group">
+        <!-- Heading: -->
+        <legend class="border-bottom mb-4">Delete Post</legend>
+        <p>Are you sure you want to delete the post "{{ object.title }}"?</p>
+      </fieldset>
+
+      <!-- Submit Button: -->
+      <div class="form-group">
+        <button class="btn btn-outline-danger mb-2" type="submit">Yes, Delete</button>
+        <a class="btn btn-outline-secondary mb-2" href="{% url 'read' object.id %}">Cancel</a>
+      </div>
+
+    </form>
+  </div>
+
+{% endblock content %}

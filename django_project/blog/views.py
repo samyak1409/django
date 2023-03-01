@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Post
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
@@ -69,6 +69,17 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     extra_context = {'heading': 'Edit Post'}  # not sure is this is the standard way or not, using for view-specific
     # heading and button text
+
+    # UserPassesTestMixin: Deny a request with a permission error if the test_func() method returns False.
+    def test_func(self):
+        return self.request.user == self.get_object().author  # self.get_object(): will return current post
+
+
+class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+
+    model = Post  # which model to query to show the list
+
+    success_url = '/'  # after successful deletion, redirection will be done to this url
 
     # UserPassesTestMixin: Deny a request with a permission error if the test_func() method returns False.
     def test_func(self):

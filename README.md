@@ -60,7 +60,7 @@ pip install -r requirements.txt
   python manage.py startapp blog
   ```
 
-#### 2. Initialize view(s), route URL(s).
+#### 2. Initialize view(s), route url(s).
 
 
 ### 3. [Python Django Tutorial: Full-Featured Web App Part 3 - Templates](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer)
@@ -295,9 +295,13 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 1. Created `PostUpdateView` & routed url.
 2. Now, `CreateView` & `UpdateView` uses the same template, so, passed `heading` through `extra_context` from the views themselves.
 - *With that in place, posts can be updated successfully.*
-3. Here, we need not only `django.contrib.auth.mixins.LoginRequiredMixin`, but also `django.contrib.auth.mixins.UserPassesTestMixin` (& override `test_func`), using that we forbid users to update the posts they're not the author of.
+3. Here, we need not only `LoginRequiredMixin`, but also `UserPassesTestMixin` (& override `test_func`), using that we forbid users to update the posts they're not the author of.
 
-#### 5. 
+#### 5. Delete Post Functionality
+1. Created `PostDeleteView` w/ `LoginRequiredMixin` & `UserPassesTestMixin` (& same `test_func`), routed url.
+2. Created `post_confirm_delete.html`. (It will be just a confirmation form, where submit button will lead to post deletion.)
+3. Set `success_url` in view. (Url to redirect on after deleting the post.)
+- *Now, posts can be deleted successfully!*
 
 
 ## TODOs
