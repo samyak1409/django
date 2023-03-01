@@ -303,6 +303,15 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 3. Set `success_url` in view. (Url to redirect on after deleting the post.)
 - *Now, posts can be deleted successfully!*
 
+#### 6. Add Create link in the navbar (`if user.is_authenticated`), and Update & Delete buttons in the dedicated post pages (`if user == object.author`).
+
+
+### 11. []()
+
+>
+
+#### 1. 
+
 
 ## TODOs
 

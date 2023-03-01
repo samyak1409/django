@@ -11,9 +11,14 @@
         <img class="article-img rounded-circle object-fit-cover" src="{{ post.author.profile.pic.url }}" alt="">
 
         <div>
+
+          <!-- Post Meta Data: -->
           <h2><a class="article-title" href="{% url 'read' post.id %}">{{ post.title }}</a></h2>
-          <p class="text-secondary">By {{ post.author }} on {{ post.date_posted }}</p>
-          <p>{{ post.content }}</p>
+          <p class="text-secondary mb-1">By {{ post.author }} on {{ post.date_posted }}</p>
+
+          <!-- Content: -->
+          <p class="border-top pt-3 mb-2">{{ post.content }}</p>
+
         </div>
 
       </div>

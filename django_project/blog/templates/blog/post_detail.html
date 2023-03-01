@@ -10,9 +10,22 @@
       <img class="article-img rounded-circle object-fit-cover" src="{{ object.author.profile.pic.url }}" alt="">
 
       <div>
+
+        <!-- Post Meta Data: -->
         <h2 class="article-title">{{ object.title }}</h2>
-        <p class="text-secondary">By {{ object.author }} on {{ object.date_posted }}</p>
-        <p>{{ object.content }}</p>
+        <p class="text-secondary mb-1">By {{ object.author }} on {{ object.date_posted }}</p>
+
+        <!-- Edit & Delete Buttons: -->
+        {% if user == object.author %}
+          <div class="mt-2 mb-2">
+            <a class="btn btn-secondary" href="{% url 'update' object.id %}">Edit</a>
+            <a class="btn btn-danger" href="{% url 'delete' object.id %}">Delete</a>
+          </div>
+        {% endif %}
+
+        <!-- Content: -->
+        <p class="border-top pt-3 mb-2">{{ object.content }}</p>
+
       </div>
 
     </div>
