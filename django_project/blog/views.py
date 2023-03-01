@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Post
-from django.views.generic import ListView, DetailView, CreateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 # Create your views here.
@@ -52,10 +52,27 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     fields = ['title', 'content']  # fields which are going to be there in the form
 
+    extra_context = {'heading': 'New Post'}  # not sure is this is the standard way or not, using for view-specific
+    # heading and button text
+
     # Overriding in order to set the author:
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+
+    model = Post  # which model to query to show the list
+
+    fields = ['title', 'content']  # fields which are going to be there in the form
+
+    extra_context = {'heading': 'Edit Post'}  # not sure is this is the standard way or not, using for view-specific
+    # heading and button text
+
+    # UserPassesTestMixin: Deny a request with a permission error if the test_func() method returns False.
+    def test_func(self):
+        return self.request.user == self.get_object().author  # self.get_object(): will return current post
 
 
 def about(request):

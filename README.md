@@ -284,14 +284,20 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 3. Created template `post_detail.html`.
 
 #### 3. Create Post Functionality
-1. Created `PostCreateView` & route url.
+1. Created `PostCreateView` & routed url.
 2. Created template `post_form` (inherited from `users/form_base.html`).
 3. In view, override `form_valid` method in order to set the author for the post we're creating to the current logged-in user.
 - *With that in place, post can be created successfully, but `success_url` is not defined yet, which means, at what url to go once the post creation is successful. (Post will be created, but after that, an error will be raised.)*
 4. Defining `get_absolute_url` method in `Post` model, which will be used by `PostCreateView` to redirect to that url.
-5. One last thing, like [#7.5](#5-restrict-going-to-profile-if-not-authenticated-logged-in-using-djangocontribauthdecoratorslogin_required-decorator), for class-based views, we have to use `django.contrib.auth.mixins.LoginRequiredMixin`.
+5. One last thing, like [#7.5](#5-restrict-going-to-profile-if-not-authenticated-logged-in-using-djangocontribauthdecoratorslogin_required-decorator), for class-based views, we have to use `django.contrib.auth.mixins.LoginRequiredMixin`. (Posts shouldn't be created anonymously.)
 
-#### 4. 
+#### 4. Update Post Functionality
+1. Created `PostUpdateView` & routed url.
+2. Now, `CreateView` & `UpdateView` uses the same template, so, passed `heading` through `extra_context` from the views themselves.
+- *With that in place, posts can be updated successfully.*
+3. Here, we need not only `django.contrib.auth.mixins.LoginRequiredMixin`, but also `django.contrib.auth.mixins.UserPassesTestMixin` (& override `test_func`), using that we forbid users to update the posts they're not the author of.
+
+#### 5. 
 
 
 ## TODOs

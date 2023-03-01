@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import PostListView, PostDetailView, PostCreateView
+from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView
 
 urlpatterns = [
     # path('', views.home, name='home'),  # function view
@@ -19,6 +19,8 @@ urlpatterns = [
     path('post/new/', PostCreateView.as_view(), name='create'),
     # template_name: you might think that for this one it should be post_create, but this one will actually share a
     # template with the UpdateView, so Django expect this template to be the name f'{model_name}_form'
+
+    path('post/<int:pk>/edit/', PostUpdateView.as_view(), name='update'),
 
     path('about/', views.about, name='about'),
 ]
