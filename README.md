@@ -259,7 +259,7 @@ pip install -r requirements.txt
    1. Don't forget to add `enctype="multipart/form-data"` in `form`. (for passing image data properly)
 4. Update the `profile` view to handle the post request. (same as [#6.4](#4-submitting-form-using-post-request-validating-form-creating-account-saving-the-data-to-the-db-and-displaying-flash-messages))
 
-#### 2. Override the `save` method in `Profile` model in order to resize whenever a large pic is uploaded.
+#### 2. Override the `save` method in `Profile` model in order to resize whenever a large pic is uploaded for saving space.
 
 #### 3. Add the profile pics on the home page.
 
@@ -276,9 +276,14 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 1. Configured some variable names.
 2. Changed the ordering of the posts list.
 3. Don't forget to change view in `urlpatterns` in `urls.py`.
-- *And we're done! No need to query the DB, render the template etc. (like we're doing when using function view `home`)*.
+- *And we're done! No need to query the DB, render the template etc. (like we were doing while using function view `home`)*.
 
-#### 2. 
+#### 2. Dedicated Post Page
+1. Created `PostDetailView`.
+2. Added url pattern, with variable in the pattern. (`'/post/<int:pk>/'`)
+3. Created template `post_detail.html`.
+
+#### 3. 
 
 
 ## TODOs

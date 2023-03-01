@@ -1,0 +1,21 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+  <div class="content-section">
+    <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
+    <div class="d-flex">
+
+      <!-- "object-fit-cover": https://github.com/samyak1409/django/blob/main/HTML%20&%20CSS/1.%20HTML/1.%20Programming%20with%20Mosh/11.%20Images/index.html#L13, https://getbootstrap.com/docs/5.3/utilities/object-fit -->
+      <img class="article-img rounded-circle object-fit-cover" src="{{ object.author.profile.pic.url }}" alt="">
+
+      <div>
+        <h2 class="article-title">{{ object.title }}</h2>
+        <p class="text-secondary">By {{ object.author }} on {{ object.date_posted }}</p>
+        <p>{{ object.content }}</p>
+      </div>
+
+    </div>
+ </div>
+
+{% endblock content %}

@@ -1,5 +1,4 @@
 .content-section {
-  background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -18,4 +17,13 @@
   width: 65px;
   margin-right: 16px;
   margin-top: 4px;
+}
+
+.article-title {
+  color: #444444;
+  text-decoration: none;
+}
+
+a.article-title:hover {
+  color: #428bca;
 }

@@ -22,7 +22,7 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    # Override save method in order to resize whenever a large pic is uploaded:
+    # Override save method in order to resize whenever a large pic is uploaded (to save space):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)  # call the parent's `save` method which saves the pic
 

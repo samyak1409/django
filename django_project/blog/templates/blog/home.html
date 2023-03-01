@@ -11,7 +11,7 @@
         <img class="article-img rounded-circle object-fit-cover" src="{{ post.author.profile.pic.url }}" alt="">
 
         <div>
-          <h2>{{ post.title }}</h2>
+          <h2><a class="article-title" href="{% url 'read' post.id %}">{{ post.title }}</a></h2>
           <p class="text-secondary">By {{ post.author }} on {{ post.date_posted }}</p>
           <p>{{ post.content }}</p>
         </div>

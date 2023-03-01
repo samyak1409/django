@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Post
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 
 # Create your views here.
@@ -38,6 +38,11 @@ class PostListView(ListView):
 
     ordering = ['-date_posted']  # show the objects in reverse order because we want the latest post to show on the top
     # that's how it should be, just think how would it be the other way around
+
+
+class PostDetailView(DetailView):
+
+    model = Post  # which model to query to show the list
 
 
 def about(request):
