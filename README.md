@@ -125,7 +125,7 @@ pip install -r requirements.txt
 - ```bash
   python manage.py shell
   ```
-  See the queries in [`Screenshots/DB Queries/Post`](Screenshots/DB%20Queries/Post) folder.
+  See the queries in [`Resources/DB Queries/Post`](Resources/DB%20Queries/Post) folder.
 
 #### 4. Passing the real data from DB in the views to the template.
 - *[Formatting the date](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#date) as we want.*
@@ -231,7 +231,7 @@ pip install -r requirements.txt
 #### 2. Changing where the media is saved & from what url it can be accessed by adding the `MEDIA_ROOT` & `MEDIA_URL` respectively in `settings.py`.
 - *By default, `MEDIA_ROOT` is the base dir of our project, so if different models started making different dirs at the base dir, then it will be cluttered up.*
 
-#### 3. [Querying](Screenshots/DB%20Queries/Profile) the `Profile` model using `User` model (as they're connected/linked by `OneToOneField`).
+#### 3. [Querying](Resources/DB%20Queries/Profile) the `Profile` model using `User` model (as they're connected/linked by `OneToOneField`).
 1. But no profiles exist currently, so, first add a few from the admin page (as we've not implemented "when the user is created, profile is created with it" yet).
 
 #### 4. Now, the main part, Showing profile pic on the profile page.
@@ -310,9 +310,11 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 > In this Python Django Tutorial, we will be learning how to use pagination so that we aren't pulling down too many posts at once. We will also learn how to create a page for posts created by a specific user. Let's get started...
 
-#### 1. First, running an automation [script](Creating%20Sample%20Posts/code.py), which will create some sample posts (so that we can see pagination better).
+#### 1. First, running an automation [script](Resources/Creating%20Sample%20Posts/code.py), which will create some sample posts (so that we can see pagination better).
 
-#### 2. 
+#### 2. [See](Resources/Paginator) the `Paginator` object.
+
+#### 3. 
 
 
 ## TODOs
