@@ -40,7 +40,7 @@ class PostListView(ListView):
     ordering = ['-date_posted']  # show the objects in reverse order because we want the latest post to show on the top
     # that's how it should be, just think how would it be the other way around
 
-    paginate_by = 2  # no. of posts to show on a single page
+    paginate_by = 5  # no. of posts to show on a single page
 
 
 class PostDetailView(DetailView):

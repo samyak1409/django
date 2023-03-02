@@ -321,7 +321,10 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
   where `x` = no. of posts to show on a single page
 - *And now max `x` posts will be visible on a single page, and other can be viewed on `?page=2` and so on.*
 
-#### 4. 
+#### 4. Like before (read comment of [#7.1](#1-using-djangos-builtin-login--logout-class-based-views-loginview-logoutview)), we only need to add template-part of pagination, i.e., links to go to other pages.
+- *(Implemented my own logic of what links should be shown.)*
+
+#### 5. 
 
 
 ## TODOs
