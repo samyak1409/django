@@ -310,7 +310,9 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 > In this Python Django Tutorial, we will be learning how to use pagination so that we aren't pulling down too many posts at once. We will also learn how to create a page for posts created by a specific user. Let's get started...
 
-#### 1. 
+#### 1. First, running an automation [script](Creating%20Sample%20Posts/code.py), which will create some sample posts (so that we can see pagination better).
+
+#### 2. 
 
 
 ## TODOs
