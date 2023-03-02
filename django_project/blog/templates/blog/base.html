@@ -34,8 +34,7 @@
 
           <!-- Brand Image & Text (https://getbootstrap.com/docs/5.3/components/navbar/?#image-and-text): -->
           <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Django_logo.svg/180px-Django_logo.svg.png" alt="Django" height="30" class="d-inline-block align-text-top">
-            Blog
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Django_logo.svg/180px-Django_logo.svg.png" alt="Django" height="30" class="d-inline-block align-text-top"> Blog
           </a>
 
           <!-- Navbar collapse behind a button for small screens (https://getbootstrap.com/docs/5.3/components/navbar/?#toggler): -->
@@ -49,16 +48,13 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
-              <!-- Django provides `user` functionality by default, so that we can check if the user is logged in or not. (https://youtu.be/3aVqWaLjqS4?t=1100) -->
+              <!-- Django passes `user` context var by default, where it's the current logged-in user. (https://youtu.be/3aVqWaLjqS4?t=1100) -->
               {% if user.is_authenticated %}
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'create' %}">New Post</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'profile' %}">Your Profile</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
                 </li>
               {% else %}
                 <li class="nav-item">
@@ -117,7 +113,7 @@
           <span class="navbar-text">
             Made with ❤ by Samyak
           </span>
-          <a class="text-muted" href="https://github.com/samyak1409/django" target="_blank">
+          <a href="https://github.com/samyak1409/django" target="_blank">
             <img src="https://icons.getbootstrap.com/assets/icons/github.svg" alt="GitHub" width="24">
           </a>
         </div>

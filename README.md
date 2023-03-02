@@ -206,7 +206,7 @@ pip install -r requirements.txt
 - *With that in place, users are actually being logged in! We just need to add some visual feedback (next point) for the same.*
 1. And logout template.
 
-#### 3. Changing the nav bar links b/w login & logout depending on if the user is authenticated or not (using `user.is_authenticated`).
+#### 3. Changing the nav bar links depending on if `user.is_authenticated` or not.
 
 #### 4. Create `Profile` url, view, template.
 
@@ -322,15 +322,25 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 - *And now max `x` posts will be visible on a single page, and other can be viewed on `?page=2` and so on.*
 
 #### 4. Like before (read comment of [#7.1](#1-using-djangos-builtin-login--logout-class-based-views-loginview-logoutview)), we only need to add template-part of pagination, i.e., links to go to other pages.
-- *(Implemented my own logic of what links should be shown.)*
 
 #### 5. 
 
 
+## Additions I've done myself:
+
+1. Gave the website my own look, didn't copy Corey's frontend (mainly Header Navbar, Footer, and Post).
+
+2. Website's main navbar is not a good place to show `Log Out` link, moved it to the Profile page. (Putting it there was promoting the exit.)
+
+3. Implemented my own logic of links to what pages (pagination) should be shown.
+
+
 ## TODOs
 
-*Some features which were not covered in the tutorial but needs to be implemented.*
+*Some features which were not covered in the tutorials, but needs to be implemented.*
 
 1. Time should be displayed in local time.
 
 2. After updating the profile pic, old one should be deleted from the file system.
+
+3. Move user related links in the navbar to the right end, and put user profile img in place of "Your Profile".
