@@ -314,7 +314,14 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 #### 2. [See](Resources/Paginator) the `Paginator` object.
 
-#### 3. 
+#### 3. Just by adding attribute `paginate_by` in our `PostListView`, pagination will be activated on our website.
+- ```py
+  paginate_by = x
+  ```
+  where `x` = no. of posts to show on a single page
+- *And now max `x` posts will be visible on a single page, and other can be viewed on `?page=2` and so on.*
+
+#### 4. 
 
 
 ## TODOs
