@@ -21,6 +21,12 @@
       <!-- Submit Button: -->
       <div class="form-group">
         <button class="btn btn-outline-primary mb-2" type="submit">{% block btn_txt %}{% endblock %}</button>
+        <!-- Forgot Pass Link (Show only on login page.): -->
+        {% if request.resolver_match.url_name == 'login' %}  <!-- https://chat.openai.com/chat/cf7966f9-9d3c-4cac-be49-a145e462364a -->
+          <small class="text-muted">
+            <a href="{% url 'password_reset' %}">Forgot Password?</a>
+          </small>
+        {% endif %}
       </div>
 
     </form>

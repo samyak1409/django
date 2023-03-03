@@ -18,7 +18,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users import views as users_views  # but it's a Django convention, & it works, see example 1 above in documentation
-from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import LoginView, LogoutView, \
+    PasswordResetView, PasswordResetConfirmView, PasswordResetDoneView, PasswordResetCompleteView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -36,10 +37,30 @@ urlpatterns = [
     path('profile/', users_views.profile, name='profile'),
 
     # Class-based views:
-    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+    path('login/', LoginView.as_view(template_name='users/login.html'), name='login'),
+    path('logout/', LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     # by default these views look in 'registration/login.html', so passing template_name
+
+    # Note: For following views (password reset views), `name` can't be custom, but exactly what django expects them to
+    # be.
+
+    path('pass-reset/',
+         PasswordResetView.as_view(template_name='users/pass_reset.html', title=None),
+         name='password_reset'),
+
+    path('pass-reset/link/<uidb64>/<token>/',
+         PasswordResetConfirmView.as_view(template_name='users/reset_link.html', title=None),
+         name='password_reset_confirm'),
+
+    path('pass-reset/link-sent/',
+         PasswordResetDoneView.as_view(template_name='users/reset_link_sent.html', title=None),
+         name='password_reset_done'),
+
+    path('pass-reset/success/',
+         PasswordResetCompleteView.as_view(template_name='users/reset_success.html', title=None),
+         name='password_reset_complete'),
 ]
+
 
 # https://github.com/samyak1409/django#4-now-the-main-part-showing-profile-pic-on-the-profile-page:
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

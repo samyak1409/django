@@ -148,3 +148,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'Media')  # joins the path flawlessly indepe
 
 # URL from which the media files will be accessed in the browser:
 MEDIA_URL = '/media/'
+
+
+# Email Setup:
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_USER')  # mail id from which mail will be sent
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')  # https://myaccount.google.com/apppasswords

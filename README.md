@@ -334,7 +334,28 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 > In this Python Django Tutorial, we will be learning how we can use email to send a password reset link to a user so that the user can reset their password. Users will be able to fill out a form with their email and have a unique token sent to them, and if their token is verified then they will be able to create a new password. Let's get started...
 
-#### 1. 
+*We'll be using the same builtin class-based views from `auth_views`, like we did for login, logout.*
+<br>
+*Note: The names of these class views are pretty stupid (I wonder which stupid wrote it.), take care while using them.*
+<br>
+**Note: Pattern names for routes containing these views need to be exactly what django expects them to be.**
+
+#### 1. Page which will input the email to send the pass reset link on: Added `PasswordResetView` in `urls.py`, and created a template (`pass_reset.html`) extending `form_base.html`.
+
+#### 2. Page which will input the new pass: Added `PasswordResetConfirmView` in `urls.py`, and created a template (`reset_link.html`) extending `form_base.html`.
+1. This is the most imp. view, which will send the reset link. Reset link needs to accept two vars:
+   1. `uidb64`: (u)ser (id) encoded in (b)ase (64)
+   2. `token`: unique identifier ([read more](https://chat.openai.com/chat/0788ae70-f467-4e47-83a4-6b192e556634))
+2. Then, setup mail ([see](https://www.youtube.com/watch?v=-tyBEsHSv7w&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=12&ab_channel=CoreySchafer&t=658) till 15:22):
+   1. Created a [Google App Password](https://myaccount.google.com/apppasswords) for our Django Blog.
+   2. Added mail setup settings in `settings.py`, and mail id & pass using environment vars.
+- *Done! Now, our Django Blog can send mails.*
+
+#### 3. Page which will output that the reset link has been sent: Added `PasswordResetDoneView` in `urls.py`, and created a template (`reset_link_sent.html`).
+
+#### 4. Page which will output that the reset is successful: Added `PasswordResetCompleteView` in `urls.py`, and created a template (`reset_success.html`).
+
+#### 5. Added "Forgot Password" link in `form_base.html` on condition if on login page.
 
 
 ## Additions (major ones) I've done myself:
@@ -360,4 +381,9 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 5. Truncate content text on the basis of no. of lines, then add read full article link below.
 
-6. Add gap in b/w `author` & `date_posted` in `home.html` and `post_detail.html`.
+6. Add gap in b/w `author` & `date_posted` in `home.html` & `post_detail.html`, and Log In & Forgot Pass in `form_base.html`.
+
+7. For those who struggled like me with this email sending tutorial: If you don't receive any email and don't get any error, it seems like Django won't send an email if the email address you submit in the form doesn't match the email registered for the user in the DB (specified in the profile and admin pages). 
+In other words, I had no errors when I was reseting the passowrd but I wasn't receiving any emails neither. After a few hours struggeling, I just changed user email adress so that it matches the one I wanted to send email to and it worked.
+
+   Show email & username when saying link sent, show username & email when setting new pass.
