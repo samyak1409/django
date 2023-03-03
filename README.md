@@ -375,4 +375,4 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 2. After updating the profile pic, old one should be deleted from the file system.
 
-3. Truncate content text on the basis of no. of lines, then add read full article link below.
+3. Limit post card height on non-read page, then add read full article link below.
