@@ -360,9 +360,9 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 ## Additions (major ones) I've done myself:
 
-1. Gave the website my own look, didn't copy Corey's frontend (mainly Header Navbar, Footer, and Post).
+1. Gave the website my own look (using Bootstrap), didn't copy Corey's frontend (mainly Header Navbar, Footer, and Post).
 
-2. Implemented my own logic of links to what pages (pagination) should be shown.
+2. Implemented my own logic of links to what pages should be shown for pagination.
 
 3. Didn't create new view and template for the page containing only the posts by a particular user, but inherited the view from `PostListView`, and used the `home.html` template only.
 
@@ -375,15 +375,6 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 2. After updating the profile pic, old one should be deleted from the file system.
 
-3. Move user related links in the navbar to the right end, and put user profile img in place of "Your Profile".
+3. DRY for Post html. (It's currently repeating in `home.html`, `post_detail.html`.) Instead of [including](https://chat.openai.com/chat/15585b34-cd73-4cc7-b67e-5749ed0b9f98) a new template in both, extending the `PostListView` itself and overriding `get_queryset` looks like a better approach.
 
-4. DRY for Post html. (It's currently repeating in `home.html`, `post_detail.html`.) Instead of including a new template in both (https://chat.openai.com/chat/15585b34-cd73-4cc7-b67e-5749ed0b9f98), extending the `PostListView` itself and overriding `get_queryset` looks like a better approach.
-
-5. Truncate content text on the basis of no. of lines, then add read full article link below.
-
-6. Add gap in b/w `author` & `date_posted` in `home.html` & `post_detail.html`, and Log In & Forgot Pass in `form_base.html`.
-
-7. For those who struggled like me with this email sending tutorial: If you don't receive any email and don't get any error, it seems like Django won't send an email if the email address you submit in the form doesn't match the email registered for the user in the DB (specified in the profile and admin pages). 
-In other words, I had no errors when I was reseting the passowrd but I wasn't receiving any emails neither. After a few hours struggeling, I just changed user email adress so that it matches the one I wanted to send email to and it worked.
-
-   Show email & username when saying link sent, show username & email when setting new pass.
+4. Truncate content text on the basis of no. of lines, then add read full article link below.

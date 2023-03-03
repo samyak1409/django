@@ -16,7 +16,7 @@
         <!-- Post Meta Data: -->
         <h2 class="article-title">{{ object.title }}</h2>
         <p class="text-secondary mb-1">
-          <a class="text-decoration-none" href="{% url 'user_posts' object.author %}">{{ object.author }}</a>
+          <a class="text-decoration-none me-2 fs-5" href="{% url 'user_posts' object.author %}">{{ object.author }}</a>
           <small>{{ object.date_posted }}</small>
         </p>
 

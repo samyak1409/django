@@ -37,24 +37,26 @@
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Django_logo.svg/180px-Django_logo.svg.png" alt="Django" height="30" class="d-inline-block align-text-top"> Blog
           </a>
 
+          <!-- About Link: -->
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+
           <!-- Navbar collapse behind a button for small screens (https://getbootstrap.com/docs/5.3/components/navbar/?#toggler): -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <!-- Links (About, Register, Login): -->
+          <!-- Links (Register + Login / New Post + Your Profile): -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-              </li>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">  <!-- ms-auto: moving links to the right -->
               <!-- Django passes `user` context var by default, where it's the current logged-in user. (https://youtu.be/3aVqWaLjqS4?t=1100) -->
               {% if user.is_authenticated %}
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'create' %}">New Post</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'profile' %}">Your Profile</a>
+                  <a class="nav-link" href="{% url 'profile' %}">
+                    <img class="rounded-circle object-fit-cover border" src="{{ user.profile.pic.url }}" alt="" width="24" data-toggle="tooltip" title="Your Profile">
+                  </a>
                 </li>
               {% else %}
                 <li class="nav-item">
@@ -114,7 +116,7 @@
             Made with ❤ by Samyak
           </span>
           <a href="https://github.com/samyak1409/django" target="_blank">
-            <img src="https://icons.getbootstrap.com/assets/icons/github.svg" alt="GitHub" width="24">
+            <img src="https://icons.getbootstrap.com/assets/icons/github.svg" alt="GitHub" width="24" data-toggle="tooltip" title="Star Project on GitHub">
           </a>
         </div>
       </nav>
