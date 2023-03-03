@@ -54,14 +54,17 @@
       {% if page_obj.has_previous %}
         <!-- Link to First Page: -->
         {% if page_obj.number != 2 %}
-          <a href="?page=1" class="btn btn-outline-primary">First</a>
+          <a href="?page=1" class="btn btn-outline-primary">1</a>
+          {% if page_obj.number != 3 %}
+            <span class="mx-1">...</span>
+          {% endif %}
         {% endif %}
         <!-- Link to Prev Page: -->
         <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-primary">{{ page_obj.previous_page_number }}</a>
       {% endif %}
 
       <!-- Disabled Link to Current Page: -->
-      <a class="btn btn-outline-primary disabled" aria-disabled="true">{{ page_obj.number }}</a>
+      <a class="btn btn-outline-primary active" aria-disabled="true">{{ page_obj.number }}</a>
       <!-- https://getbootstrap.com/docs/5.0/components/buttons/#disabled-state -->
 
       {% if page_obj.has_next %}
@@ -69,7 +72,10 @@
         <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-primary">{{ page_obj.next_page_number }}</a>
         <!-- Link to Last Page: -->
         {% if page_obj.number != page_obj.paginator.num_pages|add:'-1' %}  <!-- Direct `+`/`-` doesn't work inside code-block. -->
-          <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-primary">Last</a>
+          {% if page_obj.number != page_obj.paginator.num_pages|add:'-2' %}
+            <span class="mx-1">...</span>
+          {% endif %}
+          <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-primary">{{ page_obj.paginator.num_pages }}</a>
         {% endif %}
       {% endif %}
 
