@@ -330,9 +330,9 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 2. Added url route, and added links to this page in templates.
 
 
-### 12. []()
+### 12. [Python Django Tutorial: Full-Featured Web App Part 12 - Email and Password Reset](https://www.youtube.com/watch?v=-tyBEsHSv7w&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=12&ab_channel=CoreySchafer)
 
-> 
+> In this Python Django Tutorial, we will be learning how we can use email to send a password reset link to a user so that the user can reset their password. Users will be able to fill out a form with their email and have a unique token sent to them, and if their token is verified then they will be able to create a new password. Let's get started...
 
 #### 1. 
 
@@ -358,8 +358,6 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 4. DRY for Post html. (It's currently repeating in `home.html`, `post_detail.html`)
 
-5. You can shorten posts by going to post.content, putting a | character, and typing truncatechars: with however many characters to display. You can add a read more below that links to post detail view.
+5. Truncate content text on the basis of no. of lines, then add read full article link below.
 
-6. https://stackoverflow.com/questions/9492249/render-a-string-in-html-and-preserve-spaces-and-linebreaks
-
-7. Add gap in b/w `author` & `date_posted` in `home.html` and `post_detail.html`.
+6. Add gap in b/w `author` & `date_posted` in `home.html` and `post_detail.html`.

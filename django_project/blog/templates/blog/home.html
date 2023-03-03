@@ -9,7 +9,7 @@
 
         <!-- "object-fit-cover": https://github.com/samyak1409/django/blob/main/HTML%20&%20CSS/1.%20HTML/1.%20Programming%20with%20Mosh/11.%20Images/index.html#L13, https://getbootstrap.com/docs/5.3/utilities/object-fit -->
         <a href="{% url 'user-posts' post.author %}">
-          <img class="article-img rounded-circle object-fit-cover" src="{{ post.author.profile.pic.url }}" alt="">
+          <img class="article-img rounded-circle object-fit-cover border" src="{{ post.author.profile.pic.url }}" alt="">
         </a>
 
         <div class="w-100">  <!-- width=100% for top-border to show entirely -->
@@ -22,7 +22,7 @@
           </p>
 
           <!-- Content: -->
-          <p class="border-top pt-3 mb-2">{{ post.content }}</p>
+          <p class="post-content border-top pt-3 mb-2">{{ post.content }}</p>
 
         </div>
 

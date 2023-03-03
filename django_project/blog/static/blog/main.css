@@ -1,4 +1,10 @@
+body {
+  background: #fafafa;
+  color: #333333;
+}
+
 .content-section {
+  background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
   border-radius: 3px;
@@ -25,5 +31,9 @@
 }
 
 a.article-title:hover {
-  color: #428bca;
+  color: #666666;
+}
+
+.post-content {
+  white-space: pre-wrap;
 }
