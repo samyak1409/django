@@ -279,9 +279,9 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 - *And we're done! No need to query the DB, render the template etc. (like we were doing while using function view `home`)*.
 
 #### 2. Dedicated Post Page (Read Post Functionality)
-1. Created `PostDetailView`.
+- *Corey didn't follow DRY, and created this view not inheriting from `PostListView` and a new template, which is bad, so I did it the way it should've done.*
+1. Created `PostDetailView` inheriting `PostListView` (overridden `get_queryset` in order to get single post).
 2. Added url pattern, with variable in the pattern. (`'/post/<int:pk>/'`)
-3. Created template `post_detail.html`.
 
 #### 3. Create Post Functionality
 1. Created `PostCreateView` & routed url.
@@ -326,7 +326,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 #### 5. Dedicated page which lists all the posts done by a particular user.
 - *This page will be the same as the home page, the only difference is this page will only list the posts by a particular user. Still Corey created a whole new view & template, which is very bad, so I did it the way it should've done.*
-1. Created view `UserPostListView` inheriting `PostListView` (main diff: overridden `get_queryset`).
+1. Created view `UserPostListView` inheriting `PostListView` (overridden `get_queryset` in order to get only posts by a particular author).
 2. Added url route, and added links to this page in templates.
 
 
@@ -364,7 +364,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 2. Implemented my own logic of links to what pages should be shown for pagination.
 
-3. Didn't create new view and template for the page containing only the posts by a particular user, but inherited the view from `PostListView`, and used the `home.html` template only.
+3. Didn't create new view and template for the page containing only the posts by a particular user and for the dedicated post page, but inherited the view from `PostListView`, and used the `home.html` template only.
 
 
 ## TODOs
@@ -375,6 +375,4 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 2. After updating the profile pic, old one should be deleted from the file system.
 
-3. DRY for Post html. (It's currently repeating in `home.html`, `post_detail.html`.) Instead of [including](https://chat.openai.com/chat/15585b34-cd73-4cc7-b67e-5749ed0b9f98) a new template in both, extending the `PostListView` itself and overriding `get_queryset` looks like a better approach.
-
-4. Truncate content text on the basis of no. of lines, then add read full article link below.
+3. Truncate content text on the basis of no. of lines, then add read full article link below.

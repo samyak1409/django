@@ -7,19 +7,34 @@
       <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
       <div class="d-flex">
 
-        <!-- "object-fit-cover": https://github.com/samyak1409/django/blob/main/HTML%20&%20CSS/1.%20HTML/1.%20Programming%20with%20Mosh/11.%20Images/index.html#L13, https://getbootstrap.com/docs/5.3/utilities/object-fit -->
         <a href="{% url 'user_posts' post.author %}">
           <img class="article-img rounded-circle object-fit-cover border" src="{{ post.author.profile.pic.url }}" alt="">
+          <!-- "object-fit-cover": https://github.com/samyak1409/django/blob/main/HTML%20&%20CSS/1.%20HTML/1.%20Programming%20with%20Mosh/11.%20Images/index.html#L13, https://getbootstrap.com/docs/5.3/utilities/object-fit -->
         </a>
 
         <div class="w-100">  <!-- width=100% for top-border to show entirely -->
 
-          <!-- Post Meta Data: -->
-          <h2><a class="article-title" href="{% url 'read' post.id %}">{{ post.title }}</a></h2>
+          <!-- Title: -->
+          {% if request.resolver_match.url_name == 'read' %}
+            <h2 class="article-title">{{ post.title }}</h2>
+          {% else %}
+            <h2><a class="article-title" href="{% url 'read' post.id %}">{{ post.title }}</a></h2>
+          {% endif %}
+
+          <!-- Author & Date Posted: -->
           <p class="text-secondary mb-1">
             <a class="text-decoration-none me-2 fs-5" href="{% url 'user_posts' post.author %}">{{ post.author }}</a>
             <small>{{ post.date_posted }}</small>
           </p>
+
+          <!-- Edit & Delete Buttons: -->
+          <!-- (Show only if dedicated post page and current logged-in user is the post author.) -->
+          {% if request.resolver_match.url_name == 'read' and user == post.author %}
+            <div class="mt-2 mb-2">
+              <a class="btn btn-outline-primary" href="{% url 'update' post.id %}">Edit</a>
+              <a class="btn btn-outline-danger" href="{% url 'delete' post.id %}">Delete</a>
+            </div>
+          {% endif %}
 
           <!-- Content: -->
           <p class="post-content border-top pt-3 mb-2">{{ post.content }}</p>

@@ -64,9 +64,13 @@ class UserPostListView(PostListView):
         return filtered_posts.order_by('-date_posted')
 
 
-class PostDetailView(DetailView):
+class PostDetailView(PostListView):
 
-    model = Post  # which model to query to show the list
+    extra_context = None  # reset
+
+    # Overriding:
+    def get_queryset(self):
+        return Post.objects.filter(id=self.kwargs.get('pk'))
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
