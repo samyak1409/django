@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Post
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.models import User
 
 
 # Create your views here.
@@ -41,6 +42,26 @@ class PostListView(ListView):
     # that's how it should be, just think how would it be the other way around
 
     paginate_by = 5  # no. of posts to show on a single page
+
+
+class UserPostListView(PostListView):
+
+    # Overriding:
+    def get_queryset(self):
+
+        username = self.kwargs.get('username')  # username of user whose posts needs to be shown
+        user = get_object_or_404(klass=User, username=username)  # user (object) whose posts needs to be shown
+        filtered_posts = Post.objects.filter(author=user)
+
+        # For Page Title:
+        if user == self.request.user:  # if user whose posts needs to be shown is current logged-in user
+            title = f'Your Posts'
+        else:
+            title = f'Posts by {username}'
+        self.extra_context = {'title': f'{title} ({filtered_posts.count()})'}
+        # `len()` could also be used, but `.count()` is better.
+
+        return filtered_posts.order_by('-date_posted')
 
 
 class PostDetailView(DetailView):

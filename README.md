@@ -322,17 +322,28 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 - *And now max `x` posts will be visible on a single page, and other can be viewed on `?page=2` and so on.*
 
 #### 4. Like before (read comment of [#7.1](#1-using-djangos-builtin-login--logout-class-based-views-loginview-logoutview)), we only need to add template-part of pagination, i.e., links to go to other pages.
+- *Implemented my own logic of links to what pages should be shown.*
 
-#### 5. 
+#### 5. Dedicated page which lists all the posts done by a particular user.
+- *This page will be the same as the home page, the only difference is this page will only list the posts by a particular user. Still Corey created a whole new view & template, which is very bad, so I did it the way it should've done.*
+1. Created view `UserPostListView` inheriting `PostListView` (main diff: overridden `get_queryset`).
+2. Added url route, and added links to this page in templates.
 
 
-## Additions I've done myself:
+### 12. []()
+
+> 
+
+#### 1. 
+
+
+## Additions (major ones) I've done myself:
 
 1. Gave the website my own look, didn't copy Corey's frontend (mainly Header Navbar, Footer, and Post).
 
-2. Website's main navbar is not a good place to show `Log Out` link, moved it to the Profile page. (Putting it there was promoting the exit.)
+2. Implemented my own logic of links to what pages (pagination) should be shown.
 
-3. Implemented my own logic of links to what pages (pagination) should be shown.
+3. Didn't create new view and template for the page containing only the posts by a particular user, but inherited the view from `PostListView`, and used the `home.html` template only.
 
 
 ## TODOs
@@ -344,3 +355,11 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 2. After updating the profile pic, old one should be deleted from the file system.
 
 3. Move user related links in the navbar to the right end, and put user profile img in place of "Your Profile".
+
+4. DRY for Post html. (It's currently repeating in `home.html`, `post_detail.html`)
+
+5. You can shorten posts by going to post.content, putting a | character, and typing truncatechars: with however many characters to display. You can add a read more below that links to post detail view.
+
+6. https://stackoverflow.com/questions/9492249/render-a-string-in-html-and-preserve-spaces-and-linebreaks
+
+7. Add gap in b/w `author` & `date_posted` in `home.html` and `post_detail.html`.

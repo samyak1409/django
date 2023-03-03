@@ -8,13 +8,18 @@
       <div class="d-flex">
 
         <!-- "object-fit-cover": https://github.com/samyak1409/django/blob/main/HTML%20&%20CSS/1.%20HTML/1.%20Programming%20with%20Mosh/11.%20Images/index.html#L13, https://getbootstrap.com/docs/5.3/utilities/object-fit -->
-        <img class="article-img rounded-circle object-fit-cover" src="{{ post.author.profile.pic.url }}" alt="">
+        <a href="{% url 'user-posts' post.author %}">
+          <img class="article-img rounded-circle object-fit-cover" src="{{ post.author.profile.pic.url }}" alt="">
+        </a>
 
         <div class="w-100">  <!-- width=100% for top-border to show entirely -->
 
           <!-- Post Meta Data: -->
           <h2><a class="article-title" href="{% url 'read' post.id %}">{{ post.title }}</a></h2>
-          <p class="text-secondary mb-1">By {{ post.author }} on {{ post.date_posted }}</p>
+          <p class="text-secondary mb-1">
+            <a class="text-decoration-none" href="{% url 'user-posts' post.author %}">{{ post.author }}</a>
+            <small>{{ post.date_posted }}</small>
+          </p>
 
           <!-- Content: -->
           <p class="border-top pt-3 mb-2">{{ post.content }}</p>
@@ -34,22 +39,22 @@
       {% if page_obj.has_previous %}
         <!-- Link to First Page: -->
         {% if page_obj.number != 2 %}
-          <a href="?page=1" class="btn btn-outline-info">First</a>
+          <a href="?page=1" class="btn btn-outline-primary">First</a>
         {% endif %}
         <!-- Link to Prev Page: -->
-        <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-info">{{ page_obj.previous_page_number }}</a>
+        <a href="?page={{ page_obj.previous_page_number }}" class="btn btn-outline-primary">{{ page_obj.previous_page_number }}</a>
       {% endif %}
 
       <!-- Disabled Link to Current Page: -->
-      <a class="btn btn-outline-info disabled" aria-disabled="true">{{ page_obj.number }}</a>
+      <a class="btn btn-outline-primary disabled" aria-disabled="true">{{ page_obj.number }}</a>
       <!-- https://getbootstrap.com/docs/5.0/components/buttons/#disabled-state -->
 
       {% if page_obj.has_next %}
         <!-- Link to Next Page: -->
-        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-info">{{ page_obj.next_page_number }}</a>
+        <a href="?page={{ page_obj.next_page_number }}" class="btn btn-outline-primary">{{ page_obj.next_page_number }}</a>
         <!-- Link to Last Page: -->
         {% if page_obj.number != page_obj.paginator.num_pages|add:'-1' %}  <!-- Direct `+`/`-` doesn't work inside code-block. -->
-          <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-info">Last</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}" class="btn btn-outline-primary">Last</a>
         {% endif %}
       {% endif %}
 
