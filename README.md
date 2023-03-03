@@ -356,7 +356,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 3. Move user related links in the navbar to the right end, and put user profile img in place of "Your Profile".
 
-4. DRY for Post html. (It's currently repeating in `home.html`, `post_detail.html`)
+4. DRY for Post html. (It's currently repeating in `home.html`, `post_detail.html`.) Instead of including a new template in both (https://chat.openai.com/chat/15585b34-cd73-4cc7-b67e-5749ed0b9f98), extending the `PostListView` itself and overriding `get_queryset` looks like a better approach.
 
 5. Truncate content text on the basis of no. of lines, then add read full article link below.
 

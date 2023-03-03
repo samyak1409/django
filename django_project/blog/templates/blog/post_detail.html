@@ -7,7 +7,7 @@
     <div class="d-flex">
 
       <!-- "object-fit-cover": https://github.com/samyak1409/django/blob/main/HTML%20&%20CSS/1.%20HTML/1.%20Programming%20with%20Mosh/11.%20Images/index.html#L13, https://getbootstrap.com/docs/5.3/utilities/object-fit -->
-      <a href="{% url 'user-posts' object.author %}">
+      <a href="{% url 'user_posts' object.author %}">
         <img class="article-img rounded-circle object-fit-cover border" src="{{ object.author.profile.pic.url }}" alt="">
       </a>
 
@@ -16,7 +16,7 @@
         <!-- Post Meta Data: -->
         <h2 class="article-title">{{ object.title }}</h2>
         <p class="text-secondary mb-1">
-          <a class="text-decoration-none" href="{% url 'user-posts' object.author %}">{{ object.author }}</a>
+          <a class="text-decoration-none" href="{% url 'user_posts' object.author %}">{{ object.author }}</a>
           <small>{{ object.date_posted }}</small>
         </p>
 

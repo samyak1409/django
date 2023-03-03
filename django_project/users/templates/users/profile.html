@@ -17,7 +17,7 @@
       <div>
         <h2>{{ user.username }}</h2>
         <p class="text-secondary">{{ user.email }}</p>
-        <a class="btn btn-outline-primary" href="{% url 'user-posts' user.username %}">Your Posts</a>
+        <a class="btn btn-outline-primary" href="{% url 'user_posts' user.username %}">Your Posts</a>
         <a class="btn btn-outline-danger" href="{% url 'logout' %}">Log Out</a>
       </div>
 
