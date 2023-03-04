@@ -1,39 +1,49 @@
 body {
-  background: #fafafa;
-  color: #333333;
+   background: #fafafa;
 }
 
-.content-section {
-  background: #ffffff;
-  padding: 10px 20px;
-  border: 1px solid #dddddd;
-  border-radius: 3px;
-  margin-bottom: 20px;
+.content-box {
+   background: #ffffff;
+   padding: 20px 20px;
+   border: 1px solid gray;
+   border-radius: 10px;
+   margin-bottom: 20px;
 }
 
-.account-img {
-  height: 125px;
-  width: 125px;
-  margin-right: 20px;
-  margin-bottom: 16px;
+.dp {
+   border-radius: 50%;
+   object-fit: cover;
+   border: 1px solid gray;
 }
 
-.article-img {
-  height: 65px;
-  width: 65px;
-  margin-right: 16px;
-  margin-top: 4px;
+.dp-profile {
+   width: 128px;
+   height: 128px;
+   margin-right: 20px;
+   margin-bottom: 20px;
 }
 
-.article-title {
-  color: #444444;
-  text-decoration: none;
+.dp-post {
+   width: 64px;
+   height: 64px;
+   margin-right: 16px;
+   margin-top: 4px;
 }
 
-a.article-title:hover {
-  color: #666666;
+.dp-navbar {
+   width: 24px;
+   height: 24px;
+}
+
+.post-title {
+   color: #444444;
+   text-decoration: none;
+}
+
+a.post-title:hover {
+   color: #666666;
 }
 
 .post-content {
-  white-space: pre-wrap;
+   white-space: pre-wrap;
 }

@@ -34,7 +34,7 @@
 
           <!-- Brand Image & Text (https://getbootstrap.com/docs/5.3/components/navbar/?#image-and-text): -->
           <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Django_logo.svg/180px-Django_logo.svg.png" alt="Django" height="30" class="d-inline-block align-text-top"> Blog
+            <img class="d-inline-block align-text-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Django_logo.svg/180px-Django_logo.svg.png" alt="Django" height="30"> Blog
           </a>
 
           <!-- About Link: -->
@@ -55,7 +55,7 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'profile' %}">
-                    <img class="rounded-circle object-fit-cover border" src="{{ user.profile.pic.url }}" alt="" width="24" data-toggle="tooltip" title="Your Profile">
+                    <img class="dp dp-navbar" src="{{ user.profile.pic.url }}" alt="" data-toggle="tooltip" title="Your Profile">
                   </a>
                 </li>
               {% else %}
@@ -103,8 +103,8 @@
       <div class="col-md-4 d-flex align-items-center">
         <span class="mb-3 mb-md-0 text-muted">Made with ❤ by Samyak</span>
       </div>
-      <a class="text-muted" href="https://github.com/samyak1409/django">
-        <img src="https://icons.getbootstrap.com/assets/icons/github.svg" alt="GitHub" width="24">
+      <a class="text-muted" href="https://github.com/samyak1409/django" target="_blank">
+          <img class="dp dp-navbar" src="https://icons.getbootstrap.com/assets/icons/github.svg" alt="GitHub" data-toggle="tooltip" title="Star Project on GitHub">
       </a>
     </footer>
     -->
@@ -116,7 +116,7 @@
             Made with ❤ by <a class="text-decoration-none" href="mailto:samyak65400@gmail.com" target="_blank">Samyak</a>
           </span>
           <a href="https://github.com/samyak1409/django" target="_blank">
-            <img src="https://icons.getbootstrap.com/assets/icons/github.svg" alt="GitHub" width="24" data-toggle="tooltip" title="Star Project on GitHub">
+            <img class="dp dp-navbar" src="https://icons.getbootstrap.com/assets/icons/github.svg" alt="GitHub" data-toggle="tooltip" title="Star Project on GitHub">
           </a>
         </div>
       </nav>

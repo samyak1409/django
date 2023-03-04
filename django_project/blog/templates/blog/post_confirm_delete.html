@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <div class="content-section">
+  <div class="content-box">
     <!-- Form: -->
     <form method="post">
 
@@ -10,14 +10,14 @@
 
       <fieldset class="form-group">
         <!-- Heading: -->
-        <legend class="border-bottom mb-4">Delete Post</legend>
-        <p>Are you sure you want to delete the post "{{ object.title }}"?</p>
+        <legend class="border-bottom mb-3">Delete Post</legend>
+        <p>Are you sure you want to delete the post "{{ object.title|title }}"?</p>
       </fieldset>
 
-      <!-- Submit Button: -->
+      <!-- Submit & Back Button: -->
       <div class="form-group">
-        <button class="btn btn-outline-danger mb-2" type="submit">Yes, Delete</button>
-        <a class="btn btn-outline-secondary mb-2" href="{% url 'read' object.id %}">Cancel</a>
+        <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+        <a class="btn btn-outline-secondary" href="{% url 'read' object.id %}">Cancel</a>
       </div>
 
     </form>

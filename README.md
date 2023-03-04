@@ -303,7 +303,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 3. Set `success_url` in view. (Url to redirect on after deleting the post.)
 - *Now, posts can be deleted successfully!*
 
-#### 6. Add Create link in the navbar (`if user.is_authenticated`), and Update & Delete buttons in the dedicated post pages (`if user == object.author`).
+#### 6. Add Create link in the navbar (`if user.is_authenticated`), and Update & Delete buttons in the dedicated post page (`if user == post.author`).
 
 
 ### 11. [Python Django Tutorial: Full-Featured Web App Part 11 - Pagination](https://www.youtube.com/watch?v=acOktTcTVEQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=11&ab_channel=CoreySchafer)
