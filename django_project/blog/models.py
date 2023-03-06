@@ -32,17 +32,17 @@ class Post(models.Model):
     # Date:
     # Option 1:
     '''
-    date_posted = models.DateTimeField(auto_now=True)
+    time_posted = models.DateTimeField(auto_now=True)
     '''
     # update the date posted to the current date time every time the post was updated
     # that would be great for a last modified field or something like that
     # Option 2:
     '''
-    date_posted = models.DateTimeField(default=timezone.now)
+    time_posted = models.DateTimeField(default=timezone.now)
     '''
     # set the date posted to the current date time only when this object is created, updatable
     # Option 3:
-    date_posted = models.DateTimeField(auto_now_add=True)
+    time_posted = models.DateTimeField(auto_now_add=True)
     # set the date posted to the current date time only when this object is created
     # can't ever update the value of the date posted
 

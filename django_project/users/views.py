@@ -29,6 +29,7 @@ def register(request):
 @login_required
 def profile(request):
 
+    # For updating the username/email/pic:
     if request.method == 'POST':  # when submit button is pressed
 
         u_form = UserUpdateForm(data=request.POST, instance=request.user)
@@ -44,6 +45,7 @@ def profile(request):
             # request if you reload your page. So, us redirecting here causes the browser to send a get request, and
             # then we don't get that weird message if we reload.
 
+    # Get Request:
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)

@@ -38,7 +38,7 @@ class PostListView(ListView):
 
     extra_context = {'title': 'Home'}
 
-    ordering = ['-date_posted']  # show the objects in reverse order because we want the latest post to show on the top
+    ordering = ['-time_posted']  # show the objects in reverse order because we want the latest post to show on the top
     # that's how it should be, just think how would it be the other way around
 
     paginate_by = 5  # no. of posts to show on a single page
@@ -61,7 +61,7 @@ class UserPostListView(PostListView):
         self.extra_context = {'title': f'{title} ({filtered_posts.count()})'}
         # `len()` could also be used, but `.count()` is better.
 
-        return filtered_posts.order_by('-date_posted')
+        return filtered_posts.order_by('-time_posted')
 
 
 class PostDetailView(PostListView):

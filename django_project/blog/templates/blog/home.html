@@ -1,5 +1,7 @@
 {% extends 'blog/base.html' %}
 
+{% load tz %}
+
 {% block content %}
 
   {% for post in posts %}
@@ -9,7 +11,6 @@
 
         <a href="{% url 'user_posts' post.author %}">
           <img class="dp dp-post" src="{{ post.author.profile.pic.url }}" alt="">
-          <!-- "object-fit-cover": https://github.com/samyak1409/django/blob/main/HTML%20&%20CSS/1.%20HTML/1.%20Programming%20with%20Mosh/11.%20Images/index.html#L13, https://getbootstrap.com/docs/5.3/utilities/object-fit -->
         </a>
 
         <div class="w-100">  <!-- width=100% for top-border to show entirely -->
@@ -24,7 +25,8 @@
           <!-- Author & Date Posted: -->
           <p class="text-secondary border-bottom pb-1 mb-3">
             <a class="text-decoration-none me-2 fs-5" href="{% url 'user_posts' post.author %}">{{ post.author }}</a>
-            <small data-toggle="tooltip" title="{{ post.date_posted }}">{{ post.date_posted|timesince }} ago</small>
+            <small data-toggle="tooltip" title="{{ post.time_posted|localtime }}">{{ post.time_posted|timesince }} ago</small>
+            <!-- localtime (https://docs.djangoproject.com/en/4.1/topics/i18n/timezones/#template-filters) not working -->
           </p>
 
           <!-- Content: -->

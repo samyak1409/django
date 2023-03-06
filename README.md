@@ -362,17 +362,24 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 1. Gave the website my own look (using Bootstrap), didn't copy Corey's frontend (mainly Header Navbar, Footer, and Post).
 
-2. Implemented my own logic of links to what pages should be shown for pagination.
+2. Didn't create new view and template for the page containing only the posts by a particular user and for the dedicated post page, but inherited the view from `PostListView`, and used the `home.html` template only.
 
-3. Didn't create new view and template for the page containing only the posts by a particular user and for the dedicated post page, but inherited the view from `PostListView`, and used the `home.html` template only.
+3. Set to delete the old profile pic whenever a new one is added, and save the profile pics with name = 'user_id.ext'.
+
+4. If the uploaded profile pic is not square, it will be cropped to square.
+
+5. Implemented my own logic of links to what pages should be shown for pagination.
 
 
 ## TODOs
 
 *Some features which were not covered in the tutorials, but needs to be implemented.*
 
-1. Time should be displayed in local time.
+1. Display time in local time zone.
 
-2. After updating the profile pic, old one should be deleted from the file system.
+   `localtime` template filter (https://docs.djangoproject.com/en/4.1/topics/i18n/timezones/#template-filters) is not working for me.
+   I have googled the problem, read stackoverflow answers, and gone through some django doc, everything looks right to me, but localtime doesn't have any effect.
+   In `settings.py`, I have `TIME_ZONE = 'UTC'` and `USE_TZ = True`, and in my html template, `{% load tz %}` and `time_posted|localtime` (`time_posted = models.DateTimeField(auto_now_add=True)`).
+   But, time is not showing in my time zone (but in UTC), I've tried everything.
 
-3. Limit post card height on non-read page, then add read full article link below.
+2. Limit post card height on non-read page, then add read full article link below.

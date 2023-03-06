@@ -25,9 +25,38 @@ class Profile(models.Model):
     # Override save method in order to resize whenever a large pic is uploaded (to save space):
     def save(self, *args, **kwargs):
 
-        super().save(*args, **kwargs)  # call the parent's `save` method which saves the pic
+        # If `pic` is newly selected pic and not Default/Old one:
+        if not self.pic.name.startswith('Profile Pics/'):
 
-        img = Image.open(self.pic.path)  # then open the pic
-        if img.width > 720 or img.height > 720:  # check size, if big:
-            img.thumbnail(size=(720, 720))  # resize
-            img.save(self.pic.path)  # overwrite to the same path
+            # Get the current profile pic (the one before updating):
+            curr_pic = Profile.objects.get(pk=self.pk).pic
+            # Delete it if it's not the Default one:
+            if curr_pic.name != 'Profile Pics/Default.jpg':
+                curr_pic.delete(save=False)
+                # `save=False` so that if while saving the new pic below, some error occur, we don't lose the current
+                # one
+
+            # Change the name of new pic to save as 'user_id.ext':
+            self.pic.name = f'{self.user.id}.{self.pic.name.split(".")[-1]}'
+            # `self.pic.name.split(".")[-1]`: extension must be the same.
+
+        # Call the parent `save` which saves the pic:
+        super().save(*args, **kwargs)
+
+        # Compressing the img for saving space:
+        with Image.open(fp=self.pic.path) as img:
+            changed = False
+            # First, square crop if required:
+            # https://stackoverflow.com/questions/16646183/crop-an-image-in-the-centre-using-pil
+            w, h = img.size
+            min_ = min(w, h)
+            if w != h:
+                img = img.crop(box=((w-min_)//2, (h-min_)//2, (w+min_)//2, (h+min_)//2))  # crop in center
+                changed = True
+            # Then, compress if required:
+            if min_ > (dim := 720):
+                img.thumbnail(size=(dim, dim))
+                changed = True
+            # Overwrite to the same path if changed:
+            if changed:
+                img.save(fp=self.pic.path)
