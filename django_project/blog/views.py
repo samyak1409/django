@@ -51,6 +51,7 @@ class UserPostListView(PostListView):
 
         username = self.kwargs.get('username')  # username of user whose posts needs to be shown
         user = get_object_or_404(klass=User, username=username)  # user (object) whose posts needs to be shown
+        # `get_object_or_404` will raise 404 if user with this username doesn't exist.
         filtered_posts = Post.objects.filter(author=user)
 
         # For Page Title:
@@ -66,11 +67,15 @@ class UserPostListView(PostListView):
 
 class PostDetailView(PostListView):
 
-    extra_context = None  # reset
+    # Reset:
+    extra_context = None
+    paginate_by = None
 
     # Overriding:
     def get_queryset(self):
-        return Post.objects.filter(pk=get_object_or_404(klass=Post, pk=self.kwargs.get('pk')).pk)
+        return [get_object_or_404(klass=Post, pk=self.kwargs.get('pk'))]
+        # `get_object_or_404` will raise 404 if post with this pk doesn't exist.
+        # returning as a list because `get_queryset` must return an iterable.
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
