@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 
@@ -70,7 +70,7 @@ class PostDetailView(PostListView):
 
     # Overriding:
     def get_queryset(self):
-        return Post.objects.filter(id=self.kwargs.get('pk'))
+        return Post.objects.filter(pk=get_object_or_404(klass=Post, pk=self.kwargs.get('pk')).pk)
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
