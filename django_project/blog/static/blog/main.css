@@ -36,7 +36,7 @@ body {
 
 .post-title {
    color: #444444;
-   text-decoration: none;
+   text-decoration: none;  /* remove underline */
 }
 
 a.post-title:hover {
@@ -44,5 +44,15 @@ a.post-title:hover {
 }
 
 .post-content {
-   white-space: pre-wrap;
+   white-space: pre-wrap;  /* show new lines */
+}
+
+.limit-content {
+   max-height: calc(1.2em * 6);  /* limit content to show only 5 lines (1 line is for "read the full article" link) */
+   overflow: hidden;  /* hide the overflown text */
+}
+
+.read-full {
+   text-decoration: none;  /* remove underline */
+   font-style: italic;
 }

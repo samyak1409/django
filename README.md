@@ -368,10 +368,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 #### 5. Added "Forgot Password" link in `form_base.html` on condition if on login page.
 
 
-## Additions I've done myself:
-
-
-### Major:
+## Additions I've Done (Major Ones)
 
 1. Gave the website my own look (using Bootstrap), didn't copy Corey's frontend (mainly Header Navbar, Footer, and Post).
 
@@ -379,18 +376,11 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 3. Set to delete the old profile pic whenever a new one is added, and save the profile pics with name = 'user_id.ext'.
 
-4. If the uploaded profile pic is not square, it will be cropped to square.
+4. Limit the post-content (on post-list pages) to show only 5 lines, and add a "Read the full article" link below if the post-content overflows the limit (using JS).
 
-5. Implemented my own logic of links to what pages should be shown for pagination.
+5. If the uploaded profile pic is not square, it will be cropped to square.
 
-
-### Minor:
-
-1. x
-
-2. y
-
-3. z
+6. Implemented my own logic of links to what pages should be shown for pagination.
 
 
 ## TODOs
@@ -403,5 +393,3 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
    I have googled the problem, read stackoverflow answers, and gone through some django doc, everything looks right to me, but localtime doesn't have any effect.
    In `settings.py`, I have `TIME_ZONE = 'UTC'` and `USE_TZ = True`, and in my html template, `{% load tz %}` and `time_posted|localtime` (`time_posted = models.DateTimeField(auto_now_add=True)`).
    But, time is not showing in my time zone (but in UTC), I've tried everything.
-
-2. Limit post card height on non-read page, then add read full article link below.

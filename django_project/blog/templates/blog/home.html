@@ -30,7 +30,27 @@
           </p>
 
           <!-- Content: -->
-          <p class="post-content mb-0">{{ post.content|capfirst }}</p>
+          <!-- Only showing the full content on the read page: -->
+          {% if request.resolver_match.url_name == 'read' %}
+            <p class="post-content mb-0">{{ post.content|capfirst }}</p>
+          {% else %}
+            <!-- (https://chat.openai.com/chat/11c36c8a-de84-4630-96cb-d3c3f0f6234b) -->
+            <p class="post-content limit-content" id="post-{{ post.id }}">{{ post.content|capfirst }}</p>
+            <!-- JS code to calc. when to show "Read the full article" link: -->
+            <script>
+              var postContent = document.getElementById("post-{{ post.id }}");
+              if (postContent.scrollHeight > postContent.offsetHeight) {
+                // console.log("Content overflow detected!");  // debugging
+                var readFullLink = document.createElement("a");
+                readFullLink.classList.add("read-full");
+                readFullLink.href = "{% url 'read' post.id %}";
+                readFullLink.textContent = "Read the full article";
+                postContent.insertAdjacentElement('afterend', readFullLink);
+              }
+              else
+                postContent.classList.add("mb-0");
+            </script>
+          {% endif %}
 
           <!-- Edit & Delete Buttons: -->
           <!-- (Show only if dedicated post page and current logged-in user is the post author.) -->
