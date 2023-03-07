@@ -9,12 +9,22 @@ Learning from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQ
 Django is a very popular framework that gives us a lot of functionality right out of the box, and makes it really enjoyable to work with these web applications.
 
 
-## Installing the Dependencies
+## Run on your PC
 
-After downloading this project to your PC, open the project folder, there, open your [Command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) (e.g. Command Prompt for Windows), and run the following:
-```
-pip install -r requirements.txt
-```
+*Note that [Python](https://www.python.org/downloads) needs to be installed.*
+
+1. [Download the Project](https://github.com/samyak1409/django/archive/refs/heads/main.zip)
+2. Extract the downloaded zip (`django-main.zip`).
+3. Open the `django-main` directory. (You should see a `requirements.txt` there.)
+4. There, open your [Command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) (e.g. Command Prompt for Windows), and run the following (make sure you're connected to the internet):
+   ```bash
+   pip install -r requirements.txt
+   cd django_project
+   python manage.py runserver
+   exit
+   ```
+   This will install the project dependencies, and start the server on your on PC.
+5. Now, just click/go on the link http://127.0.0.1:8000 to access the website!
 
 
 ## Video-wise Notes in a Nutshell
@@ -358,7 +368,10 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 #### 5. Added "Forgot Password" link in `form_base.html` on condition if on login page.
 
 
-## Additions (major ones) I've done myself:
+## Additions I've done myself:
+
+
+### Major:
 
 1. Gave the website my own look (using Bootstrap), didn't copy Corey's frontend (mainly Header Navbar, Footer, and Post).
 
@@ -369,6 +382,15 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 4. If the uploaded profile pic is not square, it will be cropped to square.
 
 5. Implemented my own logic of links to what pages should be shown for pagination.
+
+
+### Minor:
+
+1. x
+
+2. y
+
+3. z
 
 
 ## TODOs
