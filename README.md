@@ -9,6 +9,40 @@ Learning from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQ
 Django is a very popular framework that gives us a lot of functionality right out of the box, and makes it really enjoyable to work with these web applications.
 
 
+## Screenshots
+
+### Homepage of the website
+![](Screenshots/01.%20Home1.png)
+![](Screenshots/02.%20Home2.png)
+
+### Full post can be read by opening the Post page
+![](Screenshots/03.%20PostRead.png)
+
+### Users can Register
+![](Screenshots/04.%20Register.png)
+
+### And then, can Log In to the site
+![](Screenshots/05.%20Login.png)
+
+### After logging in, links in the header navbar will change
+![](Screenshots/06.%20Home3.png)
+
+### Profile page, from where users can see their Posts, Log Out, and update Profile Info
+![](Screenshots/07.%20Profile.png)
+
+### Users can Create new posts
+![](Screenshots/08.%20PostCreate.png)
+
+### Users can Update/Delete their posts
+![](Screenshots/09.%20PostUpdateDelete.png)
+
+### Users can see posts only by a particular user
+![](Screenshots/10.%20UserPosts.png)
+
+### Users can request Password Reset link to their email if they can't remember the password
+![](Screenshots/11.%20PassReset.png)
+
+
 ## Run on your PC
 
 *Note that [Python](https://www.python.org/downloads) needs to be installed.*
@@ -135,7 +169,7 @@ Django is a very popular framework that gives us a lot of functionality right ou
 - ```bash
   python manage.py shell
   ```
-  See the queries in [`Resources/DB Queries/Post`](Resources/DB%20Queries/Post) folder.
+  See the queries in [`Resources/DB Queries/1. Post`](Resources/DB%20Queries/1.%20Post) folder.
 
 #### 4. Passing the real data from DB in the views to the template.
 - *[Formatting the date](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#date) as we want.*
@@ -241,7 +275,7 @@ Django is a very popular framework that gives us a lot of functionality right ou
 #### 2. Changing where the media is saved & from what url it can be accessed by adding the `MEDIA_ROOT` & `MEDIA_URL` respectively in `settings.py`.
 - *By default, `MEDIA_ROOT` is the base dir of our project, so if different models started making different dirs at the base dir, then it will be cluttered up.*
 
-#### 3. [Querying](Resources/DB%20Queries/Profile) the `Profile` model using `User` model (as they're connected/linked by `OneToOneField`).
+#### 3. [Querying](Resources/DB%20Queries/2.%20Profile) the `Profile` model using `User` model (as they're connected/linked by `OneToOneField`).
 1. But no profiles exist currently, so, first add a few from the admin page (as we've not implemented "when the user is created, profile is created with it" yet).
 
 #### 4. Now, the main part, Showing profile pic on the profile page.
@@ -370,7 +404,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 ## Additions I've Done (Major Ones)
 
-1. Gave the website my own look (using Bootstrap), didn't copy Corey's frontend (mainly Header Navbar, Footer, and Post).
+1. Gave the website [my own look](#Screenshots) (using Bootstrap), didn't copy [Corey's frontend](Screenshots/00.%20Corey's.png) (mainly Header Navbar, Footer, and Post).
 
 2. Didn't create new view and template for the page containing only the posts by a particular user and for the dedicated post page, but inherited the view from `PostListView`, and used the `home.html` template only.
 
@@ -385,11 +419,11 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 ## TODOs
 
-*Some features which were not covered in the tutorials, but needs to be implemented.*
-
 1. Display time in local time zone.
 
    `localtime` template filter (https://docs.djangoproject.com/en/4.1/topics/i18n/timezones/#template-filters) is not working for me.
    I have googled the problem, read stackoverflow answers, and gone through some django doc, everything looks right to me, but localtime doesn't have any effect.
    In `settings.py`, I have `TIME_ZONE = 'UTC'` and `USE_TZ = True`, and in my html template, `{% load tz %}` and `time_posted|localtime` (`time_posted = models.DateTimeField(auto_now_add=True)`).
    But, time is not showing in my time zone (but in UTC), I've tried everything.
+
+2. Deploy on Heroku. ([Video](https://www.youtube.com/watch?v=6DI_7Zja8Zc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=17&ab_channel=CoreySchafer))
