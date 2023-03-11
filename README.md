@@ -3,7 +3,7 @@
 
 Official Site: [djangoproject.com](https://www.djangoproject.com)
 
-Learning from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) (~10hr)
+Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) (~10hr)
 
 > In this series of videos, we're going to learn how to build a full-featured web application using the Django framework in Python.
 Django is a very popular framework that gives us a lot of functionality right out of the box, and makes it really enjoyable to work with these web applications.
@@ -58,7 +58,7 @@ Django is a very popular framework that gives us a lot of functionality right ou
    exit
    ```
    This will install the project dependencies, and start the server on your on PC.
-5. Now, just click/go on the link http://127.0.0.1:8000 to access the website!
+5. Now, just click/go on the link [127.0.0.1:8000](http://127.0.0.1:8000) to access the website!
 
 
 ## Video-wise Notes in a Nutshell
@@ -404,26 +404,26 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 ## Additions I've Done (Major Ones)
 
-1. Gave the website [my own look](#Screenshots) (using Bootstrap), didn't copy [Corey's frontend](Screenshots/00.%20Corey's.png) (mainly Header Navbar, Footer, and Post).
+- Gave the website [my own look](#Screenshots) (using Bootstrap), didn't copy [Corey's frontend](Screenshots/00.%20Corey's.png) (mainly Header Navbar, Footer, and Post).
 
-2. Didn't create new view and template for the page containing only the posts by a particular user and for the dedicated post page, but inherited the view from `PostListView`, and used the `home.html` template only.
+- Didn't create new view and template for the page containing only the posts by a particular user and for the dedicated post page, but inherited the view from `PostListView`, and used the `home.html` template only.
 
-3. Set to delete the old profile pic whenever a new one is added, and save the profile pics with name = 'user_id.ext'.
+- Set to delete the old profile pic whenever a new one is added, and save the profile pics with name = 'user_id.ext'.
 
-4. Limit the post-content (on post-list pages) to show only 5 lines, and add a "Read the full article" link below if the post-content overflows the limit (using JS).
+- Limit the post-content (on post-list pages) to show only 5 lines, and add a "Read the full article" link below if the post-content overflows the limit (using JS).
 
-5. If the uploaded profile pic is not square, it will be cropped to square.
+- If the uploaded profile pic is not square, it will be cropped to square.
 
-6. Implemented my own logic of links to what pages should be shown for pagination.
+- Implemented my own logic of links to what pages should be shown for pagination.
 
 
 ## TODOs
 
-1. Display time in local time zone.
+- Display time in local time zone.
 
    `localtime` template filter (https://docs.djangoproject.com/en/4.1/topics/i18n/timezones/#template-filters) is not working for me.
    I have googled the problem, read stackoverflow answers, and gone through some django doc, everything looks right to me, but localtime doesn't have any effect.
    In `settings.py`, I have `TIME_ZONE = 'UTC'` and `USE_TZ = True`, and in my html template, `{% load tz %}` and `time_posted|localtime` (`time_posted = models.DateTimeField(auto_now_add=True)`).
    But, time is not showing in my time zone (but in UTC), I've tried everything.
 
-2. Deploy on Heroku. ([Video](https://www.youtube.com/watch?v=6DI_7Zja8Zc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=17&ab_channel=CoreySchafer))
+- Deploy on Heroku. ([Video](https://www.youtube.com/watch?v=6DI_7Zja8Zc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=17&ab_channel=CoreySchafer))
