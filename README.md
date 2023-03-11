@@ -142,6 +142,14 @@ Django is a very popular framework that gives us a lot of functionality right ou
    ```bash
    python manage.py makemigrations
    ```
+   *Note: If you want to see the SQL query that's going to be run when we'll apply the migrations, run:*
+   ```bash
+   python manage.py sqlmigrate app_name migration_id
+   ```
+   e.g.
+   ```bash
+   python manage.py sqlmigrate blog 0001
+   ```
 2. Apply them:
    ```bash
    python manage.py migrate
