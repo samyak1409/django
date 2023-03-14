@@ -418,7 +418,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 - Set to delete the old profile pic whenever a new one is added, and save the profile pics with name = 'user_id.ext'.
 
-- Limit the post-content (on post-list pages) to show only 5 lines, and add a "Read the full article" link below if the post-content overflows the limit (using JS).
+- Limit the post-content (on post-list pages) to show only 5 lines, and add a "Read the full article" link below if the post-content overflows the limit (using [Vanilla JavaScript](https://en.wikipedia.org/wiki/JavaScript#cite_ref-40)!).
 
 - If the uploaded profile pic is not square, it will be cropped to square.
 
