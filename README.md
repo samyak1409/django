@@ -6,7 +6,7 @@ Official Site: [djangoproject.com](https://www.djangoproject.com)
 Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) (~10hr)
 
 > In this series of videos, we're going to learn how to build a full-featured web application using the Django framework in Python.
-Django is a very popular framework that gives us a lot of functionality right out of the box, and makes it really enjoyable to work with these web applications.
+> Django is a very popular framework that gives us a lot of functionality right out of the box, and makes it really enjoyable to work with these web applications.
 
 
 ## Screenshots
@@ -44,9 +44,13 @@ Django is a very popular framework that gives us a lot of functionality right ou
 
 ### A RESTful public API is also available @[/api1](http://localhost:8000/api1):
 ![](Screenshots/12.%20RESTful%20API.png)
-<img src="Screenshots/12.a.%20All%20Posts.png" width="32.9%">
-<img src="Screenshots/12.b.%20Single%20Post.png" width="32.9%">
-<img src="Screenshots/12.c.%20Posts%20by%20a%20User.png" width="32.9%">
+<details>
+<summary>Click here to see individual endpoints.</summary> <br>
+
+![](Screenshots/12.a.%20All%20Posts.png)
+![](Screenshots/12.b.%20Single%20Post.png)
+![](Screenshots/12.c.%20Posts%20by%20a%20User.png)
+</details>
 
 
 ## Run on your PC
