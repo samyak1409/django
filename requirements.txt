@@ -1,3 +1,4 @@
 Django
 crispy-bootstrap5
 Pillow
+djangorestframework

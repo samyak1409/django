@@ -62,6 +62,7 @@ urlpatterns = [
 
     # Including APIs' URLconf:
     path('api0/', include('api0.urls')),
+    path('api1/', include('api1.urls')),
 ]
 
 
