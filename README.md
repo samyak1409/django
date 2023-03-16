@@ -412,6 +412,8 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 ## Additions I've Done (Major Ones)
 
+- REST API using [Django REST framework](https://www.django-rest-framework.org) (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
+
 - Gave the website [my own look](#Screenshots) (using Bootstrap), didn't copy [Corey's frontend](Screenshots/00.%20Corey's.png) (mainly Header Navbar, Footer, and Post).
 
 - Didn't create new view and template for the page containing only the posts by a particular user and for the dedicated post page, but inherited the view from `PostListView`, and used the `home.html` template only.
@@ -434,4 +436,6 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
    In `settings.py`, I have `TIME_ZONE = 'UTC'` and `USE_TZ = True`, and in my html template, `{% load tz %}` and `time_posted|localtime` (`time_posted = models.DateTimeField(auto_now_add=True)`).
    But, time is not showing in my time zone (but in UTC), I've tried everything.
 
-- Deploy on Heroku. ([Video](https://www.youtube.com/watch?v=6DI_7Zja8Zc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=17&ab_channel=CoreySchafer))
+- [Deploy on Heroku](https://www.youtube.com/watch?v=6DI_7Zja8Zc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=17&ab_channel=CoreySchafer)
+
+- [Mosh's Course](https://codewithmosh.com/p/the-ultimate-django-series) (file:///D:/Samyak/Study%20Material/Mosh/The%20Ultimate%20Django%20Series/)

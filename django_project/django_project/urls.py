@@ -59,6 +59,9 @@ urlpatterns = [
     path('pass-reset/success/',
          PasswordResetCompleteView.as_view(template_name='users/reset_success.html', title=None),
          name='password_reset_complete'),
+
+    # Including APIs' URLconf:
+    path('api0/', include('api0.urls')),
 ]
 
 

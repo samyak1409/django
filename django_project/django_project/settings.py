@@ -40,10 +40,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog.apps.BlogConfig',  # so that django look for templates, etc. inside our app
+
+    # Main Apps:
+    'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
+
+    # For Crispy Forms:
     'crispy_forms',
     'crispy_bootstrap5',
+
+    # APIs:
+    'api0.apps.Api0Config',
 ]
 
 MIDDLEWARE = [
