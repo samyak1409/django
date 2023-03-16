@@ -36,7 +36,7 @@ Django is a very popular framework that gives us a lot of functionality right ou
 ### Users can Update/Delete their posts
 ![](Screenshots/09.%20PostUpdateDelete.png)
 
-### Users can see posts only by a particular user
+### Users can see posts by a particular user
 ![](Screenshots/10.%20UserPosts.png)
 
 ### Users can request Password Reset link to their email if they can't remember the password
@@ -44,9 +44,9 @@ Django is a very popular framework that gives us a lot of functionality right ou
 
 ### A RESTful public API is also available @[/api1](http://localhost:8000/api1):
 ![](Screenshots/12.%20RESTful%20API.png)
-<img src="Screenshots/12.a.%20All%20Posts.png" width="33%">
-<img src="Screenshots/12.b.%20Single%20Post.png" width="33%">
-<img src="Screenshots/12.c.%20Posts%20by%20a%20User.png" width="33%">
+<img src="Screenshots/12.a.%20All%20Posts.png" width="32.9%">
+<img src="Screenshots/12.b.%20Single%20Post.png" width="32.9%">
+<img src="Screenshots/12.c.%20Posts%20by%20a%20User.png" width="32.9%">
 
 
 ## Run on your PC
