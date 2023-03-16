@@ -412,17 +412,17 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 ## Additions I've Done (Major Ones)
 
-- REST API using [Django REST framework](https://www.django-rest-framework.org) (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
+- Added a REST API (using [Django REST framework](https://www.django-rest-framework.org)) which can be used to get posts from our website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
 
-- Gave the website [my own look](#Screenshots) (using Bootstrap), didn't copy [Corey's frontend](Screenshots/00.%20Corey's.png) (mainly Header Navbar, Footer, and Post).
+- Gave the website [my own look](#Screenshots) (using [Bootstrap](https://getbootstrap.com/docs)), didn't copy [Corey's frontend](Screenshots/00.%20Corey's.png). (mainly Header-Navbar, Footer, and Post)
 
 - Didn't create new view and template for the page containing only the posts by a particular user and for the dedicated post page, but inherited the view from `PostListView`, and used the `home.html` template only.
 
 - Set to delete the old profile pic whenever a new one is added, and save the profile pics with name = 'user_id.ext'.
 
-- Limit the post-content (on post-list pages) to show only 5 lines, and add a "Read the full article" link below if the post-content overflows the limit (using [Vanilla JavaScript](https://en.wikipedia.org/wiki/JavaScript#cite_ref-40)!).
+- Limit the post-content (on post-list pages) to show only 5 lines, and add a "Read the full article" link below if the post-content overflows the limit (using [Vanilla JavaScript](https://en.wikipedia.org/wiki/JavaScript#cite_ref-40)).
 
-- If the uploaded profile pic is not square, it will be cropped to square.
+- If the uploaded profile pic is not square, it will be cropped to square (using [Pillow (PIL Fork)](https://pillow.readthedocs.io)).
 
 - Implemented my own logic of links to what pages should be shown for pagination.
 
