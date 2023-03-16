@@ -42,6 +42,12 @@ Django is a very popular framework that gives us a lot of functionality right ou
 ### Users can request Password Reset link to their email if they can't remember the password
 ![](Screenshots/11.%20PassReset.png)
 
+### A RESTful public API is also available @[/api1](http://localhost:8000/api1):
+![](Screenshots/12.%20RESTful%20API.png)
+<img src="Screenshots/12.a.%20All%20Posts.png" width="33%">
+<img src="Screenshots/12.b.%20Single%20Post.png" width="33%">
+<img src="Screenshots/12.c.%20Posts%20by%20a%20User.png" width="33%">
+
 
 ## Run on your PC
 
@@ -412,7 +418,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 ## Additions I've Done (Major Ones)
 
-- Added a REST API (using [Django REST framework](https://www.django-rest-framework.org)) which can be used to get posts from our website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
+- Added a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](http://localhost:8000/api1)) (using [Django REST framework](https://www.django-rest-framework.org)) which can be used to get posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
 
 - Gave the website [my own look](#Screenshots) (using [Bootstrap](https://getbootstrap.com/docs)), didn't copy [Corey's frontend](Screenshots/00.%20Corey's.png). (mainly Header-Navbar, Footer, and Post)
 
