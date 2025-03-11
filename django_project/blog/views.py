@@ -53,6 +53,7 @@ class UserPostListView(PostListView):
         user = get_object_or_404(klass=User, username=username)  # user (object) whose posts needs to be shown
         # `get_object_or_404` will raise 404 if user with this username doesn't exist.
         filtered_posts = Post.objects.filter(author=user)
+        # user_posts = user.post_set.all()  # this can also be used; `post_set`: auto created field by django
 
         # For Page Title:
         if user == self.request.user:  # if user whose posts needs to be shown is current logged-in user

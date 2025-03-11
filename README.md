@@ -70,6 +70,8 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
    This will install the project dependencies, and start the server on your on PC.
 5. Now, just click/go on the link [127.0.0.1:8000](http://127.0.0.1:8000) to access the website!
 
+*Note that in order to make [Password Reset](#users-can-request-password-reset-link-to-their-email-if-they-cant-remember-the-password) functionality work on your local machine / server, you're needed to create [Google App Password](https://myaccount.google.com/apppasswords), and add environment variables. [Details](#2-page-which-will-input-the-new-pass-added-passwordresetconfirmview-in-urlspy-and-created-a-template-reset_linkhtml-extending-form_basehtml).*
+
 
 ## Video-wise Notes in a Nutshell
 
@@ -341,7 +343,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 - *And we're done! No need to query the DB, render the template etc. (like we were doing while using function view `home`)*.
 
 #### 2. Dedicated Post Page (Read Post Functionality)
-- *Corey didn't follow DRY, and created this view not inheriting from `PostListView` and a new template, which is bad, so I did it the way it should've done.*
+- *Corey didn't follow DRY, and created this view not inheriting from `PostListView` and a new template, which is bad, so I did it the way it should've been done.*
 1. Created `PostDetailView` inheriting `PostListView` (overridden `get_queryset` in order to get single post).
 2. Added url pattern, with variable in the pattern. (`'/post/<int:pk>/'`)
 
@@ -398,7 +400,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 *We'll be using the same builtin class-based views from `auth_views`, like we did for login, logout.*
 <br>
-*Note: The names of these class views are pretty stupid (I wonder which stupid wrote it.), take care while using them.*
+*Note: The names of these class views are pretty stupid (I wonder which stupid wrote them.), take care while using them.*
 <br>
 **Note: Pattern names for routes containing these views need to be exactly what django expects them to be.**
 
@@ -406,11 +408,11 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 #### 2. Page which will input the new pass: Added `PasswordResetConfirmView` in `urls.py`, and created a template (`reset_link.html`) extending `form_base.html`.
 1. This is the most imp. view, which will send the reset link. Reset link needs to accept two vars:
-   1. `uidb64`: (u)ser (id) encoded in (b)ase (64)
+   1. `uidb64`: **u**ser **id** encoded in **b**ase **64**
    2. `token`: unique identifier ([read more](https://chat.openai.com/chat/0788ae70-f467-4e47-83a4-6b192e556634))
 2. Then, setup mail ([see](https://www.youtube.com/watch?v=-tyBEsHSv7w&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=12&ab_channel=CoreySchafer&t=658) till 15:22):
    1. Created a [Google App Password](https://myaccount.google.com/apppasswords) for our Django Blog.
-   2. Added mail setup settings in `settings.py`, and mail id & pass using environment vars.
+   2. Added mail setup settings in `settings.py`, and mail id (from which mail will be sent) & pass (we generated above) using environment vars.
 - *Done! Now, our Django Blog can send mails.*
 
 #### 3. Page which will output that the reset link has been sent: Added `PasswordResetDoneView` in `urls.py`, and created a template (`reset_link_sent.html`).
@@ -449,3 +451,5 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 - [Deploy on Heroku](https://www.youtube.com/watch?v=6DI_7Zja8Zc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=17&ab_channel=CoreySchafer)
 
 - [Mosh's Course](https://codewithmosh.com/p/the-ultimate-django-series) (file:///D:/Samyak/Study%20Material/Mosh/The%20Ultimate%20Django%20Series/)
+
+- Show email & username when saying link sent, show username & email when setting new pass.
