@@ -432,7 +432,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 - Set to delete the old profile pic whenever a new one is added, and save the profile pics with name = 'user_id.ext'.
 
-- Limit the post-content (on post-list pages) to show only 5 lines, and add a "Read the full article" link below if the post-content overflows the limit (using [Vanilla JavaScript](https://en.wikipedia.org/wiki/JavaScript#cite_ref-40)).
+- Limit the post-content (on post-list pages) to show only 5 lines, and add a "Read the full article" link below if the post-content overflows the limit (using [Vanilla JavaScript](https://en.wikipedia.org/wiki/JavaScript#cite_ref-44)).
 
 - If the uploaded profile pic is not square, it will be cropped to square (using [Pillow (PIL Fork)](https://pillow.readthedocs.io)).
 
@@ -448,8 +448,6 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
    In `settings.py`, I have `TIME_ZONE = 'UTC'` and `USE_TZ = True`, and in my html template, `{% load tz %}` and `time_posted|localtime` (`time_posted = models.DateTimeField(auto_now_add=True)`).
    But, time is not showing in my time zone (but in UTC), I've tried everything.
 
-- [Deploy on Heroku](https://www.youtube.com/watch?v=6DI_7Zja8Zc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=17&ab_channel=CoreySchafer)
-
-- [Mosh's Course](https://codewithmosh.com/p/the-ultimate-django-series) (file:///D:/Samyak/Study%20Material/Mosh/The%20Ultimate%20Django%20Series/)
-
 - Show email & username when saying link sent, show username & email when setting new pass.
+
+- [Deploy on Heroku](https://www.youtube.com/watch?v=6DI_7Zja8Zc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=17&ab_channel=CoreySchafer)
