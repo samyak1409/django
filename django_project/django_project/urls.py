@@ -48,13 +48,13 @@ urlpatterns = [
          PasswordResetView.as_view(template_name='users/pass_reset.html', title=None),
          name='password_reset'),
 
-    path('pass-reset/link/<uidb64>/<token>/',
-         PasswordResetConfirmView.as_view(template_name='users/reset_link.html', title=None),
-         name='password_reset_confirm'),
-
     path('pass-reset/link-sent/',
          PasswordResetDoneView.as_view(template_name='users/reset_link_sent.html', title=None),
          name='password_reset_done'),
+
+    path('pass-reset/link/<uidb64>/<token>/',
+         PasswordResetConfirmView.as_view(template_name='users/reset_link.html', title=None),
+         name='password_reset_confirm'),
 
     path('pass-reset/success/',
          PasswordResetCompleteView.as_view(template_name='users/reset_success.html', title=None),
