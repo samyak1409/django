@@ -60,17 +60,16 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 1. [Download the Project](https://github.com/samyak1409/django/archive/refs/heads/main.zip)
 2. Extract the downloaded zip (`django-main.zip`).
 3. Open the `django-main` directory. (You should see a `requirements.txt` there.)
-4. There, open your [Command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) (e.g. Command Prompt for Windows), and run the following (make sure you're connected to the internet):
+4. There, open your [Command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) (e.g., Command Prompt for Windows), and run the following (make sure you're connected to the internet):
    ```bash
    pip install -r requirements.txt
    cd django_project
    python manage.py runserver
-   exit
    ```
-   This will install the project dependencies, and start the server on your on PC.
+   This will install the project dependencies, and start the server on your PC.
 5. Now, just click/go on the link [127.0.0.1:8000](http://127.0.0.1:8000) to access the website!
 
-*Note that in order to make [Password Reset](#users-can-request-password-reset-link-to-their-email-if-they-cant-remember-the-password) functionality work on your local machine / server, you're needed to create [Google App Password](https://myaccount.google.com/apppasswords), and add environment variables. [Details](#2-page-which-will-input-the-new-pass-added-passwordresetconfirmview-in-urlspy-and-created-a-template-reset_linkhtml-extending-form_basehtml).*
+*Note that in order to make [Password Reset](#users-can-request-password-reset-link-to-their-email-if-they-cant-remember-the-password) functionality work on your local machine/server, you're needed to create [Google App Password](https://myaccount.google.com/apppasswords), and add environment variables. [Details](#2-page-which-will-input-the-new-pass-added-passwordresetconfirmview-in-urlspy-and-created-a-template-reset_linkhtml-extending-form_basehtml).*
 
 
 ## Video-wise Notes in a Nutshell
@@ -131,7 +130,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 #### 3. Template Inheritance. (`{% block block_name %}{% endblock %}`)
 
 #### 4. Add [Bootstrap](https://en.wikipedia.org/wiki/Bootstrap_(front-end_framework)). ([Home](https://getbootstrap.com), [Docs](https://getbootstrap.com/docs), [Examples](https://getbootstrap.com/examples), [Icons](https://icons.getbootstrap.com))
-- *Note: Corey added a lot of HTML & CSS for custom structuring & styling, but didn't walk through those snippets as this is backend course, not frontend (or fullstack), so I did not copy-pasted those snippets, but pulled up minimal snippets from Bootstrap, so now I know what the markup mean + a nice minimal look to the website is not bad for someone who's starting out!*
+- *Note: Corey added a lot of HTML & CSS for custom structuring & styling, but didn't walk through those snippets as this is a backend course, not frontend (or fullstack), so I did not copy-paste those snippets, but pulled up minimal snippets from Bootstrap, so now I know what the markup means + a nice minimal look to the website is not bad for someone who's starting out!*
 
 #### 5. Put any static resources (img etc.) in `static` directory. ([see](https://www.youtube.com/watch?v=qDwdMDQ8oX4&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=3&ab_channel=CoreySchafer&t=2079) till 38:47)
 
@@ -149,12 +148,12 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 
 > In this Python Django Tutorial, we will be learning how to access the Django Admin Page for our application. The Administration Page is a great way to see what data is currently in our application, and also gives us a nice GUI for creating or modifying that data. Let's get started...
 
-#### 1. Create the database for project which contains default tables to work with using following commands:
+#### 1. Create the database for our project which contains default tables to work with using the following commands:
 1. Make migrations for database changes (basically generate some data from our created/updated model(s), which will be used for generating SQL, which will in turn make changes to the database):
    ```bash
    python manage.py makemigrations
    ```
-   *Note: If you want to see the SQL query that's going to be run when we'll apply the migrations, run:*
+   *Note: If you want to see the SQL query that's going to be run when we apply the migrations, run:*
    ```bash
    python manage.py sqlmigrate app_name migration_id
    ```
@@ -213,7 +212,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 #### 1. Create new app `users` (and add it to `settings.INSTALLED_APPS`), initialize its view.
 
 #### 2. Now, to make a registration form, Django has a builtin `UserCreationForm` (A form that creates a user, with no privileges, from the given username and password.).
-- *This is kind of similar to the database models in the sense that, we can create Python classes and these classes generate HTML forms for us.*
+- *This is kind of similar to the database models in the sense, that we can create Python classes, and these classes generate HTML forms for us.*
 
 #### 3. Create template with form, route url (as "Function views" this time, [see](django_project/django_project/urls.py#L6)).
 
@@ -292,7 +291,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 2. [#5.2](#2-in-order-to-update-the-db-with-the-changes-rerun-the-two-migration-commands-41) (Run Migrations)
 3. [#5.5](#5-dont-forget-to-register-newly-created-models-to-adminpy-so-that-they-show-up-on-admin-site) (Register Model)
 
-#### 2. Changing where the media is saved & from what url it can be accessed by adding the `MEDIA_ROOT` & `MEDIA_URL` respectively in `settings.py`.
+#### 2. Changing where the media is saved and from what url it can be accessed by adding the `MEDIA_ROOT` & `MEDIA_URL` respectively in `settings.py`.
 - *By default, `MEDIA_ROOT` is the base dir of our project, so if different models started making different dirs at the base dir, then it will be cluttered up.*
 
 #### 3. [Querying](Resources/DB%20Queries/2.%20Profile) the `Profile` model using `User` model (as they're connected/linked by `OneToOneField`).
@@ -301,13 +300,13 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 #### 4. Now, the main part, Showing profile pic on the profile page.
 1. Update the profile template `profile.html`, with the user profile pic url (`user.profile.pic.url`).
 2. Adding `MEDIA_URL` to `urlpatterns`. ([Serving files uploaded by a user during development](https://docs.djangoproject.com/en/4.1/howto/static-files/#serving-files-uploaded-by-a-user-during-development)) ([see](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=8&ab_channel=CoreySchafer&t=1258) till 24:33)
-   - *Now, we can see the profile pic on profile page.*
-3. Adding [Corey's styles](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/snippets/main.css) (to the `static` dir) so that profile page look right.
+   - *Now, we can see the profile pic on the profile page.*
+3. Adding [Corey's styles](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/snippets/main.css) (to the `static` dir) so that profile page looks right.
 4. Adding the default profile pic. (Remember? Check [`Profile`](django_project/users/models.py))
 
 *- x - Till [26:18](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=8&ab_channel=CoreySchafer&t=1578) - x -*
 
-#### 5. Using Signals: Set to auto create the Profile (with the default profile pic) whenever a new user is created.
+#### 5. Using Signals: Set to auto-create the Profile (with the default profile pic) whenever a new user is created.
 - *Till now, we were adding the pic from the admin page only.*
 - **But, why are we doing all this? Wouldn't an image (profile pic) input field in the `RegistrationForm` itself be a way better method!?**
 
@@ -317,11 +316,11 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 > In this Python Django Tutorial, we will be finishing our user profile page. The final page will allow users to update their information and also add a new profile picture. We will also learn how to resize this image when it is uploaded to save space on our web server. Let's get started...
 
 #### 1. For giving the option of updating username, email, and profile pic:
-1. Creating 2 update forms (extending `forms.ModelForm`) in `forms.py`. (for `User` & `Profile` model)
+1. Creating two update forms (extending `forms.ModelForm`) in `forms.py`. (for `User` & `Profile` model)
 2. Add the forms in `profile` view and pass to the template through `context`.
-3. Update template with the 2 forms in the `form` HTML tag.
+3. Update template with the two forms in the `form` HTML tag.
    1. Don't forget to add `enctype="multipart/form-data"` in `form`. (for passing image data properly)
-4. Update the `profile` view to handle the post request. (same as [#6.4](#4-submitting-form-using-post-request-validating-form-creating-account-saving-the-data-to-the-db-and-displaying-flash-messages))
+4. Update the `profile` view to handle the POST request. (same as [#6.4](#4-submitting-form-using-post-request-validating-form-creating-account-saving-the-data-to-the-db-and-displaying-flash-messages))
 
 #### 2. Override the `save` method in `Profile` model in order to resize whenever a large pic is uploaded for saving space.
 
@@ -363,7 +362,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 #### 5. Delete Post Functionality
 1. Created `PostDeleteView` w/ `LoginRequiredMixin` & `UserPassesTestMixin` (& same `test_func`), routed url.
-2. Created `post_confirm_delete.html`. (It will be just a confirmation form, where submit button will lead to post deletion.)
+2. Created `post_confirm_delete.html`. (It will be just a confirmation form, where the submit button will lead to post deletion.)
 3. Set `success_url` in view. (Url to redirect on after deleting the post.)
 - *Now, posts can be deleted successfully!*
 
@@ -389,14 +388,14 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 - *Implemented my own logic of links to what pages should be shown.*
 
 #### 5. Dedicated page which lists all the posts done by a particular user.
-- *This page will be the same as the home page, the only difference is this page will only list the posts by a particular user. Still Corey created a whole new view & template, which is very bad, so I did it the way it should've done.*
+- *This page will be the same as the home page, the only difference is this page will only list the posts by a particular user. Still Corey created a whole new view & template, which is terrible, so I did it the way it should've been done.*
 1. Created view `UserPostListView` inheriting `PostListView` (overridden `get_queryset` in order to get only posts by a particular author).
 2. Added url route, and added links to this page in templates.
 
 
 ### 12. [Python Django Tutorial: Full-Featured Web App Part 12 - Email and Password Reset](https://www.youtube.com/watch?v=-tyBEsHSv7w&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=12&ab_channel=CoreySchafer)
 
-> In this Python Django Tutorial, we will be learning how we can use email to send a password reset link to a user so that the user can reset their password. Users will be able to fill out a form with their email and have a unique token sent to them, and if their token is verified then they will be able to create a new password. Let's get started...
+> In this Python Django Tutorial, we will be learning how we can use email to send a password reset link to a user so that the user can reset their password. Users will be able to fill out a form with their email and have a unique token sent to them, and if their token is verified, then they will be able to create a new password. Let's get started...
 
 *We'll be using the same builtin class-based views from `auth_views`, like we did for login, logout.*
 <br>
@@ -441,11 +440,11 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 ## TODOs
 
-- Display time in local time zone.
+- Display time in the local time zone.
 
    `localtime` template filter (https://docs.djangoproject.com/en/4.1/topics/i18n/timezones/#template-filters) is not working for me.
    I have googled the problem, read stackoverflow answers, and gone through some django doc, everything looks right to me, but localtime doesn't have any effect.
-   In `settings.py`, I have `TIME_ZONE = 'UTC'` and `USE_TZ = True`, and in my html template, `{% load tz %}` and `time_posted|localtime` (`time_posted = models.DateTimeField(auto_now_add=True)`).
+   In `settings.py`, I have `TIME_ZONE = 'UTC'` and `USE_TZ = True`, and in my HTML template, `{% load tz %}` and `time_posted|localtime` (`time_posted = models.DateTimeField(auto_now_add=True)`).
    But, time is not showing in my time zone (but in UTC), I've tried everything.
 
 - Show email & username when saying link sent, show username & email when setting new pass.
