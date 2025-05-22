@@ -18,7 +18,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'blog/favicon/apple-touch-icon.png' %}" />
     <meta name="apple-mobile-web-app-title" content="Django Blog" />
     <link rel="manifest" href="{% static 'blog/favicon/site.webmanifest' %}" />
-s
+
     <!-- Page Title: -->
     {% if title %}
       <title>Django Blog - {{ title }}</title>
@@ -40,13 +40,15 @@ s
       <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
         <div class="container">
 
-          <!-- Brand Image & Text (https://getbootstrap.com/docs/5.3/components/navbar/?#image-and-text): -->
-          <a class="navbar-brand" href="{% url 'home' %}">
-            <img class="d-inline-block align-text-top" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Django_logo.svg/180px-Django_logo.svg.png" alt="Django" height="30"> Blog
-          </a>
-
-          <!-- About Link: -->
-          <a class="nav-link" href="{% url 'about' %}">About</a>
+          <!-- "flex" to keep the "Django Blog" and "About" together on small screens -->
+          <div class="d-flex align-items-center">
+            <!-- Brand Image & Text (https://getbootstrap.com/docs/5.3/components/navbar/?#image-and-text): -->
+            <a class="navbar-brand" href="{% url 'home' %}">
+              <img class="d-inline-block align-text-top rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWONTlmhZ6CYb1vm0_84eKRI_-vlgNxlJUrQ&s" alt="Django" height="30"> Blog
+            </a>
+            <!-- About Link: -->
+            <a class="navbar-nav nav-link" href="{% url 'about' %}">About</a>
+          </div>
 
           <!-- Navbar collapse behind a button for small screens (https://getbootstrap.com/docs/5.3/components/navbar/?#toggler): -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +57,7 @@ s
 
           <!-- Links (Register + Login / New Post + Your Profile): -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">  <!-- ms-auto: moving links to the right -->
+            <ul class="navbar-nav ms-auto mb-lg-0">  <!-- ms-auto: moving links to the right -->
               <!-- Django passes `user` context var by default, where it's the current logged-in user. (https://youtu.be/3aVqWaLjqS4?t=1100) -->
               {% if user.is_authenticated %}
                 <li class="nav-item">
