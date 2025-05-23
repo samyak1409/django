@@ -1,4 +1,17 @@
-/* CONTAINS ONLY THOSE STYLES WHICH CAN NOT BE APPLIED BY BOOTSTRAP */
+/* Give website a "custom-designed" look: */
+body {
+    font-family: 'General Sans', sans-serif;
+    line-height: 1.6;
+}
+h1 {
+    font-weight: 700;
+}
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* FOLLOWING ARE ONLY THOSE STYLES WHICH CAN NOT BE APPLIED BY BOOTSTRAP: */
 
 /* Bootstrap doesn't provide a built-in class for rem width — it uses a predefined scale (like 25, 50, 75, 100, auto, and
 fractional classes like w-25, w-50 which refer to percentages). */
@@ -28,4 +41,19 @@ fractional classes like w-25, w-50 which refer to percentages). */
 (comment out to see the problem, give it to chatgpt to know what this fix does) */
 input:-webkit-autofill {
   transition: background-color 86400s steps(1, end), color 86400s steps(1, end);
+}
+
+/* Heart animation */
+.heart {
+  display: inline-block;
+  animation: pulse 1s infinite;
+  transform-origin: center;
+}
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }

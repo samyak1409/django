@@ -36,7 +36,7 @@ class PostListView(ListView):
     # by default, it's called `object`
     # Note that we can also change the names to defaults, then we won't need all these configurations.
 
-    extra_context = {'title': 'Home'}
+    extra_context = {'title': f'All Posts ({Post.objects.count()})'}
 
     ordering = ['-time_posted']  # show the objects in reverse order because we want the latest post to show on the top
     # that's how it should be, just think how would it be the other way around
