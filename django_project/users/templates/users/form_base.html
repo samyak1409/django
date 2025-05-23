@@ -20,7 +20,7 @@
 
       <!-- Submit Button: -->
       <div class="form-group">
-        <button class="btn btn-outline-primary" type="submit">{% block btn_txt %}{% endblock %}</button>
+        {% block submit_btn %}{% endblock %}
         <!-- Forgot Pass Link (Show only on login page.): -->
         {% if request.resolver_match.url_name == 'login' %}  <!-- https://chat.openai.com/chat/cf7966f9-9d3c-4cac-be49-a145e462364a -->
           <small class="text-muted ms-2">  <!-- `ms` instead of `ml`: https://stackoverflow.com/a/67681587 -->
