@@ -16,7 +16,7 @@
       <div>
         <h2>{{ user.username }}</h2>
         <p class="text-body-tertiary">{{ user.email }}</p>
-        <a class="btn btn-outline-primary" href="{% url 'user_posts' user.username %}">Your Posts</a>
+        <a class="btn btn-outline-primary profile-btn" href="{% url 'user_posts' user.username %}">Your Posts</a>
         <!-- ALERT: "Log out via GET" Deprecated:
         https://docs.djangoproject.com/en/dev/releases/4.1/#features-deprecated-in-4-1
         So, needed to replace `a` with `form`, keeping the working as well as UI the same: -->

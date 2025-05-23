@@ -11,7 +11,7 @@ h1 {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* FOLLOWING ARE ONLY THOSE STYLES WHICH CAN NOT BE APPLIED BY BOOTSTRAP: */
+/* NOTE: USE BOOTSTRAP FOR THE STYLES WHICH CAN BE APPLIED THROUGH IT. */
 
 /* Bootstrap doesn't provide a built-in class for rem width — it uses a predefined scale (like 25, 50, 75, 100, auto, and
 fractional classes like w-25, w-50 which refer to percentages). */
@@ -51,9 +51,23 @@ input:-webkit-autofill {
 }
 @keyframes pulse {
   0%, 100% {
-    transform: scale(.9);
+    transform: scale(.8);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
+}
+
+/* Margin b/w "Your Posts" and "Log Out" on small screens: */
+@media screen and (max-width: 437px) {
+    .profile-btn {
+        margin-bottom: .2rem;
+    }
+}
+
+/* Margin b/w "Nav Bar" and "Register"/"New Post" on small screens: */
+@media screen and (max-width: 991px) {
+    #navbarSupportedContent {
+        margin-top: .5rem;
+    }
 }
