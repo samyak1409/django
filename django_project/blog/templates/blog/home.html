@@ -5,44 +5,44 @@
 {% block content %}
 
   {% for post in posts %}
-    <div class="content-box">
+    <div class="mb-4 p-4 bg-dark-subtle rounded-4">
       <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
       <div class="d-flex">
 
         <a href="{% url 'user_posts' post.author %}">
-          <img class="dp dp-post" src="{{ post.author.profile.pic.url }}" alt="">
+          <img class="dp-post me-3 mt-1 rounded-circle border border-dark-subtle" src="{{ post.author.profile.pic.url }}" alt="">
         </a>
 
         <div class="w-100">  <!-- width=100% for top-border to show entirely -->
 
           <!-- Title: -->
           {% if request.resolver_match.url_name == 'read' %}
-            <h2 class="post-title">{{ post.title|title }}</h2>
+            <h2 class="text-light">{{ post.title|title }}</h2>
           {% else %}
-            <h2><a class="post-title" href="{% url 'read' post.id %}">{{ post.title|title }}</a></h2>
+            <h2><a class="link-light link-opacity-75-hover text-decoration-none" href="{% url 'read' post.id %}">{{ post.title|title }}</a></h2>
           {% endif %}
 
           <!-- Author & Date Posted: -->
-          <p class="text-secondary border-bottom pb-1 mb-3">
+          <p class="text-body-tertiary border-bottom border-dark-subtle pb-1 mb-3">
             <a class="text-decoration-none me-2 fs-5" href="{% url 'user_posts' post.author %}">{{ post.author }}</a>
-            <small data-toggle="tooltip" title="{{ post.time_posted|localtime }}">{{ post.time_posted|timesince }} ago</small>
+            <small data-bs-toggle="tooltip" data-bs-title="{{ post.time_posted|localtime }}">{{ post.time_posted|timesince }} ago</small>
             <!-- localtime (https://docs.djangoproject.com/en/4.1/topics/i18n/timezones/#template-filters) not working -->
           </p>
 
           <!-- Content: -->
           <!-- Only showing the full content on the read page: -->
           {% if request.resolver_match.url_name == 'read' %}
-            <p class="post-content mb-0">{{ post.content|capfirst }}</p>
+            <p class="post-content text-body mb-0">{{ post.content|capfirst }}</p>
           {% else %}
             <!-- (https://chat.openai.com/chat/11c36c8a-de84-4630-96cb-d3c3f0f6234b) -->
-            <p class="post-content limit-content" id="post-{{ post.id }}">{{ post.content|capfirst }}</p>
+            <p class="post-content text-body limit-content" id="post-{{ post.id }}">{{ post.content|capfirst }}</p>
             <!-- JS code to calc. when to show "Read the full article" link: -->
             <script>
               var postContent = document.getElementById("post-{{ post.id }}");
               if (postContent.scrollHeight > postContent.offsetHeight) {
                 // console.log("Content overflow detected!");  // debugging
                 var readFullLink = document.createElement("a");
-                readFullLink.classList.add("read-full");
+                readFullLink.classList.add("read-full", "text-decoration-none", "fst-italic");
                 readFullLink.href = "{% url 'read' post.id %}";
                 readFullLink.textContent = "Read the full article";
                 postContent.insertAdjacentElement('afterend', readFullLink);
@@ -55,7 +55,7 @@
           <!-- Edit & Delete Buttons: -->
           <!-- (Show only if dedicated post page and current logged-in user is the post author.) -->
           {% if request.resolver_match.url_name == 'read' and user == post.author %}
-            <div class="border-top pt-3 mt-3">
+            <div class="border-top border-dark-subtle pt-3 mt-3">
               <a class="btn btn-outline-primary" href="{% url 'update' post.id %}">Edit</a>
               <a class="btn btn-outline-danger" href="{% url 'delete' post.id %}">Delete</a>
             </div>
@@ -70,7 +70,7 @@
   <!-- Now, page links: -->
   <!-- I've written my own link logic, corey's logic was a lil different (https://youtu.be/acOktTcTVEQ?t=687 till 22:30). -->
   <!-- Note that the vars we're using here are passed as a context automatically: -->
-  <div class="text-center">
+  <div class="text-center mb-4">
     {% if is_paginated %}  <!-- Why are we putting this? Removing this (and remove pagination) doesn't give any error and works right. -->
 
       {% if page_obj.has_previous %}

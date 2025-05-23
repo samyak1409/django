@@ -4,7 +4,7 @@
 
 {% block content %}
 
-  <div class="content-box">
+  <div class="mb-4 p-4 bg-dark-subtle rounded-4">
 
     <!-- Form: -->
     <form method="post">
@@ -13,7 +13,7 @@
 
       <fieldset class="form-group">
         <!-- Heading: -->
-        <legend class="border-bottom mb-3">{% block heading %}{% endblock %}</legend>
+        <legend class="border-bottom border-dark-subtle mb-3">{% block heading %}{% endblock %}</legend>
         <!-- Form Inputs: -->
         {{ form|crispy }}
       </fieldset>

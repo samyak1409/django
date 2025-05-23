@@ -14,7 +14,7 @@ class Profile(models.Model):
     # `on_delete=models.CASCADE`: Delete this profile if the user is deleted.
 
     pic = models.ImageField(default='Profile Pics/Default.jpg', upload_to='Profile Pics')
-    # `default`: Not making it compulsory to upload a profile pic, so if the user don't upload one, this default pic
+    # `default`: Not making it compulsory to upload a profile pic, so if the user doesn't upload one, this default pic
     #            will be used.
     # `upload_to`: Dir in which the profile pics will be saved.
 

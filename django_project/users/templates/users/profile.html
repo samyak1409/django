@@ -4,18 +4,18 @@
 
 {% block content %}
 
-  <div class="content-box">
+  <div class="mb-4 p-4 bg-dark-subtle rounded-4">
 
     <!-- Note that the `user` is passed by Django automatically. -->
     <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
     <div class="d-flex">
 
-      <img class="dp dp-profile" src="{{ user.profile.pic.url }}" alt="">
+      <img class="dp-profile me-4 mb-4 rounded-circle border border-dark-subtle" src="{{ user.profile.pic.url }}" alt="">
       <!-- `user.profile.pic.url`: As we saw while querying Profile. -->
 
       <div>
         <h2>{{ user.username }}</h2>
-        <p class="text-secondary">{{ user.email }}</p>
+        <p class="text-body-tertiary">{{ user.email }}</p>
         <a class="btn btn-outline-primary" href="{% url 'user_posts' user.username %}">Your Posts</a>
         <!-- ALERT: "Log out via GET" Deprecated:
         https://docs.djangoproject.com/en/dev/releases/4.1/#features-deprecated-in-4-1
@@ -37,7 +37,7 @@
       <fieldset class="form-group">
 
         <!-- Heading: -->
-        <legend class="border-bottom mb-3">Profile Info</legend>
+        <legend class="border-bottom border-dark-subtle mb-3">Profile Info</legend>
 
         <!-- Form Inputs (User & Profile (see forms.py)): -->
         {{ u_form|crispy }}

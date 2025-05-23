@@ -2,13 +2,13 @@
 
 <!DOCTYPE html>
 
-<!-- For `main.css`: -->
+<!-- For `main.css` etc.: -->
 {% load static %}
 
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Favicon (used https://realfavicongenerator.net): -->
@@ -27,27 +27,28 @@
     {% endif %}
 
     <!-- Bootstrap's CSS: -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- Corey's CSS: -->
     <link href="{% static 'blog/main.css' %}" rel="stylesheet">
 
   </head>
 
-  <body>
+  <body class="bg-black text-light d-flex flex-column min-vh-100">
 
     <!-- Header Navbar (https://getbootstrap.com/docs/5.3/components/navbar): -->
     <header class="mb-4">
-      <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+      <nav class="navbar navbar-expand-lg bg-dark-subtle">
         <div class="container">
 
           <!-- "flex" to keep the "Django Blog" and "About" together on small screens -->
           <div class="d-flex align-items-center">
             <!-- Brand Image & Text (https://getbootstrap.com/docs/5.3/components/navbar/?#image-and-text): -->
-            <a class="navbar-brand" href="{% url 'home' %}">
+            <a class="navbar-brand text-light" href="{% url 'home' %}">
               <img class="d-inline-block align-text-top rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWONTlmhZ6CYb1vm0_84eKRI_-vlgNxlJUrQ&s" alt="Django" height="30"> Blog
             </a>
             <!-- About Link: -->
-            <a class="navbar-nav nav-link" href="{% url 'about' %}">About</a>
+            <a class="navbar-nav nav-link text-light" href="{% url 'about' %}">About</a>
           </div>
 
           <!-- Navbar collapse behind a button for small screens (https://getbootstrap.com/docs/5.3/components/navbar/?#toggler): -->
@@ -57,23 +58,23 @@
 
           <!-- Links (Register + Login / New Post + Your Profile): -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-lg-0">  <!-- ms-auto: moving links to the right -->
+            <ul class="navbar-nav mb-lg-0 d-flex align-items-start align-items-lg-center ms-0 ms-lg-auto">  <!-- ms-auto: moving links to the right -->
               <!-- Django passes `user` context var by default, where it's the current logged-in user. (https://youtu.be/3aVqWaLjqS4?t=1100) -->
               {% if user.is_authenticated %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'create' %}">New Post</a>
+                  <a class="nav-link text-light" href="{% url 'create' %}">New Post</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'profile' %}">
-                    <img class="dp dp-navbar" src="{{ user.profile.pic.url }}" alt="" data-toggle="tooltip" title="Your Profile">
+                  <a class="nav-link" href="{% url 'profile' %}" data-bs-toggle="tooltip" data-bs-title="Your Profile">
+                    <img class="dp-navbar rounded-circle border border-dark-subtle" src="{{ user.profile.pic.url }}" alt="DP">
                   </a>
                 </li>
               {% else %}
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'register' %}">Register</a>
+                  <a class="nav-link text-light" href="{% url 'register' %}">Register</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                  <a class="nav-link text-light" href="{% url 'login' %}">Log In</a>
                 </li>
               {% endif %}
             </ul>
@@ -84,7 +85,7 @@
     </header>
 
     <!-- Main Body (https://getbootstrap.com/docs/5.3/layout/containers/#default-container): -->
-    <div class="container">
+    <div class="container flex-grow-1">
 
       <div class="container">
 
@@ -114,19 +115,21 @@
         <span class="mb-3 mb-md-0 text-muted">Made with ❤ by Samyak</span>
       </div>
       <a class="text-muted" href="https://github.com/samyak1409/django" target="_blank">
-          <img class="dp dp-navbar" src="https://icons.getbootstrap.com/assets/icons/github.svg" alt="GitHub" data-toggle="tooltip" title="Star Project on GitHub">
+            https://icons.getbootstrap.com#icon-font
+            <i class="bi bi-github text-light fs-2" data-bs-toggle="tooltip" data-bs-title="Star Project on GitHub"></i>
       </a>
     </footer>
     -->
     <!-- Footer (https://getbootstrap.com/docs/5.3/components/navbar/#text-1 + https://getbootstrap.com/docs/5.3/components/navbar/#image): -->
-    <footer class="mt-4">
-      <nav class="navbar bg-body-tertiary bg-dark" data-bs-theme="dark">
+    <footer class="bg-dark-subtle px-2">
+      <nav class="navbar">
         <div class="container">
           <span class="navbar-text">
-            Made with ❤ by <a class="text-decoration-none" href="mailto:samyak65400@gmail.com" target="_blank">Samyak</a>
+            Made with ❤ by <a class="text-decoration-none text-light" href="mailto:samyak65400@gmail.com" target="_blank">Samyak</a>
           </span>
           <a href="https://github.com/samyak1409/django" target="_blank">
-            <img class="dp dp-navbar" src="https://icons.getbootstrap.com/assets/icons/github.svg" alt="GitHub" data-toggle="tooltip" title="Star Project on GitHub">
+            <!-- https://icons.getbootstrap.com#icon-font -->
+            <i class="bi bi-github text-light fs-2" data-bs-toggle="tooltip" data-bs-title="Star Project on GitHub"></i>
           </a>
         </div>
       </nav>
@@ -134,6 +137,12 @@
 
     <!-- Bootstrap's JS Bundle: -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <!-- https://getbootstrap.com/docs/5.3/components/tooltips/#enable-tooltips: -->
+    <script>
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
 
   </body>
 </html>
