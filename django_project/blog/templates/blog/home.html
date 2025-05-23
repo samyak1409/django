@@ -9,27 +9,39 @@
       <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
       <div class="d-flex">
 
-        <a href="{% url 'user_posts' post.author %}">
-          <img class="dp-post me-3 mt-1 rounded-circle border border-dark-subtle" src="{{ post.author.profile.pic.url }}" alt="">
+        <!-- Author DP for large screens: -->
+        <a class="d-none d-lg-block me-3 mt-1" href="{% url 'user_posts' post.author %}">
+          <img class="dp-post-lg rounded-circle border border-dark-subtle" src="{{ post.author.profile.pic.url }}" alt="Author DP">
         </a>
 
-        <div class="w-100">  <!-- width=100% for top-border to show entirely -->
+        <div class="w-100">  <!-- width=100% for border -->
 
-          <!-- Title: -->
+          <!-- Blog title: -->
           {% if request.resolver_match.url_name == 'read' %}
             <h2 class="text-light">{{ post.title|title }}</h2>
           {% else %}
-            <h2><a class="link-light link-opacity-75-hover text-decoration-none" href="{% url 'read' post.id %}">{{ post.title|title }}</a></h2>
+            <h2>
+              <a class="link-light link-opacity-75-hover text-decoration-none" href="{% url 'read' post.id %}">
+                {{ post.title|title }}
+              </a>
+            </h2>
           {% endif %}
 
-          <!-- Author & Date Posted: -->
           <p class="text-body-tertiary border-bottom border-dark-subtle pb-1 mb-3">
-            <a class="text-decoration-none me-2 fs-5" href="{% url 'user_posts' post.author %}">{{ post.author }}</a>
-            <small data-bs-toggle="tooltip" data-bs-title="{{ post.time_posted|localtime }}">{{ post.time_posted|timesince }} ago</small>
-            <!-- localtime (https://docs.djangoproject.com/en/4.1/topics/i18n/timezones/#template-filters) not working -->
+            <!-- Author DP for small screens: -->
+            <a class="d-lg-none me-2" href="{% url 'user_posts' post.author %}">
+              <img class="dp-post-sm rounded-circle border border-dark-subtle" src="{{ post.author.profile.pic.url }}" alt="Author DP">
+            </a>
+            <!-- Username & Time Posted: -->
+            <a class="text-decoration-none fs-5 me-2" href="{% url 'user_posts' post.author %}">
+              {{ post.author }}
+            </a>
+            <small data-bs-toggle="tooltip" data-bs-title="{{ post.time_posted|localtime }}">
+              {{ post.time_posted|timesince }} ago
+            </small>
           </p>
 
-          <!-- Content: -->
+          <!-- Blog content: -->
           <!-- Only showing the full content on the read page: -->
           {% if request.resolver_match.url_name == 'read' %}
             <p class="post-content text-body mb-0">{{ post.content|capfirst }}</p>
@@ -56,8 +68,12 @@
           <!-- (Show only if dedicated post page and current logged-in user is the post author.) -->
           {% if request.resolver_match.url_name == 'read' and user == post.author %}
             <div class="border-top border-dark-subtle pt-3 mt-3">
-              <a class="btn btn-outline-primary" href="{% url 'update' post.id %}">Edit</a>
-              <a class="btn btn-outline-danger" href="{% url 'delete' post.id %}">Delete</a>
+              <a class="btn btn-outline-primary" href="{% url 'update' post.id %}">
+                Edit
+              </a>
+              <a class="btn btn-outline-danger" href="{% url 'delete' post.id %}">
+                Delete
+              </a>
             </div>
           {% endif %}
 

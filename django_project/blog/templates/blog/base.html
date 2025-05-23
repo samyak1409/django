@@ -60,7 +60,8 @@
           </button>
 
           <!-- Links (Register + Login / New Post + Your Profile): -->
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- "mt-2": Applies `margin-top: 0.5rem` on all screen sizes. "mt-md-0": Removes the top margin on `md` (≥992px) and up. -->
+          <div class="collapse navbar-collapse mt-2 mt-md-0" id="navbarSupportedContent">
             <ul class="navbar-nav mb-lg-0 d-flex align-items-start align-items-lg-center ms-0 ms-lg-auto">  <!-- ms-auto: moving links to the right -->
               <!-- Django passes `user` context var by default, where it's the current logged-in user. (https://youtu.be/3aVqWaLjqS4?t=1100) -->
               {% if user.is_authenticated %}
