@@ -121,4 +121,4 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def about(request):
 
-    return render(request=request, template_name='blog/about.html', context={'title': 'About'})
+    return render(request=request, template_name='blog/about.html', context={'title': 'Project Highlights'})
