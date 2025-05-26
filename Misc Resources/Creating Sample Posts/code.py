@@ -8,7 +8,7 @@ from json import load
 from blog.models import Post
 
 
-for post in load(open(file='../Resources/Creating Sample Posts/posts.json')):
+for post in load(open(file='../Misc Resources/Creating Sample Posts/posts.json')):
     Post(title=post['title'], content=post['content'], author_id=post['user_id']).save()
 
 """

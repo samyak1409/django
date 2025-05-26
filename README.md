@@ -12,44 +12,44 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 ## Screenshots
 
 ### Homepage of the website
-![](Screenshots/01.%20Home1.png)
-![](Screenshots/02.%20Home2.png)
+![](Project%20Screenshots/01.%20Home1.png)
+![](Project%20Screenshots/02.%20Home2.png)
 
 ### Full post can be read by opening the Post page
-![](Screenshots/03.%20PostRead.png)
+![](Project%20Screenshots/03.%20PostRead.png)
 
 ### Users can Register
-![](Screenshots/04.%20Register.png)
+![](Project%20Screenshots/04.%20Register.png)
 
 ### And then, can Log In to the site
-![](Screenshots/05.%20Login.png)
+![](Project%20Screenshots/05.%20Login.png)
 
 ### After logging in, links in the header navbar will change
-![](Screenshots/06.%20Home3.png)
+![](Project%20Screenshots/06.%20Home3.png)
 
 ### Profile page, from where users can see their Posts, Log Out, and update Profile Info
-![](Screenshots/07.%20Profile.png)
+![](Project%20Screenshots/07.%20Profile.png)
 
 ### Users can Create new posts
-![](Screenshots/08.%20PostCreate.png)
+![](Project%20Screenshots/08.%20PostCreate.png)
 
 ### Users can Update/Delete their posts
-![](Screenshots/09.%20PostUpdateDelete.png)
+![](Project%20Screenshots/09.%20PostUpdateDelete.png)
 
 ### Users can see posts by a particular user
-![](Screenshots/10.%20UserPosts.png)
+![](Project%20Screenshots/10.%20UserPosts.png)
 
 ### Users can request Password Reset link to their email if they can't remember the password
-![](Screenshots/11.%20PassReset.png)
+![](Project%20Screenshots/11.%20PassReset.png)
 
 ### A RESTful public API is also available @[/api1](http://localhost:8000/api1):
-![](Screenshots/12.%20RESTful%20API.png)
+![](Project%20Screenshots/12.%20RESTful%20API.png)
 <details>
 <summary>Click here to see individual endpoints.</summary> <br>
 
-![](Screenshots/12.a.%20All%20Posts.png)
-![](Screenshots/12.b.%20Single%20Post.png)
-![](Screenshots/12.c.%20Posts%20by%20a%20User.png)
+![](Project%20Screenshots/12.a.%20All%20Posts.png)
+![](Project%20Screenshots/12.b.%20Single%20Post.png)
+![](Project%20Screenshots/12.c.%20Posts%20by%20a%20User.png)
 </details>
 
 
@@ -63,7 +63,6 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 4. There, open your [Command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) (e.g., Command Prompt for Windows), and run the following (make sure you're connected to the internet):
    ```bash
    pip install -r requirements.txt
-   cd django_project
    python manage.py runserver
    ```
    This will install the project dependencies, and start the server on your PC.
@@ -188,7 +187,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 - ```bash
   python manage.py shell
   ```
-  See the queries in [`Resources/DB Queries/1. Post`](Resources/DB%20Queries/1.%20Post) folder.
+  See the queries in [`Misc Resources/DB Queries/1. Post`](Misc%20Resources/DB%20Queries/1.%20Post) folder.
 
 #### 4. Passing the real data from DB in the views to the template.
 - *[Formatting the date](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#date) as we want.*
@@ -214,7 +213,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 #### 2. Now, to make a registration form, Django has a builtin `UserCreationForm` (A form that creates a user, with no privileges, from the given username and password.).
 - *This is kind of similar to the database models in the sense, that we can create Python classes, and these classes generate HTML forms for us.*
 
-#### 3. Create template with form, route url (as "Function views" this time, [see](django_project/django_project/urls.py#L6)).
+#### 3. Create template with form, route url (as "Function views" this time, [see](django_project/urls.py#L6)).
 
 *- x - Till [17:29](https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=6&ab_channel=CoreySchafer&t=1049) - x -*
 
@@ -262,7 +261,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 
 > In this Python Django Tutorial, we will be learning how to create an authentication system for our application so that users can log in and log out. We are also going to see how we can restrict certain pages so that users must be logged-in in order to access the page. Let's get started...
 
-#### 1. Using Django's builtin login & logout [class-based views](django_project/django_project/urls.py#L9). (`LoginView`, `LogoutView`)
+#### 1. Using Django's builtin login & logout [class-based views](django_project/urls.py#L9). (`LoginView`, `LogoutView`)
 - *Will handle forms, logic, and all of that stuff for us, but it's not going to handle the templates, which is good because we want to make the templates anyway, so that they match the look & style of our current website.*
 
 #### 2. Make login template, and set `LOGIN_REDIRECT_URL` in `settings.py`.
@@ -294,7 +293,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 #### 2. Changing where the media is saved and from what url it can be accessed by adding the `MEDIA_ROOT` & `MEDIA_URL` respectively in `settings.py`.
 - *By default, `MEDIA_ROOT` is the base dir of our project, so if different models started making different dirs at the base dir, then it will be cluttered up.*
 
-#### 3. [Querying](Resources/DB%20Queries/2.%20Profile) the `Profile` model using `User` model (as they're connected/linked by `OneToOneField`).
+#### 3. [Querying](Misc%20Resources/DB%20Queries/2.%20Profile) the `Profile` model using `User` model (as they're connected/linked by `OneToOneField`).
 1. But no profiles exist currently, so, first add a few from the admin page (as we've not implemented "when the user is created, profile is created with it" yet).
 
 #### 4. Now, the main part, Showing profile pic on the profile page.
@@ -302,7 +301,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 2. Adding `MEDIA_URL` to `urlpatterns`. ([Serving files uploaded by a user during development](https://docs.djangoproject.com/en/4.1/howto/static-files/#serving-files-uploaded-by-a-user-during-development)) ([see](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=8&ab_channel=CoreySchafer&t=1258) till 24:33)
    - *Now, we can see the profile pic on the profile page.*
 3. Adding [Corey's styles](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/snippets/main.css) (to the `static` dir) so that profile page looks right.
-4. Adding the default profile pic. (Remember? Check [`Profile`](django_project/users/models.py))
+4. Adding the default profile pic. (Remember? Check [`Profile`](users/models.py))
 
 *- x - Till [26:18](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=8&ab_channel=CoreySchafer&t=1578) - x -*
 
@@ -331,7 +330,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 
 > In this Python Django Tutorial, we will be learning how to use class-based views in order to create, update, and delete posts. These class-based views are very convenient once we get used to using them properly. Let's get started...
 
-*We'll be using some Django builtin [class-based views](django_project/django_project/urls.py#L9) for adding [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) posts functionality.
+*We'll be using some Django builtin [class-based views](django_project/urls.py#L9) for adding [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) posts functionality.
 There are many class-based views (see `django.views.generic.__all__`), here we'll be using following ones:
 `CreateView`, `DetailView`, `UpdateView`, `DeleteView`, `ListView`*
 
@@ -373,9 +372,9 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 > In this Python Django Tutorial, we will be learning how to use pagination so that we aren't pulling down too many posts at once. We will also learn how to create a page for posts created by a specific user. Let's get started...
 
-#### 1. First, running an automation [script](Resources/Creating%20Sample%20Posts/code.py), which will create some sample posts (so that we can see pagination better).
+#### 1. First, running an automation [script](Misc%20Resources/Creating%20Sample%20Posts/code.py), which will create some sample posts (so that we can see pagination better).
 
-#### 2. [See](Resources/Paginator) the `Paginator` object.
+#### 2. [See](Misc%20Resources/Paginator) the `Paginator` object.
 
 #### 3. Just by adding attribute `paginate_by` in our `PostListView`, pagination will be activated on our website.
 - ```py
@@ -425,7 +424,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 - Added a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](http://localhost:8000/api1)) (using [Django REST framework](https://www.django-rest-framework.org)) which can be used to get posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
 
-- Gave the website [my own look](#Screenshots) (using [Bootstrap](https://getbootstrap.com/docs)), didn't copy [Corey's frontend](Screenshots/00.%20Corey's.png). (mainly Header-Navbar, Footer, and Post)
+- Gave the website [my own look](#Screenshots) (using [Bootstrap](https://getbootstrap.com/docs)), didn't copy [Corey's frontend](Project%20Screenshots/00.%20Corey's.png).
 
 - Didn't create new view and template for the page containing only the posts by a particular user and for the dedicated post page, but inherited the view from `PostListView`, and used the `home.html` template only.
 
@@ -448,5 +447,3 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
    But, time is not showing in my time zone (but in UTC), I've tried everything.
 
 - Show email & username when saying link sent, show username & email when setting new pass.
-
-- [Deploy on Heroku](https://www.youtube.com/watch?v=6DI_7Zja8Zc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=17&ab_channel=CoreySchafer)
