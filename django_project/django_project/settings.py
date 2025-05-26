@@ -145,13 +145,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # where collectstatic will gather all static content
-# Optional but recommended:
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'blog/static'),
-]
-# WhiteNoise for serving static files in production
-MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')  # right after SecurityMiddleware
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -170,13 +164,12 @@ LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 
 
+# URL from which the media files will be accessed in the browser:
+MEDIA_URL = '/media/'
 # Full path to the dir where we want Django to save the uploaded files:
 MEDIA_ROOT = os.path.join(BASE_DIR, 'Media')  # joins the path flawlessly independent of the underlying OS
 # `BASE_DIR`: Full path to our project's base dir.
 # (For performance reasons, these files are saved in the file system and not in the DB.)
-
-# URL from which the media files will be accessed in the browser:
-MEDIA_URL = '/media/'
 
 
 # Email Setup:
