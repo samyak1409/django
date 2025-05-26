@@ -2,3 +2,7 @@ Django
 crispy-bootstrap5
 Pillow
 djangorestframework
+gunicorn
+psycopg2-binary
+dj-database-url
+whitenoise

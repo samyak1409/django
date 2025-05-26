@@ -20,11 +20,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-# (Details of created superuser:
-# Username: samyak1409
-# Email address: samyak65400@gmail.com
-# Password: testing321)
-
-# And with these credentials, you can log in to `/admin`.
