@@ -62,6 +62,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 3. Open the `django-main` directory. (You should see a `requirements.txt` there.)
 4. There, open your [Command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) (e.g., Command Prompt for Windows), and run the following (make sure you're connected to the internet):
    ```bash
+   cd django_project
    pip install -r requirements.txt
    python manage.py runserver
    ```
@@ -213,7 +214,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 #### 2. Now, to make a registration form, Django has a builtin `UserCreationForm` (A form that creates a user, with no privileges, from the given username and password.).
 - *This is kind of similar to the database models in the sense, that we can create Python classes, and these classes generate HTML forms for us.*
 
-#### 3. Create template with form, route url (as "Function views" this time, [see](django_project/urls.py#L6)).
+#### 3. Create template with form, route url (as "Function views" this time, [see](django_project/django_project/urls.py#L6)).
 
 *- x - Till [17:29](https://www.youtube.com/watch?v=q4jPR-M0TAQ&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=6&ab_channel=CoreySchafer&t=1049) - x -*
 
@@ -261,7 +262,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 
 > In this Python Django Tutorial, we will be learning how to create an authentication system for our application so that users can log in and log out. We are also going to see how we can restrict certain pages so that users must be logged-in in order to access the page. Let's get started...
 
-#### 1. Using Django's builtin login & logout [class-based views](django_project/urls.py#L9). (`LoginView`, `LogoutView`)
+#### 1. Using Django's builtin login & logout [class-based views](django_project/django_project/urls.py#L9). (`LoginView`, `LogoutView`)
 - *Will handle forms, logic, and all of that stuff for us, but it's not going to handle the templates, which is good because we want to make the templates anyway, so that they match the look & style of our current website.*
 
 #### 2. Make login template, and set `LOGIN_REDIRECT_URL` in `settings.py`.
@@ -301,7 +302,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 2. Adding `MEDIA_URL` to `urlpatterns`. ([Serving files uploaded by a user during development](https://docs.djangoproject.com/en/4.1/howto/static-files/#serving-files-uploaded-by-a-user-during-development)) ([see](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=8&ab_channel=CoreySchafer&t=1258) till 24:33)
    - *Now, we can see the profile pic on the profile page.*
 3. Adding [Corey's styles](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/snippets/main.css) (to the `static` dir) so that profile page looks right.
-4. Adding the default profile pic. (Remember? Check [`Profile`](users/models.py))
+4. Adding the default profile pic. (Remember? Check [`Profile`](django_project/users/models.py))
 
 *- x - Till [26:18](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=8&ab_channel=CoreySchafer&t=1578) - x -*
 
@@ -330,7 +331,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 
 > In this Python Django Tutorial, we will be learning how to use class-based views in order to create, update, and delete posts. These class-based views are very convenient once we get used to using them properly. Let's get started...
 
-*We'll be using some Django builtin [class-based views](django_project/urls.py#L9) for adding [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) posts functionality.
+*We'll be using some Django builtin [class-based views](django_project/django_project/urls.py#L9) for adding [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) posts functionality.
 There are many class-based views (see `django.views.generic.__all__`), here we'll be using following ones:
 `CreateView`, `DetailView`, `UpdateView`, `DeleteView`, `ListView`*
 

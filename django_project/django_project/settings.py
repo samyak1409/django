@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-import dj_database_url
+# import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,10 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'True') == 'True'
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 # This sets `False` in prod, `True` on local.
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost 127.0.0.1').split()
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost 127.0.0.1').split()
 # on Render, ALLOWED_HOSTS env var = Render app’s URL (e.g., yourapp.onrender.com)
 
 
@@ -101,11 +101,12 @@ DATABASES = {
 }
 
 # If DATABASE_URL is set (on Render), override with PostgreSQL
-if os.environ.get('DATABASE_URL'):
-    DATABASES['default'] = dj_database_url.config(
-        conn_max_age=600,
-        ssl_require=True
-    )
+# if os.environ.get('DATABASE_URL'):
+#     DATABASES['default'] = dj_database_url.config(
+#         conn_max_age=600,
+#         ssl_require=True
+#     )
+# Tried using PostgreSQL DB on production, but it's not free on Render, so I could not.
 
 
 # Password validation
