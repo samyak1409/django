@@ -3,3 +3,4 @@ crispy-bootstrap5
 Pillow
 djangorestframework
 gunicorn
+whitenoise
