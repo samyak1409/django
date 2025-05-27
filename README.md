@@ -1,12 +1,16 @@
-# [Django](https://en.wikipedia.org/wiki/Django_(web_framework))
+# Django Blog
 
+[![Live Site](https://img.shields.io/badge/Live%20Site-Click%20Here%20🚀-brightgreen?style=for-the-badge)](https://samyak1409-django-blog.onrender.com)
 
-Official Site: [djangoproject.com](https://www.djangoproject.com)
+✅ Developed a full-stack blog website using Django, with user registration, authentication, profile customization, [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on posts, email-based password reset, and auto square-cropping of profile images.
 
-Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) (~10hr)
+✅ Designed a responsive, minimalistic [OLED-black](https://en.wikipedia.org/wiki/OLED#Advantages:~:text=High%20dynamic%20range%20support) UI using HTML, CSS, and Bootstrap, with additional features like custom [pagination](https://en.wikipedia.org/wiki/Pagination#In_web_browsers) logic and dynamic content truncation for enhanced UX.
 
-> In this series of videos, we're going to learn how to build a full-featured web application using the Django framework in Python.
-> Django is a very popular framework that gives us a lot of functionality right out of the box, and makes it really enjoyable to work with these web applications.
+✅ Added a public [REST](https://en.wikipedia.org/wiki/REST)ful API with read-only access to blog posts, using Django REST framework.
+
+✅ Followed [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle to cut redundancy and boost maintainability by [inheriting](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)) from [class-based views](https://docs.djangoproject.com/en/stable/topics/class-based-views) and [templates](https://docs.djangoproject.com/en/stable/topics/templates).
+
+> ⚡ **Live Site**: [samyak1409-django-blog.onrender.com](https://samyak1409-django-blog.onrender.com)
 
 
 ## Screenshots
@@ -70,6 +74,14 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 5. Now, just click/go on the link [127.0.0.1:8000](http://127.0.0.1:8000) to access the website!
 
 *Note that in order to make [Password Reset](#users-can-request-password-reset-link-to-their-email-if-they-cant-remember-the-password) functionality work on your local machine/server, you're needed to create [Google App Password](https://myaccount.google.com/apppasswords), and add environment variables. [Details](#12-python-django-tutorial-full-featured-web-app-part-12---email-and-password-reset).*
+
+
+<hr>
+
+
+Official Site: [djangoproject.com](https://www.djangoproject.com)
+
+Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) (~10hr)
 
 
 ## Video-wise Notes in a Nutshell
@@ -423,21 +435,22 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 ## Additions I've Made (Major Ones)
 
-- Added a [REST](https://en.wikipedia.org/wiki/Representational_state_transfer)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](http://localhost:8000/api1)) (using [Django REST framework](https://www.django-rest-framework.org)) which can be used to get posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
+- Added a [REST](https://en.wikipedia.org/wiki/REST)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](http://localhost:8000/api1)) using the [Django REST framework](https://www.django-rest-framework.org), which can be used to fetch posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
 
-- Gave the website [my own look](#Screenshots) (using [Bootstrap](https://getbootstrap.com/docs)), didn't copy [Corey's frontend](Project%20Screenshots/00.%20Corey's.png).
+- Gave the website [my own look](#Screenshots) using [Bootstrap](https://getbootstrap.com/docs); didn't copy [Corey's template](Project%20Screenshots/00.%20Corey's.png).
 
-- Didn't create new view and template for the page containing only the posts by a particular user and for the dedicated post page, but inherited the view from `PostListView`, and used the `home.html` template only.
+- Didn't create a new view and template for the page containing only the posts by a particular user or for the dedicated post page, but instead inherited the view from `PostListView` and used the `home.html` template only.
 
-- Set to delete the old profile pic whenever a new one is added, and save the profile pics with name = 'user_id.ext'.
+- Set it to delete the old profile pic whenever a new one is uploaded, and save profile pics with the name format: `user_id.ext`.
 
-- Limit the post-content (on post-list pages) to show only 5 lines, and add a "Read the full article" link below if the post-content overflows the limit (using [Vanilla JavaScript](https://en.wikipedia.org/wiki/JavaScript#cite_ref-44)).
+- Limited the post-content (on post-list pages) to show only 5 lines, and added a "Read the full article" link below if the post-content exceeds the limit (using [Vanilla JavaScript](https://en.wikipedia.org/wiki/JavaScript#cite_ref-44)).
 
-- If the uploaded profile pic is not square, it will be cropped to square (using [Pillow (PIL Fork)](https://pillow.readthedocs.io)).
+- If the uploaded profile pic is not square, it is cropped to a square (using [Pillow (PIL Fork)](https://pillow.readthedocs.io)).
 
-- Implemented my own logic of links to what pages should be shown for pagination.
+- Implemented custom logic to control which pagination links should be displayed.
 
 
+<!--
 ## TODOs
 
 - Display time in the local time zone.
@@ -448,3 +461,4 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
    But, time is not showing in my time zone (but in UTC), I've tried everything.
 
 - Show email & username when saying link sent, show username & email when setting new pass.
+-->
