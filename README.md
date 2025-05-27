@@ -57,26 +57,62 @@
 </details>
 
 
-## Run on your PC
+## Run Locally
 
-*Note that [Python](https://www.python.org/downloads) needs to be installed.*
+> ⚠️ Make sure [Python](https://www.python.org/downloads) is installed on your system.
 
-1. [Download the Project](https://github.com/samyak1409/django/archive/refs/heads/main.zip)
-2. Extract the downloaded zip (`django-main.zip`).
-3. Open the `django-main` directory. (You should see a `requirements.txt` there.)
-4. There, open your [Command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) (e.g., Command Prompt for Windows), and run the following (make sure you're connected to the internet):
+1. **Download the Project**
+
+   [Click here](https://github.com/samyak1409/django/archive/refs/heads/main.zip) to download the zip file.
+
+2. **Extract the Archive**
+
+   Unzip the downloaded file (`django-main.zip`), and navigate into the extracted `django-main` directory.
+
+3. **Set Up Environment Variables**
+
+   - 🔐 **SECRET_KEY**:
+
+     Django requires a secret key. You can generate one using the following Python code:
+     ```python
+     import secrets
+     print(secrets.token_urlsafe(50))
+     ```
+     Add it as an environment variable:
+     ```
+     SECRET_KEY=your_generated_secret_key
+     ```
+
+   - ✉️ **Email Setup (Optional)**:
+
+     To enable [Password Reset](#users-can-request-password-reset-link-to-their-email-if-they-cant-remember-the-password) functionality:
+
+     1. Generate a [Google App Password](https://myaccount.google.com/apppasswords).
+     2. Set the following environment variables:
+        ```
+        EMAIL_USER=your_email@gmail.com
+        EMAIL_PASS=your_app_password
+        ```
+     > [More Details](#12-python-django-tutorial-full-featured-web-app-part-12---email-and-password-reset)
+
+4. **Run the App**
+
+   Open your [Command Line Interface](https://en.wikipedia.org/wiki/Command-line_interface) (e.g., Terminal, Command Prompt), and run:
+
    ```bash
    cd django_project
    pip install -r requirements.txt
    python manage.py runserver
    ```
-   This will install the project dependencies, and start the server on your PC.
-5. Now, just click/go on the link [127.0.0.1:8000](http://127.0.0.1:8000) to access the website!
 
-*Note that in order to make [Password Reset](#users-can-request-password-reset-link-to-their-email-if-they-cant-remember-the-password) functionality work on your local machine/server, you're needed to create [Google App Password](https://myaccount.google.com/apppasswords), and add environment variables. [Details](#12-python-django-tutorial-full-featured-web-app-part-12---email-and-password-reset).*
+   This will install all dependencies and start the Django development server.
+
+5. **Open the Web App**
+
+   Visit [127.0.0.1:8000](http://127.0.0.1:8000) in your browser to view your site running locally! 🎉
 
 
-<hr>
+---
 
 
 Official Site: [djangoproject.com](https://www.djangoproject.com)
