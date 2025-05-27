@@ -67,5 +67,17 @@ urlpatterns = [
 
 
 # https://github.com/samyak1409/django#4-now-the-main-part-showing-profile-pic-on-the-profile-page:
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # Note that it will only be added in the DEBUG mode (see the source code of `static`).
+# Not recommended:
+import re
+from django.urls import re_path
+from django.views.static import serve
+
+urlpatterns += [
+    re_path(
+        r"^%s(?P<path>.*)$" % re.escape(settings.MEDIA_URL.lstrip("/")),
+        serve,
+        kwargs={"document_root": settings.MEDIA_ROOT},
+    ),
+]
