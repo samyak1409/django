@@ -1,6 +1,6 @@
 # Django Blog
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-Click%20Here%20🚀-brightgreen?style=for-the-badge)](https://samyak1409-django-blog.onrender.com)
+[![Live Site](https://img.shields.io/badge/Live%20Site-🚀%20Click%20Here-brightgreen?style=for-the-badge)](https://samyak1409-django-blog.onrender.com)
 
 ✅ Developed a full-stack blog website using Django, with user registration, authentication, profile customization, [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on posts, email-based password reset, and auto square-cropping of profile images.
 
@@ -46,7 +46,7 @@
 ### Users can request Password Reset link to their email if they can't remember the password
 ![](Project%20Screenshots/11.%20PassReset.png)
 
-### A RESTful public API is also available @[/api1](http://localhost:8000/api1):
+### A RESTful public API is also available @[/api1](https://samyak1409-django-blog.onrender.com/api1):
 ![](Project%20Screenshots/12.%20RESTful%20API.png)
 <details>
 <summary>Click here to see individual endpoints.</summary> <br>
@@ -182,7 +182,7 @@ Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCK
 - ```bash
   python manage.py createsuperuser
   ```
-  *Now, we can access the [admin page](http://localhost:8000/admin), and modify any data directly from there.*
+  *Now, we can access the [admin page](http://127.0.0.1:8000/admin), and modify any data directly from there.*
 
 
 ### 5. [Python Django Tutorial: Full-Featured Web App Part 5 - Database and Migrations](https://www.youtube.com/watch?v=aHC3uTkT9r8&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=5&ab_channel=CoreySchafer)
@@ -435,7 +435,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 ## Additions I've Made (Major Ones)
 
-- Added a [REST](https://en.wikipedia.org/wiki/REST)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](http://localhost:8000/api1)) using the [Django REST framework](https://www.django-rest-framework.org), which can be used to fetch posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
+- Added a [REST](https://en.wikipedia.org/wiki/REST)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](https://samyak1409-django-blog.onrender.com/api1)) using the [Django REST framework](https://www.django-rest-framework.org), which can be used to fetch posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
 
 - Gave the website [my own look](#Screenshots) using [Bootstrap](https://getbootstrap.com/docs); didn't copy [Corey's template](Project%20Screenshots/00.%20Corey's.png).
 
@@ -462,3 +462,116 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 - Show email & username when saying link sent, show username & email when setting new pass.
 -->
+
+
+## Notes: Deploying a Full-Stack Django Web App on Render
+
+### 🔧 Setup on [Render Dashboard](https://dashboard.render.com/web/new)
+
+1. **Name**:  
+   Give your Web Service a *unique* name (e.g., `samyak1409-django-blog`).  
+   > ⚠️ If left blank, Render will append random characters to the name, which is undesirable.
+
+2. **Root Directory**:  
+   If your Django project is inside a subdirectory, provide that directory name here. It doesn’t have to be at the root of the repo.
+
+3. **Build Command**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Start Command**:
+   ```bash
+   gunicorn project_name.wsgi
+   # Example:
+   gunicorn django_project.wsgi
+   ```
+   Ensure your `requirements.txt` includes:
+   ```
+   gunicorn
+   ```
+
+5. **Environment Variables**:  
+   Add all required variables (e.g., `SECRET_KEY`, `DEBUG`, `ALLOWED_HOSTS`, DB creds, etc.).
+
+---
+
+### ⚠️ Problem with Free Instances on Render
+
+> *Free instances spin down after periods of inactivity. They do not support SSH access, scaling, one-off jobs, or **PERSISTENT DISKS**. Select any paid instance type to enable these features.*  
+> — [Render Docs](https://render.com)
+
+---
+
+### ✅ Solution
+
+#### 📦 For Static Files
+
+Your `requirements.txt` should include:
+```
+whitenoise
+```
+
+In `settings.py`:
+
+```python
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # location where collectstatic gathers all static content
+
+# WhiteNoise Middleware for serving static files
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')  # right after SecurityMiddleware
+
+# Compressed storage for caching and versioning
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+```
+
+Run:
+```bash
+python manage.py collectstatic
+```
+
+**How it works**:  
+WhiteNoise serves static files from the `STATIC_ROOT` folder. These files are included in the deployment slug (i.e., the Render package).  
+Even if the instance restarts, static files are **not lost** because they’re embedded in the deployment, **not** stored on the ephemeral disk. ✅
+
+---
+
+#### 🖼️ For Media Files
+
+> ⚠️ This is **not recommended** for production. It's a temporary workaround.
+
+In `urls.py`, use:
+
+```python
+import re
+from django.urls import re_path
+from django.views.static import serve
+
+urlpatterns += [
+    re_path(
+        r"^%s(?P<path>.*)$" % re.escape(settings.MEDIA_URL.lstrip("/")),
+        serve,
+        kwargs={"document_root": settings.MEDIA_ROOT},
+    ),
+]
+```
+
+Instead of:
+
+```python
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# Note that it will only be added in DEBUG mode (see the source code of `static`).
+```
+
+> 🔍 A free, reliable media hosting service should be integrated in the future.
+
+---
+
+#### 🗄️ For Database (SQLite on Free Tier)
+
+- The `db.sqlite3` file from your GitHub repo is used by Render on deploy.
+- Any changes made to the database on production **do not persist**.
+- After ~15 minutes of inactivity, the site spins down and the DB resets to its state from the last deployment.
+
+> 🔍 A free cloud-based database service (like Supabase, Neon, etc.) should be integrated in the future.

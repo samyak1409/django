@@ -183,6 +183,7 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_USER')  # my mail id from which password
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')  # https://myaccount.google.com/apppasswords
 
 
+# DO NOT remove this because local server doesn't support HTTPS.
 if not DEBUG:
     # Production security settings we should ideally enable:
     SECURE_HSTS_SECONDS = 31536000
