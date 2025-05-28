@@ -1,6 +1,9 @@
 # Django Blog
 
-[![Live Site](https://img.shields.io/badge/Live%20Site-🚀%20Click%20Here-brightgreen?style=for-the-badge)](https://samyak1409-django-blog.onrender.com)
+[![Live Site](https://img.shields.io/badge/Live_Site-🚀_Click_Here-brightgreen?style=for-the-badge)](https://samyak1409-django-blog.onrender.com)
+<img src="https://img.shields.io/badge/Python-gray?style=for-the-badge&logo=python&logoColor=white&labelColor=3776AB" alt="Python">
+<img src="https://img.shields.io/badge/Django-gray?style=for-the-badge&logo=django&logoColor=white&labelColor=092E20" alt="Django">
+<img src="https://forthebadge.com/images/badges/built-with-love.svg" height=28 alt="Made with ❤️">
 
 ✅ Developed a full-stack blog website using Django, with user registration, authentication, profile customization, [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on posts, email-based password reset, and auto square-cropping of profile images.
 
@@ -530,14 +533,10 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 5. **Environment Variables**:  
    Add all required variables (e.g., `SECRET_KEY`, `DEBUG`, `ALLOWED_HOSTS`, DB creds, etc.).
 
----
-
 ### ⚠️ Problem with Free Instances on Render
 
 > *Free instances spin down after periods of inactivity. They do not support SSH access, scaling, one-off jobs, or **PERSISTENT DISKS**. Select any paid instance type to enable these features.*  
 > — [Render Docs](https://render.com)
-
----
 
 ### ✅ Solution
 
@@ -571,8 +570,6 @@ python manage.py collectstatic
 WhiteNoise serves static files from the `STATIC_ROOT` folder. These files are included in the deployment slug (i.e., the Render package).  
 Even if the instance restarts, static files are **not lost** because they’re embedded in the deployment, **not** stored on the ephemeral disk. ✅
 
----
-
 #### 🖼️ For Media Files
 
 > ⚠️ This is **not recommended** for production. It's a temporary workaround.
@@ -601,8 +598,6 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 
 > 🔍 A free, reliable media hosting service should be integrated in the future.
-
----
 
 #### 🗄️ For Database (SQLite on Free Tier)
 
