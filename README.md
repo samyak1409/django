@@ -16,51 +16,107 @@
 > ⚡ **Live Site**: [samyak1409-django-blog.onrender.com](https://samyak1409-django-blog.onrender.com)
 
 
-## Screenshots
 
-### Homepage of the website
+## 📸 Screenshots
+
+### 🏠 Homepage
+Browse recent blog posts and navigate easily via the header.
 ![](Project%20Screenshots/01.%20Home1.png)
 ![](Project%20Screenshots/02.%20Home2.png)
 
-### Full post can be read by opening the Post page
+### 📝 Read Full Posts
+Clicking a post opens the detailed view.
 ![](Project%20Screenshots/03.%20PostRead.png)
 
-### Users can Register
+### 🧑‍💻 User Registration
+New users can sign up with a simple registration form.
 ![](Project%20Screenshots/04.%20Register.png)
 
-### And then, can Log In to the site
+### 🔐 User Login
+Registered users can securely log in.
 ![](Project%20Screenshots/05.%20Login.png)
 
-### After logging in, links in the header navbar will change
+### 🔄 Dynamic Navigation
+Navbar updates based on user login status.
 ![](Project%20Screenshots/06.%20Home3.png)
 
-### Profile page, from where users can see their Posts, Log Out, and update Profile Info
+### 👤 Profile Page
+Users can update profile info, view their posts and log out.
 ![](Project%20Screenshots/07.%20Profile.png)
 
-### Users can Create new posts
+### ➕ Create New Posts
+Authenticated users can create new posts.
 ![](Project%20Screenshots/08.%20PostCreate.png)
 
-### Users can Update/Delete their posts
+### ✏️ Edit or Delete Posts
+Users can update or delete only their own posts.
 ![](Project%20Screenshots/09.%20PostUpdateDelete.png)
 
-### Users can see posts by a particular user
+### 👀 View Posts by User
+Browse posts written by a specific user.
 ![](Project%20Screenshots/10.%20UserPosts.png)
 
-### Users can request Password Reset link to their email if they can't remember the password
+### 🔁 Forgot Password?
+Users can request a password reset link via email.
 ![](Project%20Screenshots/11.%20PassReset.png)
 
-### A RESTful public API is also available @[/api1](https://samyak1409-django-blog.onrender.com/api1):
+### 🌐 RESTful Public API  
+A REST API is available at [/api1](https://samyak1409-django-blog.onrender.com/api1).
 ![](Project%20Screenshots/12.%20RESTful%20API.png)
-<details>
-<summary>Click here to see individual endpoints.</summary> <br>
 
-![](Project%20Screenshots/12.a.%20All%20Posts.png)
-![](Project%20Screenshots/12.b.%20Single%20Post.png)
-![](Project%20Screenshots/12.c.%20Posts%20by%20a%20User.png)
+<details>
+<summary>Click here to view individual endpoints</summary>
+
+- **All Posts**
+  ![](Project%20Screenshots/12.a.%20All%20Posts.png)
+
+- **Single Post**
+  ![](Project%20Screenshots/12.b.%20Single%20Post.png)
+
+- **Posts by a User**
+  ![](Project%20Screenshots/12.c.%20Posts%20by%20a%20User.png)
+
 </details>
 
 
+
+## Additions I've Made (Major Ones)
+
+- Added a [REST](https://en.wikipedia.org/wiki/REST)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](https://samyak1409-django-blog.onrender.com/api1)) using the [Django REST framework](https://www.django-rest-framework.org), which can be used to fetch posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
+
+- Gave the website [my own look](#Screenshots) using [Bootstrap](https://getbootstrap.com/docs); didn't copy [Corey's template](Project%20Screenshots/00.%20Corey's.png).
+
+- Didn't create a new view and template for the page containing only the posts by a particular user or for the dedicated post page, but instead inherited the view from `PostListView` and used the `home.html` template only.
+
+- Set it to delete the old profile pic whenever a new one is uploaded, and save profile pics with the name format: `user_id.ext`.
+
+- Limited the post-content (on post-list pages) to show only 5 lines, and added a "Read the full article" link below if the post-content exceeds the limit (using [Vanilla JavaScript](https://en.wikipedia.org/wiki/JavaScript#cite_ref-44)).
+
+- If the uploaded profile pic is not square, it is cropped to a square (using [Pillow (PIL Fork)](https://pillow.readthedocs.io)).
+
+- Implemented custom logic to control which pagination links should be displayed.
+
+
+
+<!--
+## TODOs
+
+- Display time in the local time zone.
+
+   `localtime` template filter (https://docs.djangoproject.com/en/4.1/topics/i18n/timezones/#template-filters) is not working for me.
+   I have googled the problem, read stackoverflow answers, and gone through some django doc, everything looks right to me, but localtime doesn't have any effect.
+   In `settings.py`, I have `TIME_ZONE = 'UTC'` and `USE_TZ = True`, and in my HTML template, `{% load tz %}` and `time_posted|localtime` (`time_posted = models.DateTimeField(auto_now_add=True)`).
+   But, time is not showing in my time zone (but in UTC), I've tried everything.
+
+- Show email & username when saying link sent, show username & email when setting new pass.
+-->
+
+
+
 ## Run Locally
+
+<details>
+<summary>Click here to expand</summary> <br>
 
 > ⚠️ Make sure [Python](https://www.python.org/downloads) is installed on your system.
 
@@ -114,16 +170,22 @@
 
    Visit [127.0.0.1:8000](http://127.0.0.1:8000) in your browser to view your site running locally! 🎉
 
+</details>
+
+
 
 ---
+
 
 
 Official Site: [djangoproject.com](https://www.djangoproject.com)
 
 Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) (~10hr)
 
-
 ## Video-wise Notes in a Nutshell
+
+<details>
+<summary>Click here to expand</summary>
 
 
 ### 1. [Python Django Tutorial: Full-Featured Web App Part 1 - Getting Started](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=1&ab_channel=CoreySchafer)
@@ -471,39 +533,14 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 #### 5. Added "Forgot Password" link in `form_base.html` on condition if on login page.
 
+</details>
 
-## Additions I've Made (Major Ones)
-
-- Added a [REST](https://en.wikipedia.org/wiki/REST)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](https://samyak1409-django-blog.onrender.com/api1)) using the [Django REST framework](https://www.django-rest-framework.org), which can be used to fetch posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
-
-- Gave the website [my own look](#Screenshots) using [Bootstrap](https://getbootstrap.com/docs); didn't copy [Corey's template](Project%20Screenshots/00.%20Corey's.png).
-
-- Didn't create a new view and template for the page containing only the posts by a particular user or for the dedicated post page, but instead inherited the view from `PostListView` and used the `home.html` template only.
-
-- Set it to delete the old profile pic whenever a new one is uploaded, and save profile pics with the name format: `user_id.ext`.
-
-- Limited the post-content (on post-list pages) to show only 5 lines, and added a "Read the full article" link below if the post-content exceeds the limit (using [Vanilla JavaScript](https://en.wikipedia.org/wiki/JavaScript#cite_ref-44)).
-
-- If the uploaded profile pic is not square, it is cropped to a square (using [Pillow (PIL Fork)](https://pillow.readthedocs.io)).
-
-- Implemented custom logic to control which pagination links should be displayed.
-
-
-<!--
-## TODOs
-
-- Display time in the local time zone.
-
-   `localtime` template filter (https://docs.djangoproject.com/en/4.1/topics/i18n/timezones/#template-filters) is not working for me.
-   I have googled the problem, read stackoverflow answers, and gone through some django doc, everything looks right to me, but localtime doesn't have any effect.
-   In `settings.py`, I have `TIME_ZONE = 'UTC'` and `USE_TZ = True`, and in my HTML template, `{% load tz %}` and `time_posted|localtime` (`time_posted = models.DateTimeField(auto_now_add=True)`).
-   But, time is not showing in my time zone (but in UTC), I've tried everything.
-
-- Show email & username when saying link sent, show username & email when setting new pass.
--->
 
 
 ## Notes: Deploying a Full-Stack Django Web App on Render
+
+<details>
+<summary>Click here to expand</summary>
 
 ### 🔧 Setup on [Render Dashboard](https://dashboard.render.com/web/new)
 
@@ -606,3 +643,5 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 - After ~15 minutes of inactivity, the site spins down and the DB resets to its state from the last deployment.
 
 > 🔍 A free cloud-based database service (like Supabase, Neon, etc.) should be integrated in the future.
+
+</details>
