@@ -36,7 +36,28 @@ class PostListView(ListView):
     # by default, it's called `object`
     # Note that we can also change the names to defaults, then we won't need all these configurations.
 
-    extra_context = {'title': f'All Posts ({Post.objects.count()})'}
+    # extra_context = {'title': f'All Posts ({Post.objects.count()})'}
+    # Problem: Post count not updating
+    # Reason: Evaluated once at the time the view is initialized, not again on each request
+    # Solution: Override `get_context_data()`
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Since `UserPostListView` & `PostDetailView` are child CBVs of current CBV, and we're not overriding
+        # `get_context_data` again in those CBVs, this `get_context_data` method only would be used there as well.
+        # And since, we don't want to set 'title' to `f'All Posts ({Post.objects.count()})'` for those views, adding the
+        # condition:
+        if 'title' not in context:
+            context['title'] = f'All Posts ({Post.objects.count()})'
+            # `Post.objects.count()`:
+            # - Most efficient: Performs a SELECT COUNT(*) SQL query directly in the database.
+            # - Returns an integer.
+            # - Doesn't fetch any rows, just the count.
+        return context
+    # Approach; When is it evaluated?; Per request?
+    # `extra_context = { ... }`; Once (on class load); No
+    # `get_context_data()` override; Every time view is called; Yes
+    # Function-based view context; Every time view is called; Yes
+    # [Ref: https://chatgpt.com/share/683cd2a0-929c-800a-bf9f-32079aeadc28]
 
     ordering = ['-time_posted']  # show the objects in reverse order because we want the latest post to show on the top
     # that's how it should be, just think how would it be the other way around
@@ -61,7 +82,6 @@ class UserPostListView(PostListView):
         else:
             title = f'Posts by {username}'
         self.extra_context = {'title': f'{title} ({filtered_posts.count()})'}
-        # `len()` could also be used, but `.count()` is better.
 
         return filtered_posts.order_by('-time_posted')
 
@@ -69,7 +89,8 @@ class UserPostListView(PostListView):
 class PostDetailView(PostListView):
 
     # Reset:
-    extra_context = None
+    extra_context = {'title': None}
+    # (`'title': None` so that `PostListView.get_context_data` works correctly without needing to override here)
     paginate_by = None
 
     # Overriding:
