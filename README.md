@@ -1,6 +1,6 @@
 # Django Blog
 
-[![Live Site](https://img.shields.io/badge/Live_Site-🚀_Click_Here-brightgreen?style=for-the-badge)](https://samyak1409-django-blog.onrender.com)
+[![Live Site](https://img.shields.io/badge/Live_Site-🚀_Click_Here-brightgreen?style=for-the-badge)](https://django-blog.koyeb.app)
 <img src="https://img.shields.io/badge/Python-gray?style=for-the-badge&logo=python&logoColor=white&labelColor=3776AB" alt="Python">
 <img src="https://img.shields.io/badge/Django-gray?style=for-the-badge&logo=django&logoColor=white&labelColor=092E20" alt="Django">
 <img src="https://forthebadge.com/images/badges/built-with-love.svg" height=28 alt="Made with ❤️">
@@ -13,7 +13,9 @@
 
 ✅ Followed [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle to cut redundancy and boost maintainability by [inheriting](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)) from [class-based views](https://docs.djangoproject.com/en/stable/topics/class-based-views) and [templates](https://docs.djangoproject.com/en/stable/topics/templates).
 
-> ⚡ **Live Site**: [samyak1409-django-blog.onrender.com](https://samyak1409-django-blog.onrender.com)
+> ⚡ **Live Site**: [django-blog.koyeb.app](https://django-blog.koyeb.app)
+
+<!-- One more active deployment: [samyak1409-django-blog.onrender.com](https://samyak1409-django-blog.onrender.com) -->
 
 
 
@@ -61,7 +63,7 @@ Users can request a password reset link via email.
 ![](Project%20Screenshots/11.%20PassReset.png)
 
 ### 🌐 RESTful Public API  
-A REST API is available at [/api1](https://samyak1409-django-blog.onrender.com/api1).
+A REST API is available at [/api1](https://django-blog.koyeb.app/api1).
 ![](Project%20Screenshots/12.%20RESTful%20API.png)
 
 <details>
@@ -82,7 +84,7 @@ A REST API is available at [/api1](https://samyak1409-django-blog.onrender.com/a
 
 ## Additions I've Made (Major Ones)
 
-- Added a [REST](https://en.wikipedia.org/wiki/REST)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](https://samyak1409-django-blog.onrender.com/api1)) using the [Django REST framework](https://www.django-rest-framework.org), which can be used to fetch posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
+- Added a [REST](https://en.wikipedia.org/wiki/REST)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](https://django-blog.koyeb.app/api1)) using the [Django REST framework](https://www.django-rest-framework.org), which can be used to fetch posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
 
 - Gave the website [my own look](#Screenshots) using [Bootstrap](https://getbootstrap.com/docs); didn't copy [Corey's template](Project%20Screenshots/00.%20Corey's.png).
 
@@ -537,12 +539,16 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 
 
-## Notes: Deploying a Full-Stack Django Web App on Render
+## Notes: Deploying
 
 <details>
 <summary>Click here to expand</summary>
 
-### 🔧 Setup on [Render Dashboard](https://dashboard.render.com/web/new)
+### On [Render](https://render.com)
+
+> Official Docs: [render.com/docs/deploy-django](https://render.com/docs/deploy-django)
+
+#### 🔧 Setup on [Render Dashboard](https://dashboard.render.com/web/new)
 
 1. **Name**:  
    Give your Web Service a *unique* name (e.g., `samyak1409-django-blog`).  
@@ -570,14 +576,14 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 5. **Environment Variables**:  
    Add all required variables (e.g., `SECRET_KEY`, `DEBUG`, `ALLOWED_HOSTS`, DB creds, etc.).
 
-### ⚠️ Problem with Free Instances on Render
+#### ⚠️ Problem with Free Instances on Render
 
 > *Free instances spin down after periods of inactivity. They do not support SSH access, scaling, one-off jobs, or **PERSISTENT DISKS**. Select any paid instance type to enable these features.*  
-> — [Render Docs](https://render.com)
+> — Render
 
-### ✅ Solution
+#### ✅ Solution
 
-#### 📦 For Static Files
+##### 📦 For Static Files
 
 Your `requirements.txt` should include:
 ```
@@ -607,7 +613,7 @@ python manage.py collectstatic
 WhiteNoise serves static files from the `STATIC_ROOT` folder. These files are included in the deployment slug (i.e., the Render package).  
 Even if the instance restarts, static files are **not lost** because they’re embedded in the deployment, **not** stored on the ephemeral disk. ✅
 
-#### 🖼️ For Media Files
+##### 🖼️ For Media Files
 
 > ⚠️ This is **not recommended** for production. It's a temporary workaround.
 
@@ -636,12 +642,20 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 > 🔍 A free, reliable media hosting service should be integrated in the future.
 
-#### 🗄️ For Database (SQLite on Free Tier)
+##### 🗄️ For Database (SQLite on Free Tier)
 
 - The `db.sqlite3` file from your GitHub repo is used by Render on deploy.
 - Any changes made to the database on production **do not persist**.
 - After ~15 minutes of inactivity, the site spins down and the DB resets to its state from the last deployment.
 
 > 🔍 A free cloud-based database service (like Supabase, Neon, etc.) should be integrated in the future.
+
+### On [Koyeb](https://www.koyeb.com)
+
+> Official Docs: [koyeb.com/docs/deploy/django](https://www.koyeb.com/docs/deploy/django)
+
+Setup is straight-forward! Just follow the docs.
+
+> Dashboard: [app.koyeb.com](https://app.koyeb.com)
 
 </details>
