@@ -539,7 +539,7 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 
 
-## Notes: Deploying
+## Deployment Notes
 
 <details>
 <summary>Click here to expand</summary>
