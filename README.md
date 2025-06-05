@@ -13,9 +13,7 @@
 
 ✅ Followed [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle to cut redundancy and boost maintainability by [inheriting](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)) from [class-based views](https://docs.djangoproject.com/en/stable/topics/class-based-views) and [templates](https://docs.djangoproject.com/en/stable/topics/templates).
 
-> ⚡ **Live Site**: [django-blog.koyeb.app](https://django-blog.koyeb.app)
-
-<!-- One more active deployment: [samyak1409-django-blog.onrender.com](https://samyak1409-django-blog.onrender.com) -->
+> ⚡ **Live Site**: [django-blog.koyeb.app](https://django-blog.koyeb.app) or [samyak1409-django-blog.onrender.com](https://samyak1409-django-blog.onrender.com)
 
 
 
@@ -573,7 +571,7 @@ python manage.py collectstatic
 
 **How it works**:  
 WhiteNoise serves static files from the `STATIC_ROOT` folder. These files are included in the deployment slug (i.e., the Render/Koyeb package).  
-Even if the instance restarts, static files are **not lost** because they’re embedded in the deployment, **not** stored on the ephemeral disk. ✅
+Even if the instance restarts, static files are **not lost** because they’re embedded in the deployment, **not** stored on the ephemeral disk.
 
 ### Media Files Setup
 
@@ -706,7 +704,8 @@ And add to `requirements.txt`.
 
 ### Deploying on [Render](https://render.com/pricing)
 
-> ⚠️ **Problem with Render: Cold start time (\~1 min)**
+> ⚠️ **Problem with Render: Cold start time (~1 min)**
+> 
 > When Render deployment receives no traffic for 15 minutes, it’s spun down (gets wiped off from the server). On the next request, it undergoes a redeployment — which takes **around 1 min** for this django-blog project.
 
 Official Docs: [render.com/docs/deploy-django](https://render.com/docs/deploy-django)
