@@ -18,11 +18,11 @@
 
           <!-- Blog title: -->
           {% if request.resolver_match.url_name == 'read' %}
-            <h2 class="text-light">{{ post.title|title }}</h2>
+            <h2 class="text-light">{{ post.title|capfirst }}</h2>
           {% else %}
             <h2>
               <a class="link-light link-opacity-75-hover text-decoration-none" href="{% url 'read' post.id %}">
-                {{ post.title|title }}
+                {{ post.title|capfirst }}
               </a>
             </h2>
           {% endif %}

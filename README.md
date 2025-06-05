@@ -180,11 +180,11 @@ A REST API is available at [/api1](https://django-blog.koyeb.app/api1).
 
 
 
-Official Site: [djangoproject.com](https://www.djangoproject.com)
+Followed: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) (~10hr)
 
-Learnt from: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) (~10hr)
+> Django Official Site: [djangoproject.com](https://www.djangoproject.com)
 
-## Video-wise Notes in a Nutshell
+## Video-wise Notes
 
 <details>
 <summary>Click here to expand</summary>
@@ -544,51 +544,13 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 <details>
 <summary>Click here to expand</summary>
 
-### On [Render](https://render.com)
+### Static Files Setup
 
-> Official Docs: [render.com/docs/deploy-django](https://render.com/docs/deploy-django)
-
-#### 🔧 Setup on [Render Dashboard](https://dashboard.render.com/web/new)
-
-1. **Name**:  
-   Give your Web Service a *unique* name (e.g., `samyak1409-django-blog`).  
-   > ⚠️ If left blank, Render will append random characters to the name, which is undesirable.
-
-2. **Root Directory**:  
-   If your Django project is inside a subdirectory, provide that directory name here. It doesn’t have to be at the root of the repo.
-
-3. **Build Command**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Start Command**:
-   ```bash
-   gunicorn project_name.wsgi
-   # Example:
-   gunicorn django_project.wsgi
-   ```
-   Ensure your `requirements.txt` includes:
-   ```
-   gunicorn
-   ```
-
-5. **Environment Variables**:  
-   Add all required variables (e.g., `SECRET_KEY`, `DEBUG`, `ALLOWED_HOSTS`, DB creds, etc.).
-
-#### ⚠️ Problem with Free Instances on Render
-
-> *Free instances spin down after periods of inactivity. They do not support SSH access, scaling, one-off jobs, or **PERSISTENT DISKS**. Select any paid instance type to enable these features.*  
-> — Render
-
-#### ✅ Solution
-
-##### 📦 For Static Files
-
-Your `requirements.txt` should include:
+Run:
+```bash
+pip install whitenoise
 ```
-whitenoise
-```
+And add to `requirements.txt`.
 
 In `settings.py`:
 
@@ -610,10 +572,10 @@ python manage.py collectstatic
 ```
 
 **How it works**:  
-WhiteNoise serves static files from the `STATIC_ROOT` folder. These files are included in the deployment slug (i.e., the Render package).  
+WhiteNoise serves static files from the `STATIC_ROOT` folder. These files are included in the deployment slug (i.e., the Render/Koyeb package).  
 Even if the instance restarts, static files are **not lost** because they’re embedded in the deployment, **not** stored on the ephemeral disk. ✅
 
-##### 🖼️ For Media Files
+### Media Files Setup
 
 > ⚠️ This is **not recommended** for production. It's a temporary workaround.
 
@@ -640,19 +602,144 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # Note that it will only be added in DEBUG mode (see the source code of `static`).
 ```
 
-> 🔍 A free, reliable media hosting service should be integrated in the future.
+> A free, reliable media hosting service should be integrated in the future.
 
-##### 🗄️ For Database (SQLite on Free Tier)
+### PostgreSQL Setup
 
-- The `db.sqlite3` file from your GitHub repo is used by Render on deploy.
-- Any changes made to the database on production **do not persist**.
-- After ~15 minutes of inactivity, the site spins down and the DB resets to its state from the last deployment.
+> This can be skipped, but it would lead to **non-persistent data** on the production site.
+> 
+> **On Render**: If there’s no traffic for 15 minutes, the deployment is suspended. Upon reactivation when a request comes, it’s **redeployed from the GitHub repo**, which resets the SQLite database — **losing any new data** added from production.
+> 
+> **On Koyeb**: Every time a new commit is pushed, the app is rebuilt and redeployed — this includes overwriting the server's SQLite database with the one from your GitHub repo. As a result, again **any data added in production is lost**.
+> Although Koyeb supports free [persistent storage](https://app.koyeb.com/volumes), which can store a SQLite DB — but the recommended approach is to use **PostgreSQL**, which is also free and much more reliable for production.
 
-> 🔍 A free cloud-based database service (like Supabase, Neon, etc.) should be integrated in the future.
+#### Using Koyeb’s [free Postgres](https://www.koyeb.com/pricing#postgres)
+> Other free options: Neon, Supabase
 
-### On [Koyeb](https://www.koyeb.com)
+If you don’t need to migrate data from your local SQLite DB, **skip steps 4, 5, 7, and 8**.
 
-> Official Docs: [koyeb.com/docs/deploy/django](https://www.koyeb.com/docs/deploy/django)
+Run:
+```bash
+pip install psycopg2-binary dj-database-url
+```
+And add to `requirements.txt`.
+
+#### **1. Create a Free PostgreSQL Service**
+
+Go to [Koyeb Database Services](https://app.koyeb.com/database-services/new) and create a **“Free” tier** PostgreSQL service.
+
+#### **2. Copy the Connection URL**
+
+You'll get a `psql` URL like:
+
+```
+postgres://username:password@hostname:port/dbname
+```
+
+#### **3. Configure Django for Prod & Local**
+
+In your `settings.py`:
+
+```python
+import os
+import dj_database_url
+
+if DATABASE_URL := os.environ.get("DATABASE_URL"):
+    DATABASES = {
+        "default": dj_database_url.parse(DATABASE_URL)
+    }
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
+        }
+    }
+```
+
+#### **4. Dump Local Data**
+
+```bash
+python3 manage.py dumpdata > datadump.json
+```
+
+#### **5. Prepare for Data Migration**
+
+To temporarily force usage of the PostgreSQL DB during data load:
+
+Add this line **just above** the `if DATABASE_URL := ...:` line in `settings.py`:
+
+```python
+os.environ["DATABASE_URL"] = "postgres://username:password@hostname:port/dbname"
+```
+
+Also, **comment out any signals.py content** (like `post_save` creating related models).
+Otherwise, you'll get errors like:
+
+> IntegrityError: duplicate key value violates unique constraint due to auto-created objects during `loaddata`.
+
+#### **6. Create Tables in PostgreSQL**
+
+```bash
+python3 manage.py migrate
+```
+
+#### **7. Load Dumped Data**
+
+```bash
+python3 manage.py flush --no-input
+python3 manage.py loaddata datadump.json
+```
+
+#### **8. Cleanup**
+
+- Uncomment the `signals.py` content
+- Remove the temporary `os.environ["DATABASE_URL"] = ...` line from `settings.py`
+
+### Server (gunicorn) Setup
+
+Run:
+```bash
+pip install gunicorn
+```
+And add to `requirements.txt`.
+
+### Deploying on [Render](https://render.com/pricing)
+
+> ⚠️ **Problem with Render: Cold start time (\~1 min)**
+> When Render deployment receives no traffic for 15 minutes, it’s spun down (gets wiped off from the server). On the next request, it undergoes a redeployment — which takes **around 1 min** for this django-blog project.
+
+Official Docs: [render.com/docs/deploy-django](https://render.com/docs/deploy-django)
+
+1. [Create a new web service](https://dashboard.render.com/web/new)
+
+2. Select a GitHub repository
+
+3. **Name**:  
+   Give your Web Service a *unique* name (e.g., `samyak1409-django-blog`).  
+   > ⚠️ If left blank, Render will append random characters to the name, which is undesirable.
+
+4. **Root Directory**:  
+   If your Django project is inside a subdirectory, provide that directory name here. It doesn’t have to be at the root of the repo.
+
+5. **Build Command**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+6. **Start Command**:
+   ```bash
+   gunicorn project_name.wsgi
+   # Example:
+   gunicorn django_project.wsgi
+   ```
+
+7. **Environment Variables**:  
+   Add all required variables (e.g., `SECRET_KEY`, `DEBUG`, `ALLOWED_HOSTS`, `DATABASE_URL`, etc.).
+
+### Deploying on [Koyeb](https://www.koyeb.com/pricing#compute)
+
+Official Docs: [koyeb.com/docs/deploy/django](https://www.koyeb.com/docs/deploy/django)
 
 Setup is straight-forward! Just follow the docs.
 

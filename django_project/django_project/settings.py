@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-# import dj_database_url
+import dj_database_url
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,8 +27,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
-# Set `DEBUG` to `True` only if 'DEBUG' env var is there and is = 'True'.
+DEBUG = 'DEBUG' in os.environ
+# Set `DEBUG` to `True` if 'DEBUG' env var is there.
 
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost 127.0.0.1').split()
 # on Render, ALLOWED_HOSTS env var = Render app’s URL (e.g., yourapp.onrender.com)
@@ -92,21 +92,19 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# Default: use SQLite
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+# Use PostgreSQL on prod (set 'DATABASE_URL' env var to 'postgres://username:password@hostname:port/dbname') and SQLite
+# on local:
+if DATABASE_URL := os.environ.get('DATABASE_URL'):
+    DATABASES = {
+        'default': dj_database_url.parse(DATABASE_URL)
     }
-}
-
-# If DATABASE_URL is set (on Render), override with PostgreSQL
-# if os.environ.get('DATABASE_URL'):
-#     DATABASES['default'] = dj_database_url.config(
-#         conn_max_age=600,
-#         ssl_require=True
-#     )
-# Tried using PostgreSQL DB on production, but it's not free on Render, so I could not.
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 
 # Password validation
