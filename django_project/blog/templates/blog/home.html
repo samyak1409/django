@@ -9,9 +9,9 @@
       <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
       <div class="d-flex">
 
-        <!-- Author DP for large screens: -->
-        <a class="d-none d-lg-block me-3 mt-1" href="{% url 'user_posts' post.author %}">
-          <img class="dp-post-lg rounded-circle border border-dark-subtle" src="{{ post.author.profile.pic.url }}" alt="Author DP">
+        <!-- Author DP for medium+ screens: -->
+        <a class="d-none d-md-block me-3 mt-1" href="{% url 'user_posts' post.author %}">
+          <img class="dp-md rounded-circle border border-dark-subtle" src="{{ post.author.profile.pic.url }}" alt="Author DP">
         </a>
 
         <div class="w-100">  <!-- width=100% for border -->
@@ -27,10 +27,10 @@
             </h2>
           {% endif %}
 
-          <p class="text-body-tertiary border-bottom border-dark-subtle pb-1 mb-3">
+          <p class="d-flex align-items-baseline text-body-tertiary border-bottom border-dark-subtle pb-1 mb-3">
             <!-- Author DP for small screens: -->
-            <a class="d-lg-none me-2" href="{% url 'user_posts' post.author %}">
-              <img class="dp-post-sm rounded-circle border border-dark-subtle" src="{{ post.author.profile.pic.url }}" alt="Author DP">
+            <a class="d-md-none me-2" href="{% url 'user_posts' post.author %}">
+              <img class="dp-sm rounded-circle border border-dark-subtle" src="{{ post.author.profile.pic.url }}" alt="Author DP">
             </a>
             <!-- Username & Time Posted: -->
             <a class="text-decoration-none fs-5 me-2" href="{% url 'user_posts' post.author %}">

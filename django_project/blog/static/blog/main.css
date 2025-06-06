@@ -18,26 +18,14 @@ and fractional classes like w-25, w-50 which refer to percentages). */
 .dp-navbar {
     width: 2.5rem;
 }
-.dp-profile {
+.dp-lg {
     width: 8rem;
 }
-
-/* DP size for small screens */
-.dp-post-sm {
-    width: 2rem;
-}
-/* DP size for large screens */
-.dp-post-lg {
-    /* This class will only be visible on large screens due to d-lg-block */
+.dp-md {
     width: 4rem;
 }
-/* [This is kind of optional] Center DP, Author, Date on small screens: */
-@media (max-width: 991px) {
-    /* Bootstrap's lg breakpoint is 992px */
-    .text-body-tertiary.border-bottom {
-        display: flex;
-        align-items: center;
-    }
+.dp-sm {
+    width: 2rem;
 }
 
 /* Bootstrap doesn't have a built-in utility class specifically for `white-space: pre-wrap`. */

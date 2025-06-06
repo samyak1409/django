@@ -41,7 +41,7 @@
 
     <!-- Header Navbar (https://getbootstrap.com/docs/5.3/components/navbar): -->
     <header class="mb-4">
-      <nav class="navbar navbar-expand-lg bg-dark-subtle">
+      <nav class="navbar navbar-expand-md bg-dark-subtle">
         <div class="container">
 
           <!-- "flex" to keep the "Django Blog" and "About" together on small screens -->
@@ -55,14 +55,17 @@
           </div>
 
           <!-- Navbar collapse behind a button for small screens (https://getbootstrap.com/docs/5.3/components/navbar/?#toggler): -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
           <!-- Links (Register + Login / New Post + Your Profile): -->
-          <!-- "mt-2": Applies `margin-top: 0.5rem` on all screen sizes. "mt-md-0": Removes the top margin on `md` (≥992px) and up. -->
-          <div class="collapse navbar-collapse mt-2 mt-md-0" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-lg-0 d-flex align-items-start align-items-lg-center ms-0 ms-lg-auto">  <!-- ms-auto: moving links to the right -->
+          <!-- We need different margin on different screen sizes. To achieve this, we've to follow:
+          "mt-2": Apply `margin-top: 0.5rem` on all screen sizes. "mt-md-0": Remove that on medium screen size and up (≥768px). -->
+          <div class="collapse navbar-collapse mx-2 mx-md-0 mt-2 mt-md-0" id="navbarSupportedContent">
+            <!-- "align-items-md-center": Center the items horizontally on medium and above screen sizes.
+            "ms-md-auto": Move the links to the right on medium and above screen sizes. -->
+            <ul class="navbar-nav d-flex align-items-md-center ms-md-auto">
               <!-- Django passes `user` context var by default, where it's the current logged-in user. (https://youtu.be/3aVqWaLjqS4?t=1100) -->
               {% if user.is_authenticated %}
                 <li class="nav-item">
@@ -81,6 +84,19 @@
                   <a class="nav-link text-light" href="{% url 'login' %}">Log In</a>
                 </li>
               {% endif %}
+              <!-- Border & API Link: -->
+              <li class="nav-item">
+                <!-- Left border for medium+ screens -->
+                <div class="d-none d-md-block border-start border-dark-subtle ms-2 ps-2">
+                  <!-- API Link -->
+                  <a class="nav-link text-light" href="{% url 'api1' %}">API</a>
+                </div>
+                <!-- Top border for small screens -->
+                <div class="d-md-none border-top border-dark-subtle mt-2 pt-2">
+                  <!-- API Link -->
+                  <a class="nav-link text-light" href="{% url 'api1' %}">API</a>
+                </div>
+              </li>
             </ul>
           </div>
 

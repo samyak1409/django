@@ -10,21 +10,27 @@
     <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
     <div class="d-flex">
 
-      <img class="dp-profile me-4 mb-4 rounded-circle border border-dark-subtle" src="{{ user.profile.pic.url }}" alt="">
-      <!-- `user.profile.pic.url`: As we saw while querying Profile. -->
+      <div class="d-md-none d-flex align-items-center">  <!-- small screens -->
+        <img class="dp-md me-4 mb-4 rounded-circle border border-dark-subtle" src="{{ user.profile.pic.url }}" alt="">
+      </div>
+      <div class="d-none d-md-block">  <!-- medium+ screens -->
+        <img class="dp-lg me-4 mb-4 rounded-circle border border-dark-subtle" src="{{ user.profile.pic.url }}" alt="">
+      </div>
 
       <div>
         <h2>{{ user.username }}</h2>
         <p class="text-body-tertiary">{{ user.email }}</p>
-        <a class="btn btn-outline-primary" href="{% url 'user_posts' user.username %}">Your Posts</a>
-        <!-- ALERT: "Log out via GET" Deprecated:
-        https://docs.djangoproject.com/en/dev/releases/4.1/#features-deprecated-in-4-1
-        So, needed to replace `a` with `form`, keeping the working as well as UI the same: -->
-        <!-- <a class="btn btn-outline-danger" href="{% url 'logout' %}">Log Out</a> -->
-        <form class="d-inline-block" method="post" action="{% url 'logout' %}">
-          {% csrf_token %}
-          <button class="btn btn-outline-danger" type="submit">Log Out</button>
-        </form>
+        <div class="mb-4">
+          <a class="btn btn-outline-primary" href="{% url 'user_posts' user.username %}">Your Posts</a>
+          <!-- ALERT: "Log out via GET" Deprecated:
+          https://docs.djangoproject.com/en/dev/releases/4.1/#features-deprecated-in-4-1
+          So, needed to replace `a` with `form`, keeping the working as well as UI the same: -->
+          <!-- <a class="btn btn-outline-danger" href="{% url 'logout' %}">Log Out</a> -->
+          <form class="d-inline-block" method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button class="btn btn-outline-danger" type="submit">Log Out</button>
+          </form>
+        </div>
       </div>
 
     </div>
