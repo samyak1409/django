@@ -64,20 +64,6 @@ Users can request a password reset link via email.
 A REST API is available at [/api1](https://samyak1409.github.io/django-blog/api1).
 ![](Project%20Screenshots/12.%20RESTful%20API.png)
 
-<details>
-<summary>Click here to view individual endpoints</summary>
-
-- **All Posts**
-  ![](Project%20Screenshots/12.a.%20All%20Posts.png)
-
-- **Single Post**
-  ![](Project%20Screenshots/12.b.%20Single%20Post.png)
-
-- **Posts by a User**
-  ![](Project%20Screenshots/12.c.%20Posts%20by%20a%20User.png)
-
-</details>
-
 
 
 ## Additions I've Made (Major Ones)
