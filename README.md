@@ -64,6 +64,10 @@ Users can request a password reset link via email.
 A REST API is available at [/api1](https://samyak1409.github.io/django-blog/api1).
 ![](Project%20Screenshots/12.%20RESTful%20API.png)
 
+### Responsive Design
+The website is fully responsive across all pages.
+![](Project%20Screenshots/13.%20Responsive.png)
+
 
 
 ## Additions I've Made (Major Ones)
