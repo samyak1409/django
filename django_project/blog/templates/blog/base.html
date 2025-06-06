@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<!-- For `main.css` etc.: -->
+<!-- For `styles.css` etc.: -->
 {% load static %}
 
 <html lang="en" data-bs-theme="dark">
@@ -31,7 +31,7 @@
     <!-- GitHub Icon: -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <!-- Our CSS: -->
-    <link href="{% static 'blog/main.css' %}" rel="stylesheet">
+    <link href="{% static 'blog/styles.css' %}" rel="stylesheet">
     <!-- Custom Font: -->
     <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,700&display=swap" rel="stylesheet">
 
@@ -45,7 +45,7 @@
         <div class="container">
 
           <!-- "flex" to keep the "Django Blog" and "About" together on small screens -->
-          <div class="d-flex align-items-center">
+          <div class="d-flex align-items-baseline">
             <!-- Brand Image & Text (https://getbootstrap.com/docs/5.3/components/navbar/?#image-and-text): -->
             <a class="navbar-brand text-light" href="{% url 'home' %}">
               <img class="rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWONTlmhZ6CYb1vm0_84eKRI_-vlgNxlJUrQ&s" alt="Django" height="30"> Blog
@@ -145,7 +145,7 @@
       <nav class="navbar">
         <div class="container">
           <span class="navbar-text">
-            Made with <span class="heart">❤️</span> by <a class="text-decoration-none text-light" href="https://www.linkedin.com/in/samyak1409" target="_blank" data-bs-toggle="tooltip" data-bs-title="Hey!">Samyak</a>
+            Made with <span class="">❤️</span> by <a class="text-decoration-none text-light" href="https://www.linkedin.com/in/samyak1409" target="_blank" data-bs-toggle="tooltip" data-bs-title="Hey!">Samyak</a>
           </span>
           <a href="https://github.com/samyak1409/django" target="_blank">
             <!-- https://icons.getbootstrap.com#icon-font -->

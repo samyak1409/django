@@ -1,6 +1,6 @@
 # Django Blog
 
-[![Live Site](https://img.shields.io/badge/Live_Site-🚀_Click_Here-brightgreen?style=for-the-badge)](https://django-blog.koyeb.app)
+[![Live Site](https://img.shields.io/badge/Live_Site-🚀_Click_Here-brightgreen?style=for-the-badge)](https://samyak1409.github.io/django-blog)
 <img src="https://img.shields.io/badge/Python-gray?style=for-the-badge&logo=python&logoColor=white&labelColor=3776AB" alt="Python">
 <img src="https://img.shields.io/badge/Django-gray?style=for-the-badge&logo=django&logoColor=white&labelColor=092E20" alt="Django">
 <img src="https://forthebadge.com/images/badges/built-with-love.svg" height=28 alt="Made with ❤️">
@@ -13,7 +13,7 @@
 
 ✅ Followed [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle to cut redundancy and boost maintainability by [inheriting](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)) from [class-based views](https://docs.djangoproject.com/en/stable/topics/class-based-views) and [templates](https://docs.djangoproject.com/en/stable/topics/templates).
 
-> ⚡ **Live Site**: [django-blog.koyeb.app](https://django-blog.koyeb.app) or [samyak1409-django-blog.onrender.com](https://samyak1409-django-blog.onrender.com)
+> ⚡ **Live Site**: [samyak1409.github.io/django-blog](https://samyak1409.github.io/django-blog) or [samyak1409-django-blog.onrender.com](https://samyak1409-django-blog.onrender.com)
 
 
 
@@ -61,7 +61,7 @@ Users can request a password reset link via email.
 ![](Project%20Screenshots/11.%20PassReset.png)
 
 ### 🌐 RESTful Public API  
-A REST API is available at [/api1](https://django-blog.koyeb.app/api1).
+A REST API is available at [/api1](https://samyak1409.github.io/django-blog/api1).
 ![](Project%20Screenshots/12.%20RESTful%20API.png)
 
 <details>
@@ -82,7 +82,7 @@ A REST API is available at [/api1](https://django-blog.koyeb.app/api1).
 
 ## Additions I've Made (Major Ones)
 
-- Added a [REST](https://en.wikipedia.org/wiki/REST)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](https://django-blog.koyeb.app/api1)) using the [Django REST framework](https://www.django-rest-framework.org), which can be used to fetch posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
+- Added a [REST](https://en.wikipedia.org/wiki/REST)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](https://samyak1409.github.io/django-blog/api1)) using the [Django REST framework](https://www.django-rest-framework.org), which can be used to fetch posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
 
 - Gave the website [my own look](#Screenshots) using [Bootstrap](https://getbootstrap.com/docs); didn't copy [Corey's template](Project%20Screenshots/00.%20Corey's.png).
 
@@ -414,8 +414,7 @@ Followed: [Corey Schafer](https://youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03
 1. Update the profile template `profile.html`, with the user profile pic url (`user.profile.pic.url`).
 2. Adding `MEDIA_URL` to `urlpatterns`. ([Serving files uploaded by a user during development](https://docs.djangoproject.com/en/4.1/howto/static-files/#serving-files-uploaded-by-a-user-during-development)) ([see](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=8&ab_channel=CoreySchafer&t=1258) till 24:33)
    - *Now, we can see the profile pic on the profile page.*
-3. Adding [Corey's styles](https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/snippets/main.css) (to the `static` dir) so that profile page looks right.
-4. Adding the default profile pic. (Remember? Check [`Profile`](django_project/users/models.py))
+3. Adding the default profile pic. (Remember? Check [`Profile`](django_project/users/models.py))
 
 *- x - Till [26:18](https://www.youtube.com/watch?v=FdVuKt_iuSI&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p&index=8&ab_channel=CoreySchafer&t=1578) - x -*
 
@@ -564,11 +563,6 @@ MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')  # right afte
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ```
 
-Run:
-```bash
-python manage.py collectstatic
-```
-
 **How it works**:  
 WhiteNoise serves static files from the `STATIC_ROOT` folder. These files are included in the deployment slug (i.e., the Render/Koyeb package).  
 Even if the instance restarts, static files are **not lost** because they’re embedded in the deployment, **not** stored on the ephemeral disk.
@@ -694,7 +688,7 @@ python3 manage.py loaddata datadump.json
 - Uncomment the `signals.py` content
 - Remove the temporary `os.environ["DATABASE_URL"] = ...` line from `settings.py`
 
-### Server (gunicorn) Setup
+### `gunicorn` Setup
 
 Run:
 ```bash
@@ -723,7 +717,7 @@ Official Docs: [render.com/docs/deploy-django](https://render.com/docs/deploy-dj
 
 5. **Build Command**:
    ```bash
-   pip install -r requirements.txt
+   python3 -m pip install -r requirements.txt && python3 manage.py collectstatic --no-input
    ```
 
 6. **Start Command**:
@@ -740,7 +734,9 @@ Official Docs: [render.com/docs/deploy-django](https://render.com/docs/deploy-dj
 
 Official Docs: [koyeb.com/docs/deploy/django](https://www.koyeb.com/docs/deploy/django)
 
-Setup is straight-forward! Just follow the docs.
+Setup is straight-forward! Just follow the docs and [above](#deploying-on-render) steps.
+
+Note: "Build command" can be left empty here, Koyeb does `... install -r requirements.txt && ... collectstatic ...` itself.
 
 > Dashboard: [app.koyeb.com](https://app.koyeb.com)
 
