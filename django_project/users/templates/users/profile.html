@@ -4,61 +4,63 @@
 
 {% block content %}
 
-  <div class="mb-4 p-4 bg-dark-subtle rounded-4">
+<div class="mb-4 p-4 bg-dark-subtle rounded-4">
 
     <!-- Note that the `user` is passed by Django automatically. -->
     <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
     <div class="d-flex">
 
-      <div class="d-md-none d-flex align-items-center">  <!-- small screens -->
-        <img class="dp-md me-4 mb-4 rounded-circle border border-dark-subtle" src="{{ user.profile.pic.url }}" alt="">
-      </div>
-      <div class="d-none d-md-block">  <!-- medium+ screens -->
-        <img class="dp-lg me-4 mb-4 rounded-circle border border-dark-subtle" src="{{ user.profile.pic.url }}" alt="">
-      </div>
-
-      <div>
-        <h2>{{ user.username }}</h2>
-        <p class="text-body-tertiary">{{ user.email }}</p>
-        <div class="mb-4">
-          <a class="btn btn-outline-primary" href="{% url 'user_posts' user.username %}">Your Posts</a>
-          <!-- ALERT: "Log out via GET" Deprecated:
-          https://docs.djangoproject.com/en/dev/releases/4.1/#features-deprecated-in-4-1
-          So, needed to replace `a` with `form`, keeping the working as well as UI the same: -->
-          <!-- <a class="btn btn-outline-danger" href="{% url 'logout' %}">Log Out</a> -->
-          <form class="d-inline-block" method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button class="btn btn-outline-danger" type="submit">Log Out</button>
-          </form>
+        <div class="d-md-none d-flex align-items-center">  <!-- small screens -->
+            <img class="dp-md me-4 mb-4 rounded-circle border border-dark-subtle" src="{{ user.profile.pic.url }}"
+                 alt="">
         </div>
-      </div>
+        <div class="d-none d-md-block">  <!-- medium+ screens -->
+            <img class="dp-lg me-4 mb-4 rounded-circle border border-dark-subtle" src="{{ user.profile.pic.url }}"
+                 alt="">
+        </div>
+
+        <div>
+            <h2>{{ user.username }}</h2>
+            <p class="text-body-tertiary">{{ user.email }}</p>
+            <div class="mb-4">
+                <a class="btn btn-outline-primary" href="{% url 'user_posts' user.username %}">Your Posts</a>
+                <!-- ALERT: "Log out via GET" Deprecated:
+                https://docs.djangoproject.com/en/dev/releases/4.1/#features-deprecated-in-4-1
+                So, needed to replace `a` with `form`, keeping the working as well as UI the same: -->
+                <!-- <a class="btn btn-outline-danger" href="{% url 'logout' %}">Log Out</a> -->
+                <form class="d-inline-block" method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <button class="btn btn-outline-danger" type="submit">Log Out</button>
+                </form>
+            </div>
+        </div>
 
     </div>
 
     <!-- Form: -->
     <form method="post" enctype="multipart/form-data">
 
-      {% csrf_token %}  <!-- Must be here. Adds security. (https://youtu.be/q4jPR-M0TAQ?t=512) -->
+        {% csrf_token %}  <!-- Must be here. Adds security. (https://youtu.be/q4jPR-M0TAQ?t=512) -->
 
-      <fieldset class="form-group">
+        <fieldset class="form-group">
 
-        <!-- Heading: -->
-        <legend class="border-bottom border-dark-subtle mb-3">Profile Info</legend>
+            <!-- Heading: -->
+            <legend class="border-bottom border-dark-subtle mb-3">Profile Info</legend>
 
-        <!-- Form Inputs (User & Profile (see forms.py)): -->
-        {{ u_form|crispy }}
-        {{ p_form|crispy }}
-        <!-- We're putting both the form fields under one HTML form, so it'll look like a single form only. -->
+            <!-- Form Inputs (User & Profile (see forms.py)): -->
+            {{ u_form|crispy }}
+            {{ p_form|crispy }}
+            <!-- We're putting both the form fields under one HTML form, so it'll look like a single form only. -->
 
-      </fieldset>
+        </fieldset>
 
-      <!-- Submit Button: -->
-      <div class="form-group">
-        <button class="btn btn-outline-primary" type="submit">Update</button>
-      </div>
+        <!-- Submit Button: -->
+        <div class="form-group">
+            <button class="btn btn-outline-primary" type="submit">Update</button>
+        </div>
 
     </form>
 
-  </div>
+</div>
 
 {% endblock content %}

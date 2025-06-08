@@ -2,25 +2,25 @@
 
 {% block content %}
 
-  <div class="mb-4 p-4 bg-dark-subtle rounded-4">
+<div class="mb-4 p-4 bg-dark-subtle rounded-4">
     <!-- Form: -->
     <form method="post">
 
-      {% csrf_token %}  <!-- Must be here. Adds security. (https://youtu.be/q4jPR-M0TAQ?t=512) -->
+        {% csrf_token %}  <!-- Must be here. Adds security. (https://youtu.be/q4jPR-M0TAQ?t=512) -->
 
-      <fieldset class="form-group">
-        <!-- Heading: -->
-        <legend class="border-bottom border-dark-subtle mb-3">Delete Post</legend>
-        <p>Are you sure you want to delete the post "{{ object.title|capfirst }}"?</p>
-      </fieldset>
+        <fieldset class="form-group">
+            <!-- Heading: -->
+            <legend class="border-bottom border-dark-subtle mb-3">Delete Post</legend>
+            <p>Are you sure you want to delete the post "{{ object.title|capfirst }}"?</p>
+        </fieldset>
 
-      <!-- Submit & Back Button: -->
-      <div class="form-group">
-        <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
-        <a class="btn btn-outline-secondary" href="{% url 'read' object.id %}">Cancel</a>
-      </div>
+        <!-- Submit & Back Button: -->
+        <div class="form-group">
+            <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+            <a class="btn btn-outline-secondary" href="{% url 'read' object.id %}">Cancel</a>
+        </div>
 
     </form>
-  </div>
+</div>
 
 {% endblock content %}

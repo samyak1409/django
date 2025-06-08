@@ -3,9 +3,11 @@ body {
     font-family: 'General Sans', sans-serif;
     line-height: 1.6;
 }
+
 h1 {
     font-weight: 700;
 }
+
 * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -18,12 +20,15 @@ and fractional classes like w-25, w-50 which refer to percentages). */
 .dp-navbar {
     width: 2.5rem;
 }
+
 .dp-lg {
     width: 8rem;
 }
+
 .dp-md {
     width: 4rem;
 }
+
 .dp-sm {
     width: 2rem;
 }
@@ -52,6 +57,7 @@ input:-webkit-autofill {
     animation: pulse 1s infinite;
     transform-origin: center;
 }
+
 @keyframes pulse {
     0%, 100% {
         transform: scale(.8);

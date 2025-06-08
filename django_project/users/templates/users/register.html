@@ -3,13 +3,15 @@
 <!-- Heading Text: -->
 {% block heading %}Register{% endblock %}
 <!-- Submit Button: -->
-{% block submit_btn %}<button class="btn btn-outline-success" type="submit">Register</button>{% endblock %}
+{% block submit_btn %}
+<button class="btn btn-outline-success" type="submit">Register</button>
+{% endblock %}
 
 <!-- Link to Login Page: -->
 {% block other_auth %}
-  <div class="border-top border-dark-subtle pt-2 mt-3">
+<div class="border-top border-dark-subtle pt-2 mt-3">
     <small class="text-muted">
-      Already have an account? <a href="{% url 'login' %}">Log In</a>
+        Already have an account? <a href="{% url 'login' %}">Log In</a>
     </small>
-  </div>
+</div>
 {% endblock %}

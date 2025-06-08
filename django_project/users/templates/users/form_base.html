@@ -4,30 +4,31 @@
 
 {% block content %}
 
-  <div class="mb-4 p-4 bg-dark-subtle rounded-4">
+<div class="mb-4 p-4 bg-dark-subtle rounded-4">
 
     <!-- Form: -->
     <form method="post">
 
-      {% csrf_token %}  <!-- Must be here. Adds security. (https://youtu.be/q4jPR-M0TAQ?t=512) -->
+        {% csrf_token %}  <!-- Must be here. Adds security. (https://youtu.be/q4jPR-M0TAQ?t=512) -->
 
-      <fieldset class="form-group">
-        <!-- Heading: -->
-        <legend class="border-bottom border-dark-subtle mb-3">{% block heading %}{% endblock %}</legend>
-        <!-- Form Inputs: -->
-        {{ form|crispy }}
-      </fieldset>
+        <fieldset class="form-group">
+            <!-- Heading: -->
+            <legend class="border-bottom border-dark-subtle mb-3">{% block heading %}{% endblock %}</legend>
+            <!-- Form Inputs: -->
+            {{ form|crispy }}
+        </fieldset>
 
-      <!-- Submit Button: -->
-      <div class="form-group">
-        {% block submit_btn %}{% endblock %}
-        <!-- Forgot Pass Link (Show only on login page.): -->
-        {% if request.resolver_match.url_name == 'login' %}  <!-- https://chat.openai.com/chat/cf7966f9-9d3c-4cac-be49-a145e462364a -->
-          <small class="text-muted ms-2">  <!-- `ms` instead of `ml`: https://stackoverflow.com/a/67681587 -->
-            <a href="{% url 'password_reset' %}">Forgot Password?</a>
-          </small>
-        {% endif %}
-      </div>
+        <!-- Submit Button: -->
+        <div class="form-group">
+            {% block submit_btn %}{% endblock %}
+            <!-- Forgot Pass Link (Show only on login page.): -->
+            {% if request.resolver_match.url_name == 'login' %}
+            <!-- https://chat.openai.com/chat/cf7966f9-9d3c-4cac-be49-a145e462364a -->
+            <small class="text-muted ms-2">  <!-- `ms` instead of `ml`: https://stackoverflow.com/a/67681587 -->
+                <a href="{% url 'password_reset' %}">Forgot Password?</a>
+            </small>
+            {% endif %}
+        </div>
 
     </form>
 
@@ -35,6 +36,6 @@
     {% block other_auth %}
     {% endblock %}
 
-  </div>
+</div>
 
 {% endblock content %}

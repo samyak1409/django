@@ -4,120 +4,123 @@
 
 {% block content %}
 
-  {% for post in posts %}
-    <div class="mb-4 p-4 bg-dark-subtle rounded-4">
-      <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
-      <div class="d-flex">
+{% for post in posts %}
+<div class="mb-4 p-4 bg-dark-subtle rounded-4">
+    <!-- Media object removed with Bootstrap 5, so `d-flex` replicate the same (put username & email to the right of the pic, not below) https://getbootstrap.com/docs/5.3/utilities/flex/#media-object -->
+    <div class="d-flex">
 
         <!-- Author DP for medium+ screens: -->
         <a class="d-none d-md-block me-3 mt-1" href="{% url 'user_posts' post.author %}">
-          <img class="dp-md rounded-circle border border-dark-subtle" src="{{ post.author.profile.pic.url }}" alt="Author DP">
+            <img class="dp-md rounded-circle border border-dark-subtle" src="{{ post.author.profile.pic.url }}"
+                 alt="Author DP">
         </a>
 
         <div class="w-100">  <!-- width=100% for border -->
 
-          <!-- Blog title: -->
-          {% if request.resolver_match.url_name == 'read' %}
+            <!-- Blog title: -->
+            {% if request.resolver_match.url_name == 'read' %}
             <h2 class="text-light">{{ post.title|capfirst }}</h2>
-          {% else %}
+            {% else %}
             <h2>
-              <a class="link-light link-opacity-75-hover text-decoration-none" href="{% url 'read' post.id %}">
-                {{ post.title|capfirst }}
-              </a>
+                <a class="link-light link-opacity-75-hover text-decoration-none" href="{% url 'read' post.id %}">
+                    {{ post.title|capfirst }}
+                </a>
             </h2>
-          {% endif %}
+            {% endif %}
 
-          <p class="d-flex align-items-baseline text-body-tertiary border-bottom border-dark-subtle pb-1 mb-3">
-            <!-- Author DP for small screens: -->
-            <a class="d-md-none me-2" href="{% url 'user_posts' post.author %}">
-              <img class="dp-sm rounded-circle border border-dark-subtle" src="{{ post.author.profile.pic.url }}" alt="Author DP">
-            </a>
-            <!-- Username & Time Posted: -->
-            <a class="text-decoration-none fs-5 me-2" href="{% url 'user_posts' post.author %}">
-              {{ post.author }}
-            </a>
-            <small data-bs-toggle="tooltip" data-bs-title="{{ post.time_posted|localtime }}">
-              {{ post.time_posted|timesince }} ago
-            </small>
-          </p>
+            <p class="d-flex align-items-baseline text-body-tertiary border-bottom border-dark-subtle pb-1 mb-3">
+                <!-- Author DP for small screens: -->
+                <a class="d-md-none me-2" href="{% url 'user_posts' post.author %}">
+                    <img class="dp-sm rounded-circle border border-dark-subtle" src="{{ post.author.profile.pic.url }}"
+                         alt="Author DP">
+                </a>
+                <!-- Username & Time Posted: -->
+                <a class="text-decoration-none fs-5 me-2" href="{% url 'user_posts' post.author %}">
+                    {{ post.author }}
+                </a>
+                <small data-bs-toggle="tooltip" data-bs-title="{{ post.time_posted|localtime }}">
+                    {{ post.time_posted|timesince }} ago
+                </small>
+            </p>
 
-          <!-- Blog content: -->
-          <!-- Only showing the full content on the read page: -->
-          {% if request.resolver_match.url_name == 'read' %}
+            <!-- Blog content: -->
+            <!-- Only showing the full content on the read page: -->
+            {% if request.resolver_match.url_name == 'read' %}
             <p class="post-content text-body mb-0">{{ post.content|capfirst }}</p>
-          {% else %}
+            {% else %}
             <!-- (https://chat.openai.com/chat/11c36c8a-de84-4630-96cb-d3c3f0f6234b) -->
             <p class="post-content text-body limit-content" id="post-{{ post.id }}">{{ post.content|capfirst }}</p>
             <!-- JS code to calc. when to show "Read the full article" link: -->
             <script>
-              var postContent = document.getElementById("post-{{ post.id }}");
-              if (postContent.scrollHeight > postContent.offsetHeight) {
-                // console.log("Content overflow detected!");  // debugging
-                var readFullLink = document.createElement("a");
-                readFullLink.classList.add("read-full", "text-decoration-none", "fst-italic");
-                readFullLink.href = "{% url 'read' post.id %}";
-                readFullLink.textContent = "Read the full article";
-                postContent.insertAdjacentElement('afterend', readFullLink);
-              }
-              else
-                postContent.classList.add("mb-0");
+                var postContent = document.getElementById("post-{{ post.id }}");
+                if (postContent.scrollHeight > postContent.offsetHeight) {
+                    // console.log("Content overflow detected!");  // debugging
+                    var readFullLink = document.createElement("a");
+                    readFullLink.classList.add("read-full", "text-decoration-none", "fst-italic");
+                    readFullLink.href = "{% url 'read' post.id %}";
+                    readFullLink.textContent = "Read the full article";
+                    postContent.insertAdjacentElement('afterend', readFullLink);
+                } else
+                    postContent.classList.add("mb-0");
             </script>
-          {% endif %}
+            {% endif %}
 
-          <!-- Edit & Delete Buttons: -->
-          <!-- (Show only if dedicated post page and current logged-in user is the post author.) -->
-          {% if request.resolver_match.url_name == 'read' and user == post.author %}
+            <!-- Edit & Delete Buttons: -->
+            <!-- (Show only if dedicated post page and current logged-in user is the post author.) -->
+            {% if request.resolver_match.url_name == 'read' and user == post.author %}
             <div class="border-top border-dark-subtle pt-3 mt-3">
-              <a class="btn btn-outline-primary" href="{% url 'update' post.id %}">
-                Edit
-              </a>
-              <a class="btn btn-outline-danger" href="{% url 'delete' post.id %}">
-                Delete
-              </a>
+                <a class="btn btn-outline-primary" href="{% url 'update' post.id %}">
+                    Edit
+                </a>
+                <a class="btn btn-outline-danger" href="{% url 'delete' post.id %}">
+                    Delete
+                </a>
             </div>
-          {% endif %}
+            {% endif %}
 
         </div>
 
-      </div>
     </div>
-  {% endfor %}
+</div>
+{% endfor %}
 
-  <!-- Now, page links: -->
-  <!-- I've written my own link logic, corey's logic was a lil different (https://youtu.be/acOktTcTVEQ?t=687 till 22:30). -->
-  <!-- Note that the vars we're using here are passed as a context automatically: -->
-  <div class="text-center mb-4">
-    {% if is_paginated %}  <!-- Why are we putting this? Removing this (and remove pagination) doesn't give any error and works right. -->
+<!-- Now, page links: -->
+<!-- I've written my own link logic, corey's logic was a lil different (https://youtu.be/acOktTcTVEQ?t=687 till 22:30). -->
+<!-- Note that the vars we're using here are passed as a context automatically: -->
+<div class="text-center mb-4">
+    {% if is_paginated %}
+    <!-- Why are we putting this? Removing this (and remove pagination) doesn't give any error and works right. -->
 
-      {% if page_obj.has_previous %}
-        <!-- Link to First Page: -->
-        {% if page_obj.number != 2 %}
-          <a class="btn btn-outline-primary" href="?page=1">1</a>
-          {% if page_obj.number != 3 %}
-            <span class="mx-1">...</span>
-          {% endif %}
-        {% endif %}
-        <!-- Link to Prev Page: -->
-        <a class="btn btn-outline-primary" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
-      {% endif %}
+    {% if page_obj.has_previous %}
+    <!-- Link to First Page: -->
+    {% if page_obj.number != 2 %}
+    <a class="btn btn-outline-primary" href="?page=1">1</a>
+    {% if page_obj.number != 3 %}
+    <span class="mx-1">...</span>
+    {% endif %}
+    {% endif %}
+    <!-- Link to Prev Page: -->
+    <a class="btn btn-outline-primary" href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+    {% endif %}
 
-      <!-- Disabled Link to Current Page: -->
-      <a class="btn btn-outline-primary active">{{ page_obj.number }}</a>
-      <!-- https://getbootstrap.com/docs/5.0/components/buttons/#disabled-state -->
+    <!-- Disabled Link to Current Page: -->
+    <a class="btn btn-outline-primary active">{{ page_obj.number }}</a>
+    <!-- https://getbootstrap.com/docs/5.0/components/buttons/#disabled-state -->
 
-      {% if page_obj.has_next %}
-        <!-- Link to Next Page: -->
-        <a class="btn btn-outline-primary" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
-        <!-- Link to Last Page: -->
-        {% if page_obj.number != page_obj.paginator.num_pages|add:'-1' %}  <!-- Direct `+`/`-` doesn't work inside code-block. -->
-          {% if page_obj.number != page_obj.paginator.num_pages|add:'-2' %}
-            <span class="mx-1">...</span>
-          {% endif %}
-          <a class="btn btn-outline-primary" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
-        {% endif %}
-      {% endif %}
+    {% if page_obj.has_next %}
+    <!-- Link to Next Page: -->
+    <a class="btn btn-outline-primary" href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+    <!-- Link to Last Page: -->
+    {% if page_obj.number != page_obj.paginator.num_pages|add:'-1' %}
+    <!-- Direct `+`/`-` doesn't work inside code-block. -->
+    {% if page_obj.number != page_obj.paginator.num_pages|add:'-2' %}
+    <span class="mx-1">...</span>
+    {% endif %}
+    <a class="btn btn-outline-primary" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+    {% endif %}
+    {% endif %}
 
     {% endif %}
-  </div>
+</div>
 
 {% endblock content %}
