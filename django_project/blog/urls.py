@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import about, PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, UserPostListView
+from .views import about, PostListView, PostDetailView, PostCreateView, PostUpdateView, PostDeleteView, UserPostListView, wake_up
 
 
 urlpatterns = [
@@ -27,4 +27,6 @@ urlpatterns = [
     path('posts/<str:username>/', UserPostListView.as_view(), name='user_posts'),
 
     path('about/', about, name='about'),
+
+    path('wake-up/', wake_up),
 ]

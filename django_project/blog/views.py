@@ -3,6 +3,7 @@ from .models import Post
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -143,3 +144,14 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 def about(request):
 
     return render(request=request, template_name='blog/about.html', context={'title': 'Project Highlights'})
+
+
+def wake_up(request):
+    """
+    When someone visits my portfolio (samyak1409.github.io),
+    a GET request is sent here to wake prod server from sleep (because free tier),
+    improving UX for real visitors.
+    """
+    # We can add logging here to track wake-up pings.
+    print('Wake-up ping received!')
+    return JsonResponse({'status': 'awake'})
