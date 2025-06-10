@@ -21,58 +21,58 @@
 
 ### 🏠 Homepage
 Browse recent blog posts and navigate easily via the header.
-![](Project%20Screenshots/01.%20Home1.png)
-![](Project%20Screenshots/02.%20Home2.png)
+[![](Project%20Screenshots/01.%20Home1.png)](https://samyak1409.github.io/django-blog)
+[![](Project%20Screenshots/02.%20Home2.png)](https://samyak1409.github.io/django-blog)
 
 ### 📝 Read Full Posts
 Clicking a post opens the detailed view.
-![](Project%20Screenshots/03.%20PostRead.png)
+[![](Project%20Screenshots/03.%20PostRead.png)](https://samyak1409.github.io/django-blog)
 
 ### 🧑‍💻 User Registration
 New users can sign up with a simple registration form.
-![](Project%20Screenshots/04.%20Register.png)
+[![](Project%20Screenshots/04.%20Register.png)](https://samyak1409.github.io/django-blog)
 
 ### 🔐 User Login
 Registered users can securely log in.
-![](Project%20Screenshots/05.%20Login.png)
+[![](Project%20Screenshots/05.%20Login.png)](https://samyak1409.github.io/django-blog)
 
 ### 🔄 Dynamic Navigation
 Navbar updates based on user login status.
-![](Project%20Screenshots/06.%20Home3.png)
+[![](Project%20Screenshots/06.%20Home3.png)](https://samyak1409.github.io/django-blog)
 
 ### 👤 Profile Page
 Users can update profile info, view their posts and log out.
-![](Project%20Screenshots/07.%20Profile.png)
+[![](Project%20Screenshots/07.%20Profile.png)](https://samyak1409.github.io/django-blog)
 
 ### ➕ Create New Posts
 Authenticated users can create new posts.
-![](Project%20Screenshots/08.%20PostCreate.png)
+[![](Project%20Screenshots/08.%20PostCreate.png)](https://samyak1409.github.io/django-blog)
 
 ### ✏️ Edit or Delete Posts
 Users can update or delete only their own posts.
-![](Project%20Screenshots/09.%20PostUpdateDelete.png)
+[![](Project%20Screenshots/09.%20PostUpdateDelete.png)](https://samyak1409.github.io/django-blog)
 
 ### 👀 View Posts by User
 Browse posts written by a specific user.
-![](Project%20Screenshots/10.%20UserPosts.png)
+[![](Project%20Screenshots/10.%20UserPosts.png)](https://samyak1409.github.io/django-blog)
 
 ### 🔁 Forgot Password?
 Users can request a password reset link via email.
-![](Project%20Screenshots/11.%20PassReset.png)
+[![](Project%20Screenshots/11.%20PassReset.png)](https://samyak1409.github.io/django-blog)
 
-### 🌐 RESTful Public API  
-A REST API is available at [/api1](https://samyak1409.github.io/django-blog/api1).
-![](Project%20Screenshots/12.%20RESTful%20API.png)
+### 🌐 RESTful Public API
+A REST API is available at [/api1](https://samyak1409.github.io/django-blog/api).
+[![](Project%20Screenshots/12.%20RESTful%20API.png)](https://samyak1409.github.io/django-blog/api)
 
 ### Responsive Design
 The website is fully responsive across all pages.
-![](Project%20Screenshots/13.%20Responsive.png)
+[![](Project%20Screenshots/13.%20Responsive.png)](https://samyak1409.github.io/django-blog)
 
 
 
 ## Additions I've Made (Major Ones)
 
-- Added a [REST](https://en.wikipedia.org/wiki/REST)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](https://samyak1409.github.io/django-blog/api1)) using the [Django REST framework](https://www.django-rest-framework.org), which can be used to fetch posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
+- Added a [REST](https://en.wikipedia.org/wiki/REST)ful public [API](https://en.wikipedia.org/wiki/Web_API) (@[/api1](https://samyak1409.github.io/django-blog/api)) using the [Django REST framework](https://www.django-rest-framework.org), which can be used to fetch posts from this website. (Tutorial (Basics): [Python Django 7 Hour Course/Django REST Framework](https://youtu.be/PtQiiknWUcI?t=21180))
 
 - Gave the website [my own look](#Screenshots) using [Bootstrap](https://getbootstrap.com/docs); didn't copy [Corey's template](Project%20Screenshots/00.%20Corey's.png).
 
@@ -99,6 +99,15 @@ The website is fully responsive across all pages.
    But, time is not showing in my time zone (but in UTC), I've tried everything.
 
 - Show email & username when saying link sent, show username & email when setting new pass.
+
+- AI Summaries of Posts
+
+    All current models: https://ai.google.dev/gemini-api/docs/models
+    If live summary (on the click of a button by user), then choose the lightest "flash" model for the fastest speed.
+    Current fastest is 'gemini-2.0-flash-lite' ("Optimized for: Cost efficiency and low latency").
+    If pre-processed summary, then choose the latest "pro" model for the best result.
+    Current best is 'gemini-2.5-pro' ("Optimized for: Enhanced thinking and reasoning, multimodal understanding, advanced coding, and more").
+    API Key: https://aistudio.google.com/app/apikey, https://console.cloud.google.com/apis/credentials
 -->
 
 
@@ -721,6 +730,8 @@ Official Docs: [render.com/docs/deploy-django](https://render.com/docs/deploy-dj
    Add all required variables (e.g., `SECRET_KEY`, `DEBUG`, `ALLOWED_HOSTS`, `DATABASE_URL`, etc.).
 
 ### Deploying on [Koyeb](https://www.koyeb.com/pricing#compute)
+
+> Wake-up time is way less: ~10–15 seconds.
 
 Official Docs: [koyeb.com/docs/deploy/django](https://www.koyeb.com/docs/deploy/django)
 
