@@ -9,7 +9,7 @@
 
 ✅ Designed a responsive, minimalistic [OLED-black](https://en.wikipedia.org/wiki/OLED#Advantages:~:text=High%20dynamic%20range%20support) UI using HTML, CSS, and Bootstrap, with additional features like custom [pagination](https://en.wikipedia.org/wiki/Pagination#In_web_browsers) logic and dynamic content truncation for enhanced UX.
 
-✅ Added a public [REST](https://en.wikipedia.org/wiki/REST)ful API with read-only access to blog posts, using Django REST framework.
+✅ Added a public [REST](https://en.wikipedia.org/wiki/REST)ful [API](https://samyak1409.github.io/django-blog/api) with read-only access to blog posts, using Django REST framework.
 
 ✅ Followed [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) principle to cut redundancy and boost maintainability by [inheriting](https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)) from [class-based views](https://docs.djangoproject.com/en/stable/topics/class-based-views) and [templates](https://docs.djangoproject.com/en/stable/topics/templates).
 
@@ -731,7 +731,7 @@ Official Docs: [render.com/docs/deploy-django](https://render.com/docs/deploy-dj
 
 ### Deploying on [Koyeb](https://www.koyeb.com/pricing#compute)
 
-> Wake-up time is way less: ~10–15 seconds.
+> Wake-up time is way less: ~10 seconds. (Sleep time is 2 hours.)
 
 Official Docs: [koyeb.com/docs/deploy/django](https://www.koyeb.com/docs/deploy/django)
 
@@ -740,5 +740,13 @@ Setup is straight-forward! Just follow the docs and [above](#deploying-on-render
 Note: "Build command" can be left empty here, Koyeb does `... install -r requirements.txt && ... collectstatic ...` itself.
 
 > Dashboard: [app.koyeb.com](https://app.koyeb.com)
+
+### Hacks for Wake-Up Time
+
+To solve the wake-up time issue (i.e. ~10 seconds), I've added two hacks:
+
+1. Added an endpoint [/django-blog](https://samyak1409.github.io/django-blog) on my portfolio [samyak1409.github.io](https://samyak1409.github.io), which [redirects](https://en.wikipedia.org/wiki/URL_redirection) to the actual deployment [django-blog.koyeb.app](https://django-blog.koyeb.app), and displays a customized "please wait" message to let the viewer know that this waiting is expected, instead of a blank loading screen if a user goes directly to [django-blog.koyeb.app](https://django-blog.koyeb.app), which could've led recruiters to leave the site. Linked [samyak1409.github.io/django-blog](https://samyak1409.github.io/django-blog) everywhere instead of [django-blog.koyeb.app](https://django-blog.koyeb.app).
+
+2. Added a [webhook](https://en.wikipedia.org/wiki/Webhook) on [samyak1409.github.io](https://samyak1409.github.io) using JS, which sends a wake-up call to [django-blog.koyeb.app/wake-up](https://django-blog.koyeb.app/wake-up), so that whenever someone visits my portfolio, the project wakes up automatically in the background, anticipating that they might visit the project next.
 
 </details>
