@@ -80,7 +80,7 @@ The website is fully responsive across all pages.
 
 - Set it to delete the old profile pic whenever a new one is uploaded, and save profile pics with the name format: `user_id.ext`.
 
-- Limited the post-content (on post-list pages) to show only 5 lines, and added a "Read the full article" link below if the post-content exceeds the limit (using [Vanilla JavaScript](https://en.wikipedia.org/wiki/JavaScript#cite_ref-44)).
+- Limited the post-content (on post-list pages) to show only 5 lines, and added a "Read the full article" link below if the post-content exceeds the limit (using [Vanilla JavaScript](https://en.wikipedia.org/wiki/JavaScript#Libraries_and_frameworks:~:text=However%2C%20the%20term%20%22Vanilla%20JS%22%20was%20coined%20for%20websites%20not%20using%20any%20libraries%20or%20frameworks%20at%20all%2C%20instead%20relying%20entirely%20on%20standard%20JavaScript%20functionality.)).
 
 - If the uploaded profile pic is not square, it is cropped to a square (using [Pillow (PIL Fork)](https://pillow.readthedocs.io)).
 
