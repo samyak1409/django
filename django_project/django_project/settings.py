@@ -167,7 +167,7 @@ LOGIN_URL = 'login'
 # URL from which the media files will be accessed in the browser:
 MEDIA_URL = '/media/'
 # Full path to the dir where we want Django to save the uploaded files:
-MEDIA_ROOT = os.path.join(BASE_DIR, 'Media')  # joins the path flawlessly independent of the underlying OS
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # joins the path flawlessly independent of the underlying OS
 # `BASE_DIR`: Full path to our project's base dir.
 # (For performance reasons, these files are saved in the file system and not in the DB.)
 
