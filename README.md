@@ -531,6 +531,14 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 #### 5. Added "Forgot Password" link in `form_base.html` on condition if on login page.
 
+
+### 13-17. [Deploying](https://www.youtube.com/playlist?list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p)
+
+> Didn't watch.
+
+Overview using AI: [Gemini](https://g.co/gemini/share/91844ade5583)
+
+
 </details>
 
 
@@ -539,6 +547,10 @@ There are many class-based views (see `django.views.generic.__all__`), here we'l
 
 <details>
 <summary>Click here to expand</summary>
+
+<br>
+
+> **These notes are not from the videos, but from my own research using AI.**
 
 ### Static Files Setup
 
